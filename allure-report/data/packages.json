@@ -1,0 +1,22 @@
+{
+  "uid" : "83edc06c07f9ae9e47eb6dd1b683e4e2",
+  "name" : "packages",
+  "children" : [ {
+    "name" : "tests.newHome.test_search_new_home",
+    "children" : [ {
+      "name" : "Login with valid data test",
+      "uid" : "d9a13e7675e4d7a3",
+      "parentUid" : "d37483773b632c6d0ef73ecfec248115",
+      "status" : "passed",
+      "time" : {
+        "start" : 1629251384717,
+        "stop" : 1629251390953,
+        "duration" : 6236
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "tests.newHome.test_search_new_home"
+  } ]
+}

@@ -1,0 +1,5 @@
+venv/
+assets/
+.idea/
+.pytest_cache/
+.log

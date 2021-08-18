@@ -1,0 +1,43 @@
+{
+  "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+  "name" : "timeline",
+  "children" : [ {
+    "name" : "jennifers-Mac-mini.local",
+    "children" : [ {
+      "name" : "64103-MainThread",
+      "children" : [ {
+        "name" : "Login with valid data test",
+        "uid" : "cdbe048096d7a5b2",
+        "parentUid" : "0a423f5d919ac40f0ee8539ab088f53f",
+        "status" : "failed",
+        "time" : {
+          "start" : 1629248711934,
+          "stop" : 1629248722016,
+          "duration" : 10082
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "0a423f5d919ac40f0ee8539ab088f53f"
+    }, {
+      "name" : "64911-MainThread",
+      "children" : [ {
+        "name" : "Login with valid data test",
+        "uid" : "d9a13e7675e4d7a3",
+        "parentUid" : "9a183d04314fca46babd5e6b66571755",
+        "status" : "passed",
+        "time" : {
+          "start" : 1629251384717,
+          "stop" : 1629251390953,
+          "duration" : 6236
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "9a183d04314fca46babd5e6b66571755"
+    } ],
+    "uid" : "8e9eea1a55e5020165a67ac0579c8459"
+  } ]
+}

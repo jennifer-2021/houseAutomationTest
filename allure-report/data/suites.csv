@@ -1,0 +1,2 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Tue Aug 17 21:49:44 EDT 2021","Tue Aug 17 21:49:50 EDT 2021","6236","tests.newHome","test_search_new_home","TestSearch","","","Login with valid data test","This is test of login with valid data"
