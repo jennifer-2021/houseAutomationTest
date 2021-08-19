@@ -19,7 +19,7 @@ def website_setup():
 
 @pytest.fixture()
 def setup(request, config):
-    driver = DriverFactory.get_driver(config["headless_mode"])
+    driver = DriverFactory.get_driver(config["browser"], config["headless_mode"])
     driver.implicitly_wait(config["timeout"])
     request.cls.driver = driver
     driver.maximize_window()
