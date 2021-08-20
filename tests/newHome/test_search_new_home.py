@@ -1,20 +1,19 @@
 import time
 from pages.newHome.search_container import SearchContainer
 from utils.selenium_utils import SeleniumUtils
+from utils.read_json import JsonReader
 import allure
 import pytest
 
 
 @pytest.mark.usefixtures("setup")
 class TestSearch:
-    testdata = ["Toronto", "Vancouver", "Calgary", "Edmonton", "Montreal", "Montreal", "Markham", "Richmond Hill",
-                "Vaughan", "Mississauga", "Newmarket", "Oakville"]
+    testdata = JsonReader.get_search_suggested_cities_data()
 
     @allure.title("Newhome - search box suggested cities")
-    @allure.description("This test is to verify all suggested cities return correct results")
+    @allure.description("verify: all returned house address must contain the value of var 'searchCity'")
     @pytest.mark.parametrize("searchCity", testdata)
     def test_search_by_suggested_cities(self, config, searchCity):
-        time.sleep(1)
         all_result_in_city = True
         search_container = SearchContainer(self.driver)
         search_container.open_home_page(config)
@@ -27,8 +26,8 @@ class TestSearch:
             if name == searchCity:
                 city.click()
                 break
-        # in order to handle: page load twice, static wait used here
-        time.sleep(6)
+
+        search_container.wait_mapbox_loaded()
         result_list = search_container.get_search_result_address_list()
         print(str(len(result_list)) + " ... " + searchCity)
         print("..............*************.........................")

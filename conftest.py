@@ -1,4 +1,6 @@
 import json
+import time
+
 import pytest
 from utils.driver_factory import DriverFactory
 
@@ -19,6 +21,7 @@ def website_setup():
 
 @pytest.fixture()
 def setup(request, config):
+    time.sleep(1)
     driver = DriverFactory.get_driver(config["browser"], config["headless_mode"])
     driver.implicitly_wait(config["timeout"])
     request.cls.driver = driver

@@ -19,5 +19,7 @@ class SetSearchHouseLocators:
     filter_price_range = (By.CSS_SELECTOR, ".filter-dropdown-price-range")
     # get dropdown list values of 'building type' or 入住时间
     filter_menu_items = (By.CSS_SELECTOR, ".menu.show .item")
+    # map_box 上的点
+    map_box_points = (By.CSS_SELECTOR, ".marker-container.mapboxgl-marker")
     filter_box_city = (By.CSS_SELECTOR, ".filter-detail-box>span:nth-child(1)")
 
