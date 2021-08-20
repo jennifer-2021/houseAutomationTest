@@ -16,8 +16,13 @@ class SearchContainer(BasePage):
     def get_suggest_cities_elements(self):
         return self.driver.find_elements(*SetSearchHouseLocators.search_box_suggest_cities)
 
-    def get_search_result_list(self):
-        return self.driver.find_elements(*SetSearchHouseLocators.search_result_list)
+    # all houses address on the list page
+    def get_search_result_address_list(self):
+        return self.driver.find_elements(*SetSearchHouseLocators.search_result_address_list)
+
+    # all houses building type on the list page
+    def get_search_result_building_type_list(self):
+        return self.driver.find_elements(*SetSearchHouseLocators.search_result_building_type_list)
 
     def set_search_box_input(self, searchKey):
         self.wait_element(*SetSearchHouseLocators.search_box).send_keys(searchKey)
@@ -30,7 +35,15 @@ class SearchContainer(BasePage):
         utils = SeleniumUtils(self.driver)
         return utils.get_text(*SetSearchHouseLocators.filter_box_city)
 
+    # keep search box - drop down list open
     def keep_search_suggest_menu_open(self):
         elem = self.wait_element(*SetSearchHouseLocators.search_box_suggest_menu)
         self.driver.execute_script("arguments[0].setAttribute('style', " + "'display: block')", elem)
         return self
+
+    # click 'building type' button
+    def click_building_type_button(self):
+        self.wait_element(*SetSearchHouseLocators.filter_building_type_button).click()
+
+    def get_building_type_element_list(self):
+        return self.driver.find_elements(*SetSearchHouseLocators.filter_menu_items)

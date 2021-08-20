@@ -13,7 +13,8 @@ class TestSearch:
     @allure.title("Newhome - search box suggested cities")
     @allure.description("This test is to verify all suggested cities return correct results")
     @pytest.mark.parametrize("searchCity", testdata)
-    def test_search_suggested_cities(self, config, searchCity):
+    def test_search_by_suggested_cities(self, config, searchCity):
+        time.sleep(1)
         all_result_in_city = True
         search_container = SearchContainer(self.driver)
         search_container.open_home_page(config)
@@ -22,17 +23,17 @@ class TestSearch:
         cities = search_container.get_suggest_cities_elements()
 
         for city in cities:
-            name = SeleniumUtils.get_text_by_element(self, city)
+            name = SeleniumUtils.get_text_by_element(city)
             if name == searchCity:
                 city.click()
                 break
-        # because page will load twice, so static wait used here
-        time.sleep(5)
-        result_list = search_container.get_search_result_list()
-        print(len(result_list))
+        # in order to handle: page load twice, static wait used here
+        time.sleep(6)
+        result_list = search_container.get_search_result_address_list()
+        print(str(len(result_list)) + " ... " + searchCity)
         print("..............*************.........................")
         for result in result_list:
-            addr = SeleniumUtils.get_text_by_element(self, result)
+            addr = SeleniumUtils.get_text_by_element(result)
             if searchCity not in addr:
                 print(addr + "search for city: " + searchCity)
                 print(".............Error address..........................")
@@ -40,4 +41,3 @@ class TestSearch:
                 break
 
         assert all_result_in_city
-
