@@ -47,3 +47,6 @@ class SearchContainer(BasePage):
 
     def get_building_type_element_list(self):
         return self.driver.find_elements(*SetSearchHouseLocators.filter_menu_items)
+
+    def wait_mapbox_loaded(self):
+        self.wait_element(*SetSearchHouseLocators.map_box_points)
