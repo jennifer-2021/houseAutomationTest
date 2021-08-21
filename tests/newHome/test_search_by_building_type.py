@@ -15,12 +15,16 @@ class TestSearchByBuildingType:
     @allure.description("verify: all returned house building type must contain the value of var 'buildingType'")
     @pytest.mark.parametrize("buildingType", testdata)
     def test_search_by_building_type(self, config, buildingType):
-        all_results_in_buildingType = True
         search_container = SearchContainer(self.driver)
         search_container.open_home_page(config)
         search_container.wait_mapbox_loaded()
         search_container.click_building_type_button()
         buildingType_elements = search_container.get_building_type_element_list()
+        dropdown_list = SeleniumUtils.get_dropdown_list(buildingType_elements)
+        if buildingType not in dropdown_list:
+            print("................test data Not in dropdown list: " + buildingType)
+            assert False
+
         for element in buildingType_elements:
             name = SeleniumUtils.get_text_by_element(element)
             if name == buildingType:
@@ -40,7 +44,6 @@ class TestSearchByBuildingType:
                 error_city = SeleniumUtils.get_text_by_element(error_city_elem)
                 print(building_info + "search for city: " + error_city)
 
-                all_results_in_buildingType = False
-                break
+                assert False
 
-        assert all_results_in_buildingType
+        assert True

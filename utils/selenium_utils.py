@@ -16,6 +16,7 @@ class SeleniumUtils:
     def get_parent_element(self, anchor_elem):
         return self.driver.execute_script("return arguments[0].parentNode;", anchor_elem)
 
+    # return drop down list texts as a list
     @staticmethod
     def get_dropdown_list(elementList):
         text_list = []
