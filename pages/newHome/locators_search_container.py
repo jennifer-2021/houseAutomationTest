@@ -11,6 +11,8 @@ class SetSearchHouseLocators:
     search_result_address_list = (By.CSS_SELECTOR, ".list-wrap .address")
     # all listed house building type on the page
     search_result_building_type_list = (By.CSS_SELECTOR, ".list-wrap .building-type")
+    # all listed house 入住时间 -- 2022 ...
+    search_result_checkin_time_list = (By.CSS_SELECTOR, ".list-wrap .construction-status")
     # building type
     filter_building_type_button = (By.XPATH, "//span[text()='房型']")
     # 入住时间

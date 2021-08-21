@@ -15,3 +15,11 @@ class SeleniumUtils:
     @staticmethod
     def get_parent_element(self, anchor_elem):
         return self.driver.execute_script("return arguments[0].parentNode;", anchor_elem)
+
+    @staticmethod
+    def get_dropdown_list(elementList):
+        text_list = []
+        for element in elementList:
+            text_list.append(SeleniumUtils.get_text_by_element(element))
+
+        return text_list

@@ -1,5 +1,7 @@
 {
   "suggestedCity": ["Toronto", "Vancouver", "Calgary", "Edmonton", "Montreal", "Markham", "Richmond Hill",
                 "Vaughan", "Mississauga", "Newmarket", "Oakville"],
-  "buildingType": ["Condo", "Townhouse", "House"]
+  "buildingType": ["Condo", "Townhouse", "House"],
+  "checkinTime": ["2021", "2022", "2023+"],
+  "priceRange": []
 }

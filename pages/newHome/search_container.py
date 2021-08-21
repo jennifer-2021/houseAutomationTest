@@ -24,6 +24,10 @@ class SearchContainer(BasePage):
     def get_search_result_building_type_list(self):
         return self.driver.find_elements(*SetSearchHouseLocators.search_result_building_type_list)
 
+    # all houses checkin time on the list page
+    def get_search_result_checkin_time_list(self):
+        return self.driver.find_elements(*SetSearchHouseLocators.search_result_checkin_time_list)
+
     def set_search_box_input(self, searchKey):
         self.wait_element(*SetSearchHouseLocators.search_box).send_keys(searchKey)
         return self
@@ -50,3 +54,6 @@ class SearchContainer(BasePage):
 
     def wait_mapbox_loaded(self):
         self.wait_element(*SetSearchHouseLocators.map_box_points)
+
+    def click_checkin_time_button(self):
+        self.wait_element(*SetSearchHouseLocators.filter_check_in_time).click()
