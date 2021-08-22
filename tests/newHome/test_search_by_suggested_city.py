@@ -34,8 +34,8 @@ class TestSearch:
         search_container.wait_mapbox_loaded()
         result_list = search_container.get_search_result_address_list()
         list_length = len(result_list)
-        # if list_length == 198:
-        # time.sleep(2)
+        if name == 'Vaughan':
+            time.sleep(5)
         # result_list = search_container.get_search_result_address_list()
         print(str(list_length) + " ... " + searchCity)
         print("..............*************.........................")
