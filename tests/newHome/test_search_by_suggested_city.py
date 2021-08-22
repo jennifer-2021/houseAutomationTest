@@ -9,7 +9,7 @@ import pytest
 
 @pytest.mark.usefixtures("setup")
 class TestSearch:
-    testdata = JsonReader.get_search_suggested_cities_data()
+    testdata = ['Vaughan']# JsonReader.get_search_suggested_cities_data()
 
     @allure.title("Newhome - search box suggested cities")
     @allure.description("verify: all returned house address must contain the value of var 'searchCity'")
