@@ -32,10 +32,12 @@ class TestSearch:
                 break
 
         search_container.wait_mapbox_loaded()
-        result_list = search_container.get_search_result_address_list()
-        list_length = len(result_list)
+        time.sleep(1)
         if name == 'Vaughan':
             time.sleep(5)
+        result_list = search_container.get_search_result_address_list()
+        list_length = len(result_list)
+
         # result_list = search_container.get_search_result_address_list()
         print(str(list_length) + " ... " + searchCity)
         print("..............*************.........................")
