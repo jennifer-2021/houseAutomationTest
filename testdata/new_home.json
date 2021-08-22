@@ -1,5 +1,5 @@
 {
-  "suggestedCity": ["Toronto", "Vancouver", "Calgary", "Edmonton", "Montreal", "Markham", "Richmond Hill", "Vaughan", "Mississauga", "Newmarket", "Oakville"],
+  "suggestedCity": [ "Vaughan", "Toronto", "Vancouver", "Calgary", "Edmonton", "Montreal", "Markham", "Richmond Hill", "Vaughan", "Mississauga", "Newmarket", "Oakville"],
   "buildingType": ["Condo", "Townhouse", "House"],
   "checkinTime": ["2021", "2022", "2023+"],
   "minPrice": ["$100,000", "$200,000","$300,000","$400,000","$500,000","$600,000","$800,000","$1,000,000","$1,500,000"]
