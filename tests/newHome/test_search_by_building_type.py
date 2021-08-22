@@ -9,7 +9,7 @@ import pytest
 
 @pytest.mark.usefixtures("setup")
 class TestSearchByBuildingType:
-    testdata = JsonReader.get_search_building_type_data()
+    testdata = JsonReader.get_filter_building_type_data()
 
     @allure.title("Newhome - search - filter - building type")
     @allure.description("verify: all returned house building type must contain the value of var 'buildingType'")
@@ -19,8 +19,8 @@ class TestSearchByBuildingType:
         search_container.open_home_page(config)
         search_container.wait_mapbox_loaded()
         search_container.click_building_type_button()
-        buildingType_elements = search_container.get_building_type_element_list()
-        dropdown_list = SeleniumUtils.get_dropdown_list(buildingType_elements)
+        buildingType_elements = search_container.get_filter_dropdown_element_list()
+        dropdown_list = SeleniumUtils.get_dropdown_text_list(buildingType_elements)
         if buildingType not in dropdown_list:
             print("................test data Not in dropdown list: " + buildingType)
             assert False

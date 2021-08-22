@@ -18,13 +18,13 @@ class TestSearch:
         search_container.open_home_page(config)
         search_container.click_in_search_box()
         search_container.keep_search_suggest_menu_open()
-        cities = search_container.get_suggest_cities_elements()
-        dropdown_list = SeleniumUtils.get_dropdown_list(cities)
+        city_elements = search_container.get_suggest_cities_elements()
+        dropdown_list = SeleniumUtils.get_dropdown_text_list(city_elements)
         if searchCity not in dropdown_list:
             print("................test data Not in dropdown list: " + searchCity)
             assert False
 
-        for city in cities:
+        for city in city_elements:
             name = SeleniumUtils.get_text_by_element(city)
             if name == searchCity:
                 city.click()

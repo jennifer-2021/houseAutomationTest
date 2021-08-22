@@ -9,7 +9,7 @@ import re
 
 @pytest.mark.usefixtures("setup")
 class TestSearch:
-    testdata = JsonReader.get_search_checkin_time_data()
+    testdata = JsonReader.get_filter_checkin_time_data()
 
     @allure.title("Newhome - search - filter - checkin time")
     @allure.description("verify: all returned house info must meet the condition of 'checkinTime'")
@@ -19,8 +19,8 @@ class TestSearch:
         search_container.open_home_page(config)
         search_container.wait_mapbox_loaded()
         search_container.click_checkin_time_button()
-        checkinTime_elements = search_container.get_building_type_element_list()
-        dropdown_list = SeleniumUtils.get_dropdown_list(checkinTime_elements)
+        checkinTime_elements = search_container.get_filter_dropdown_element_list()
+        dropdown_list = SeleniumUtils.get_dropdown_text_list(checkinTime_elements)
         if checkinTime not in dropdown_list:
             print("................test data Not in dropdown list: " + checkinTime)
             assert False

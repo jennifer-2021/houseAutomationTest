@@ -13,13 +13,19 @@ class JsonReader:
         return newhome_data["suggestedCity"]
 
     @staticmethod
-    def get_search_building_type_data():
+    def get_filter_building_type_data():
         config_file = open(CONFIG_PATH)
         newhome_data = json.load(config_file)
         return newhome_data["buildingType"]
 
     @staticmethod
-    def get_search_checkin_time_data():
+    def get_filter_checkin_time_data():
         config_file = open(CONFIG_PATH)
         newhome_data = json.load(config_file)
         return newhome_data["checkinTime"]
+
+    @staticmethod
+    def get_filter_min_price_data():
+        config_file = open(CONFIG_PATH)
+        newhome_data = json.load(config_file)
+        return newhome_data["minPrice"]
