@@ -33,7 +33,7 @@ class TestSearch:
 
         search_container.wait_mapbox_loaded()
         time.sleep(1)
-        
+
         result_list = search_container.get_search_result_address_list()
         list_length = len(result_list)
 
