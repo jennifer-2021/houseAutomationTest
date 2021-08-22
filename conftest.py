@@ -21,7 +21,7 @@ def website_setup():
 
 @pytest.fixture()
 def setup(request, config):
-    time.sleep(1)
+    time.sleep(2)
     driver = DriverFactory.get_driver(config["browser"], config["headless_mode"])
     driver.implicitly_wait(config["timeout"])
     request.cls.driver = driver
