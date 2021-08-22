@@ -8,7 +8,7 @@ import pytest
 
 
 @pytest.mark.usefixtures("setup")
-class TestSearchByBuildingType:
+class TestSearchByPrice:
     testdata = JsonReader.get_filter_min_price_data()
 
     @allure.title("Newhome - search - filter - price range")
