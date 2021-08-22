@@ -2,6 +2,8 @@ import pytest
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+EXPLICIT_WAIT = 15
+
 
 class BasePage:
     def __init__(self, driver):
@@ -12,6 +14,6 @@ class BasePage:
         self.driver.get(home_page)
 
     def wait_element(self, By, css):
-        wait = WebDriverWait(self.driver, 10)
+        wait = WebDriverWait(self.driver, EXPLICIT_WAIT)
         element = wait.until(EC.element_to_be_clickable((By, css)))
         return element
