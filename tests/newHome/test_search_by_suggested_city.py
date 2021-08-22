@@ -1,3 +1,4 @@
+import time
 
 from pages.newHome.search_container import SearchContainer
 from utils.selenium_utils import SeleniumUtils
@@ -32,7 +33,11 @@ class TestSearch:
 
         search_container.wait_mapbox_loaded()
         result_list = search_container.get_search_result_address_list()
-        print(str(len(result_list)) + " ... " + searchCity)
+        list_length = len(result_list)
+        if list_length == 198:
+            time.sleep(2)
+            result_list = search_container.get_search_result_address_list()
+        print(str(list_length) + " ... " + searchCity)
         print("..............*************.........................")
         for result in result_list:
             addr = SeleniumUtils.get_text_by_element(result)
