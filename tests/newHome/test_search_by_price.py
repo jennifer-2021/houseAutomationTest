@@ -4,6 +4,7 @@ from utils.read_json import JsonReader
 from pages.newHome.search_container import SearchContainer
 import allure
 import pytest
+from pages.newHome.search_check_results import CheckSearchResults
 
 
 @pytest.mark.usefixtures("setup")
@@ -16,65 +17,42 @@ class TestSearchByPrice:
     def test_search_by_building_type(self, config, minPrice):
         if minPrice == "不限":
             return
+        # 1 打开 新房首页
         search_container = SearchContainer(self.driver)
         search_container.open_home_page(config)
-        # wait for mapbox fully loaded
+        # 2 等待 mapbox fully loaded
         search_container.wait_mapbox_loaded()
-        # click button to open filter - price / drop down list
+        # 3 点击 价格 button， 显示所有价格后，把它们的页面元素放到 min_price_element_list 里面
         search_container.click_price_button()
         min_price_element_list = search_container.get_min_price_list()
-        # get all text from the drop down list
+        # 4 把所有的价格提取出来，放到 dropdown_list
         dropdown_list = SeleniumUtils.get_dropdown_text_list(min_price_element_list)
+        # 5 如果 测试数据 minPrice 没有在 下拉框里，测试失败，打印错误价格，退出
         if minPrice not in dropdown_list:
             print("................test data Not in dropdown list: " + minPrice)
             assert False
 
-        # click and set min-price
-        for element in min_price_element_list:
-            name = SeleniumUtils.get_text_by_element(element)
-            if name == minPrice:
-                element.click()
-                break
+        # 6 点击测试价格，作为起初价格 - min price
+        CheckSearchResults.click_filter(min_price_element_list, minPrice)
 
-        # find and set the 1st max-price
+        # 7 最高价格显示后，把把它们的页面元素放到 max_price_element_list 里面
         max_price_element_list = search_container.get_max_price_list()
-        # get max-price text and Integer format
+        # 8 提出最高价格 的第一个值 - integer 格式
         max_price_text = SeleniumUtils.get_text_by_element(max_price_element_list[1])
         max_price_int = SeleniumUtils.get_start_price(max_price_text)
-        # get minPrice in Integer format: i.e $1,000,000 to 1000000
+        # 9 把价格最低价转换成 Integer: i.e $1,000,000 to 1000000
         minPrice = SeleniumUtils.get_start_price(minPrice)
 
-        # click 2nd to-price on drop down list
+        # 10 点击第二个值 （第一个为：不限）
         max_price_element_list[1].click()
 
-        # wait for search result list page to fully loaded
         time.sleep(3)
-        # on search result page - get all house price elements as a list
+        # 11 在搜索结果列表页，把所有房源的价格 的元素 放到 result_element_list
         result_element_list = search_container.get_search_result_price_list()
-        # check each actual price - compare with test data - minPrice
-        for element in result_element_list:
-            text = SeleniumUtils.get_text_by_element(element)
-            actual_start_price = SeleniumUtils.get_start_price(text)
-            if '-' in text:
-                actual_to_price = SeleniumUtils.get_to_price(text)
-                if actual_start_price > max_price_int:
-                    self.print_err_address(element, text)
-                    assert False
-                if actual_to_price < minPrice:
-                    self.print_err_address(element, text)
-                    assert False
-            else:
-                if actual_start_price < minPrice:
-                    self.print_err_address(element, text)
-                    assert False
-                if actual_start_price > max_price_int:
-                    self.print_err_address(element, text)
-                    assert False
+        # 12 验证 每个房源显示的价格范围 是否符合测试数据， 如果验证失败，跳出，并打印出房源地址
+        check_result = CheckSearchResults(self.driver)
+        price_in_range = check_result.check_price(result_element_list, minPrice, max_price_int)
+        if not price_in_range:
+            assert False
 
         assert True
-
-    def print_err_address(self, anchor_element, text):
-        print("......error：...actual price: " + text)
-        error_city_elem = SeleniumUtils.get_previous_sibling_element(self, anchor_element)
-        error_city = SeleniumUtils.get_text_by_element(error_city_elem)
-        print("error city: " + error_city)
