@@ -1,5 +1,5 @@
 import time
-
+from pages.newHome.search_check_results import CheckSearchResults
 from utils.selenium_utils import SeleniumUtils
 from utils.read_json import JsonReader
 from pages.newHome.search_container import SearchContainer
@@ -27,25 +27,15 @@ class TestSearchByBuildingType:
             print("................test data Not in dropdown list: " + buildingType)
             assert False
 
-        for element in buildingType_elements:
-            name = SeleniumUtils.get_text_by_element(element)
-            if name == buildingType:
-                element.click()
-                break
+        CheckSearchResults.click_filter(buildingType_elements, buildingType)
 
         time.sleep(3)
         result_list = search_container.get_search_result_building_type_list()
         print(str(len(result_list)) + " ... " + buildingType)
         print("..............*************.........................")
-        for result in result_list:
-            building_info = SeleniumUtils.get_text_by_element(result)
-            if buildingType not in building_info:
-                print(".............Printing Error address..........................")
-                parent_elem = SeleniumUtils.get_parent_element(self, result)
-                error_city_elem = SeleniumUtils.get_next_sibling_element(self, parent_elem)
-                error_city = SeleniumUtils.get_text_by_element(error_city_elem)
-                print(building_info + "search for city: " + error_city)
-
-                assert False
+        check_reuslt = CheckSearchResults(self.driver)
+        building_type_in_list = check_reuslt.check_building_type(result_list, buildingType)
+        if not building_type_in_list:
+            assert False
 
         assert True

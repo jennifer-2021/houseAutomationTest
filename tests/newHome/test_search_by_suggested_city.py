@@ -1,5 +1,5 @@
 import time
-
+from pages.newHome.search_check_results import CheckSearchResults
 from pages.newHome.search_container import SearchContainer
 from utils.selenium_utils import SeleniumUtils
 from utils.read_json import JsonReader
@@ -41,11 +41,9 @@ class TestSearch:
 
         print(str(list_length) + " ... " + searchCity)
         print("..............*************.........................")
-        for result in result_list:
-            addr = SeleniumUtils.get_text_by_element(result)
-            if searchCity not in addr:
-                print(addr + "search for city: " + searchCity)
-                print(".............Error address..........................")
-                assert False
+
+        city_in_result = CheckSearchResults.check_city(searchCity)
+        if not city_in_result:
+            assert False
 
         assert True
