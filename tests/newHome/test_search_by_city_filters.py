@@ -1,5 +1,6 @@
 import time
 from utils.selenium_utils import SeleniumUtils
+from pages.newHome.search_check_results import CheckSearchResults
 from utils.read_json import JsonReader
 from pages.newHome.search_container import SearchContainer
 import allure
@@ -29,11 +30,7 @@ class TestSearchByCityAndFilters:
             print("................test data Not in dropdown list: " + city)
             assert False
         # 5 点击测试的城市
-        for element in city_elements:
-            name = SeleniumUtils.get_text_by_element(element)
-            if name == city:
-                element.click()
-                break
+        CheckSearchResults.click_filter(city_elements, city)
 
         #  6 如果 "North York" & "Scarborough" - 用 Toronto 来验证地址
         if city == "North York" or city == "Scarborough":
@@ -49,6 +46,7 @@ class TestSearchByCityAndFilters:
             print("............building type in test: " + building_type + ".......in: " + city)
             if building_type == "Apartment":
                 break
+            # 如果是第一个选项，就不再点击，因为已经打开了
             if element is not building_type_element_list[0]:
                 search_container.click_building_type_button()
             element.click()
