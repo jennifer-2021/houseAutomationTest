@@ -17,7 +17,7 @@ class SetSearchHouseLocators:
     # search result - list page - return element list (price)
     search_result_price_list = (By.CSS_SELECTOR, ".list-wrap .price")
     # filter button - element '房型'
-    filter_building_type_button = (By.XPATH, "//span[text()='房型']")
+    filter_building_type_button = (By.CSS_SELECTOR, ".filter-dropdown-select")  # (By.XPATH, "//span[text()='房型']")
     # filter button - element '入住时间'
     filter_check_in_time = (By.XPATH, "//span[text()='入住时间']")
     # filter button - element 'price'
@@ -33,4 +33,3 @@ class SetSearchHouseLocators:
     map_box_points = (By.CSS_SELECTOR, ".marker-container.mapboxgl-marker")
     # TODO: this is a dynamic element
     filter_box_city = (By.CSS_SELECTOR, ".filter-detail-box>span:nth-child(1)")
-
