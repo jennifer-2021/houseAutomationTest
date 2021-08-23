@@ -28,8 +28,7 @@ class CheckSearchResults:
                 return False
         return True
 
-    @staticmethod
-    def checkin_time_on_list(result_element_list, checkinTime):
+    def checkin_time_on_list(self, result_element_list, checkinTime):
         if '+' in checkinTime:
             checkinTime = int(checkinTime[0:4])
             for result in result_element_list:
@@ -38,6 +37,7 @@ class CheckSearchResults:
                     actual_checkinTime = re.findall(r'[0-9]+', actual_checkinTime)
                     actual_checkinTime = int(actual_checkinTime[0])
                     if actual_checkinTime < checkinTime:
+                        self.print_err_address(result)
                         return False
         else:
             for result in result_element_list:
@@ -45,8 +45,16 @@ class CheckSearchResults:
                 if checkinTime not in actual_checkinTime:
                     print(".............Printing Error address..........................")
                     print("actual_checkinTime is:" + actual_checkinTime + "should be: " + checkinTime)
+                    self.print_err_address(result)
                     return False
+
         return True
+
+    def print_err_address(self, result):
+        parent_elem = SeleniumUtils.get_parent_element(self, result)
+        error_city_elem = SeleniumUtils.get_next_sibling_element(self, parent_elem)
+        error_city = SeleniumUtils.get_text_by_element(error_city_elem)
+        print("error city: " + error_city)
 
     @staticmethod
     def checkPriceOnResult(result_element_list, minPrice, max_price_int):

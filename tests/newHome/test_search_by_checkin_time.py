@@ -4,7 +4,7 @@ from utils.read_json import JsonReader
 import allure
 import pytest
 import time
-import re
+from pages.newHome.search_check_results import CheckSearchResults
 
 
 @pytest.mark.usefixtures("setup")
@@ -27,39 +27,16 @@ class TestSearch:
             print("................test data Not in dropdown list: " + checkinTime)
             assert False
 
-        for element in checkinTime_elements:
-            name = SeleniumUtils.get_text_by_element(element)
-            if name == checkinTime:
-                element.click()
-                break
+        CheckSearchResults.click_filter(checkinTime_elements, checkinTime)
 
         time.sleep(3)
         result_list = search_container.get_search_result_checkin_time_list()
         print(str(len(result_list)) + " ... " + checkinTime)
         print("..............*************.........................")
-        if '+' in checkinTime:
-            checkinTime = int(checkinTime[0:4])
-            for result in result_list:
-                actual_checkinTime = SeleniumUtils.get_text_by_element(result)
-                if actual_checkinTime != "":
-                    actual_checkinTime = re.findall(r'[0-9]+', actual_checkinTime)
-                    actual_checkinTime = int(actual_checkinTime[0])
-                    if actual_checkinTime < checkinTime:
-                        self.print_err_address(result)
-                        assert False
-        else:
-            for result in result_list:
-                actual_checkinTime = SeleniumUtils.get_text_by_element(result)
-                if checkinTime not in actual_checkinTime:
-                    print(".............Printing Error address..........................")
-                    print("actual_checkinTime is:" + actual_checkinTime + "should be: " + checkinTime)
-                    self.print_err_address(result)
-                    assert False
+
+        check_result = CheckSearchResults(self.driver)
+        checkin_time = check_result.checkin_time_on_list(result_list, checkinTime)
+        if not checkin_time:
+            assert False
 
         assert True
-
-    def print_err_address(self, result):
-        parent_elem = SeleniumUtils.get_parent_element(self, result)
-        error_city_elem = SeleniumUtils.get_next_sibling_element(self, parent_elem)
-        error_city = SeleniumUtils.get_text_by_element(error_city_elem)
-        print("error city: " + error_city)
