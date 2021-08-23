@@ -8,10 +8,10 @@ class CheckSearchResults:
         self.driver = driver
 
     @staticmethod
-    def check_city(element_list, testData):
+    def check_city(element_list, suggestedCity):
         for element in element_list:
             text_on_result = SeleniumUtils.get_text_by_element(element)
-            if testData not in text_on_result:
+            if suggestedCity not in text_on_result:
                 print("..................error address in test: " + text_on_result)
                 return False
         return True

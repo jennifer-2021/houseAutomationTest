@@ -27,11 +27,7 @@ class TestSearch:
             print("................test data Not in dropdown list: " + searchCity)
             assert False
 
-        for city in city_elements:
-            name = SeleniumUtils.get_text_by_element(city)
-            if name == searchCity:
-                city.click()
-                break
+        CheckSearchResults.click_filter(city_elements, searchCity)
 
         search_container.wait_mapbox_loaded()
         time.sleep(1)
@@ -42,7 +38,7 @@ class TestSearch:
         print(str(list_length) + " ... " + searchCity)
         print("..............*************.........................")
 
-        city_in_result = CheckSearchResults.check_city(searchCity)
+        city_in_result = CheckSearchResults.check_city(result_list, searchCity)
         if not city_in_result:
             assert False
 
