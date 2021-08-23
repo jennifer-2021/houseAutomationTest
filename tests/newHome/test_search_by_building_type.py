@@ -15,7 +15,7 @@ class TestSearchByBuildingType:
     @allure.description("verify: all returned house building type must contain the value of var 'buildingType'")
     @pytest.mark.parametrize("buildingType", testdata)
     def test_search_by_building_type(self, config, buildingType):
-        if buildingType == "不限" | buildingType == "Apartment":
+        if buildingType == "不限" or buildingType == "Apartment":
             return
         search_container = SearchContainer(self.driver)
         search_container.open_home_page(config)
