@@ -15,6 +15,8 @@ class TestSearch:
     @allure.description("verify: all returned house info must meet the condition of 'checkinTime'")
     @pytest.mark.parametrize("checkinTime", testdata)
     def test_search_by_building_type(self, config, checkinTime):
+        if checkinTime == "不限" | checkinTime == "2020":
+            return
         search_container = SearchContainer(self.driver)
         search_container.open_home_page(config)
         search_container.wait_mapbox_loaded()

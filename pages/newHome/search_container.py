@@ -49,6 +49,7 @@ class SearchContainer(BasePage):
     def click_building_type_button(self):
         self.wait_element(*SetSearchHouseLocators.filter_building_type_button).click()
 
+    # filter - drop down - element list for both 'building type' & 入住时间
     def get_filter_dropdown_element_list(self):
         return self.driver.find_elements(*SetSearchHouseLocators.filter_drop_down_list)
 

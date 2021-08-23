@@ -1,5 +1,4 @@
 import time
-
 from utils.selenium_utils import SeleniumUtils
 from utils.read_json import JsonReader
 from pages.newHome.search_container import SearchContainer
@@ -15,6 +14,8 @@ class TestSearchByPrice:
     @allure.description("verify: all returned house price must meet the filter 'price' ")
     @pytest.mark.parametrize("minPrice", testdata)
     def test_search_by_building_type(self, config, minPrice):
+        if minPrice == "不限":
+            return
         search_container = SearchContainer(self.driver)
         search_container.open_home_page(config)
         # wait for mapbox fully loaded
