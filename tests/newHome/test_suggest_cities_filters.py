@@ -12,7 +12,7 @@ class TestSuggestedCityAndFilter:
 
     @allure.title("新房 - 热门城市")
     @allure.description("verify: 热门城市 的下拉框的内容正确")
-    def test_search_by_building_type(self, config):
+    def test_filter_suggested_city(self, config):
         testdata = JsonReader.get_search_suggested_cities_data()
         search_container = SearchContainer(self.driver)
         search_container.open_home_page(config)
@@ -28,7 +28,7 @@ class TestSuggestedCityAndFilter:
 
     @allure.title("新房 - 筛选条件 - 房型")
     @allure.description("verify: 房型 的下拉框的内容正确")
-    def test_search_by_building_type(self, config):
+    def test_filter_by_building_type(self, config):
         testdata = JsonReader.get_filter_building_type_data()
         search_container = SearchContainer(self.driver)
         search_container.open_home_page(config)
@@ -44,7 +44,7 @@ class TestSuggestedCityAndFilter:
 
     @allure.title("新房 - 筛选条件 - 入住时间")
     @allure.description("verify: 入住时间 的下拉框的内容正确")
-    def test_search_by_building_type(self, config):
+    def test_filter_checkin_time(self, config):
         testdata = JsonReader.get_filter_checkin_time_data()
         search_container = SearchContainer(self.driver)
         search_container.open_home_page(config)
@@ -60,7 +60,7 @@ class TestSuggestedCityAndFilter:
 
     @allure.title("新房 - 筛选条件 - 价格")
     @allure.description("verify: 价格 的下拉框的内容正确")
-    def test_search_by_building_type(self, config):
+    def test_filter_price(self, config):
         testdata = JsonReader.get_filter_min_price_data()
         search_container = SearchContainer(self.driver)
         search_container.open_home_page(config)
