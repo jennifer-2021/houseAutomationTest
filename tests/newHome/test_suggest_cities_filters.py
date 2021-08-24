@@ -18,10 +18,8 @@ class TestSuggestedCityAndFilter:
         search_container.open_home_page(config)
         search_container.click_in_search_box()
         city_element_list = search_container.get_suggest_cities_elements()
-        city_list = []
-        for element in city_element_list:
-            city = SeleniumUtils.get_text_by_element(element)
-            city_list.append(city)
+        city_list = SeleniumUtils.get_text_list(city_element_list)
+
         print("..........actual drop down list..............")
         print(city_list)
         assert testdata == city_list
@@ -34,10 +32,8 @@ class TestSuggestedCityAndFilter:
         search_container.open_home_page(config)
         search_container.click_building_type_button()
         building_type_element_list = search_container.get_filter_dropdown_element_list()
-        building_type_list = []
-        for element in building_type_element_list:
-            building_type = SeleniumUtils.get_text_by_element(element)
-            building_type_list.append(building_type)
+        building_type_list = SeleniumUtils.get_text_list(building_type_element_list)
+
         print("..........actual drop down list..............")
         print(building_type_list)
         assert testdata == building_type_list
@@ -50,10 +46,8 @@ class TestSuggestedCityAndFilter:
         search_container.open_home_page(config)
         search_container.click_checkin_time_button()
         checkin_time_element_list = search_container.get_filter_dropdown_element_list()
-        checkin_time_list = []
-        for element in checkin_time_element_list:
-            checkin_time = SeleniumUtils.get_text_by_element(element)
-            checkin_time_list.append(checkin_time)
+        checkin_time_list = SeleniumUtils.get_text_list(checkin_time_element_list)
+
         print("..........actual drop down list..............")
         print(checkin_time_list)
         assert testdata == checkin_time_list
@@ -66,10 +60,8 @@ class TestSuggestedCityAndFilter:
         search_container.open_home_page(config)
         search_container.click_price_button()
         price_element_list = search_container.get_min_price_list()
-        price_list = []
-        for element in price_element_list:
-            price = SeleniumUtils.get_text_by_element(element)
-            price_list.append(price)
+        price_list = SeleniumUtils.get_text_list(price_element_list)
+
         print("..........actual drop down list..............")
         print(price_list)
         assert testdata == price_list
