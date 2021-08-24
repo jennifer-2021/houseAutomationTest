@@ -35,3 +35,8 @@ class JsonReader:
     def get_search_city_with_filters():
         newhome_data = get_newhome_json()
         return newhome_data["cityWithFilters"]
+
+    @staticmethod
+    def get_address_data():
+        newhome_data = get_newhome_json()
+        return newhome_data["address"]
