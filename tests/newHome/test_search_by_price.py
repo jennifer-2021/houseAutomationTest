@@ -39,9 +39,9 @@ class TestSearchByPrice:
         max_price_element_list = search_container.get_max_price_list()
         # 8 提出最高价格 的第一个值 - integer 格式
         max_price_text = SeleniumUtils.get_text_by_element(max_price_element_list[1])
-        max_price_int = SeleniumUtils.get_start_price(max_price_text)
+        max_price_int = SeleniumUtils.get_price_int(max_price_text)
         # 9 把价格最低价转换成 Integer: i.e $1,000,000 to 1000000
-        minPrice = SeleniumUtils.get_start_price(minPrice)
+        minPrice = SeleniumUtils.get_price_int(minPrice)
 
         # 10 点击第二个值 （第一个为：不限）
         max_price_element_list[1].click()

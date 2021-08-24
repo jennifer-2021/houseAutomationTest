@@ -56,7 +56,7 @@ class SearchContainer(BasePage):
         return self.driver.find_elements(*SetSearchHouseLocators.filter_drop_down_list)
 
     def wait_mapbox_loaded(self):
-        time.sleep(5)
+        time.sleep(6)
         self.wait_element(*SetSearchHouseLocators.map_box_points)
 
     def click_checkin_time_button(self):
