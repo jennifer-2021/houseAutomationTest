@@ -11,6 +11,7 @@ class SearchContainer(BasePage):
 
     # click inside the search box to open suggest dropdown list
     def click_in_search_box(self):
+        self.wait_mapbox_loaded()
         self.wait_element(*SetSearchHouseLocators.search_box).click()
         self.wait_element(*SetSearchHouseLocators.search_box_suggest_menu)
 
@@ -21,6 +22,10 @@ class SearchContainer(BasePage):
     # all houses address on the list page
     def get_search_result_address_list(self):
         return self.driver.find_elements(*SetSearchHouseLocators.search_result_address_list)
+
+    # all houses address on the list page
+    def get_result_real_estate_list(self):
+        return self.driver.find_elements(*SetSearchHouseLocators.search_result_real_estate_list)
 
     # all houses building type on the list page
     def get_search_result_building_type_list(self):
@@ -56,8 +61,9 @@ class SearchContainer(BasePage):
         return self.driver.find_elements(*SetSearchHouseLocators.filter_drop_down_list)
 
     def wait_mapbox_loaded(self):
-        time.sleep(6)
+        time.sleep(3)
         self.wait_element(*SetSearchHouseLocators.map_box_points)
+        time.sleep(3)
 
     def click_checkin_time_button(self):
         self.wait_element(*SetSearchHouseLocators.filter_check_in_time).click()
@@ -74,4 +80,4 @@ class SearchContainer(BasePage):
     def get_max_price_list(self):
         return self.driver.find_elements(*SetSearchHouseLocators.filter_max_price_list)
 
-    # result list page - get start price in Integer - return a single price
+
