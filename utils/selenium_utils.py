@@ -20,9 +20,17 @@ class SeleniumUtils:
     def get_parent_element(self, anchor_elem):
         return self.driver.execute_script("return arguments[0].parentNode;", anchor_elem)
 
+    @staticmethod
+    def get_children_elements(self, anchor_elem):
+        return self.driver.execute_script("return arguments[0].children;", anchor_elem)
+
+    @staticmethod
+    def get_first_child_element(self, anchor_elem):
+        return self.driver.execute_script("return arguments[0].firstElementChild;", anchor_elem)
+
     # return drop down list texts as a list
     @staticmethod
-    def get_dropdown_text_list(elementList):
+    def get_text_list(elementList):
         text_list = []
         for element in elementList:
             text_list.append(SeleniumUtils.get_text_by_element(element))
