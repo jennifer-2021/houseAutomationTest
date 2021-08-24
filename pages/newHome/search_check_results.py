@@ -1,3 +1,5 @@
+import time
+
 from utils.selenium_utils import SeleniumUtils
 import re
 
@@ -59,7 +61,7 @@ class CheckSearchResults:
     def check_price(self, result_element_list, minPrice, max_price_int):
         for element in result_element_list:
             text = SeleniumUtils.get_text_by_element(element)
-            actual_start_price = SeleniumUtils.get_start_price(text)
+            actual_start_price = SeleniumUtils.get_price_int(text)
             if '-' in text:
                 actual_to_price = SeleniumUtils.get_to_price(text)
                 if actual_start_price > max_price_int or actual_to_price < minPrice:
@@ -83,4 +85,5 @@ class CheckSearchResults:
             name = SeleniumUtils.get_text_by_element(element)
             if name == text_to_click:
                 element.click()
+                time.sleep(1)
                 break

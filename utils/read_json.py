@@ -3,29 +3,35 @@ import json
 CONFIG_PATH = "testdata/new_home.json"
 
 
+def get_newhome_json():
+    config_file = open(CONFIG_PATH)
+    newhome_data = json.load(config_file)
+    return newhome_data
+
+
 class JsonReader:
 
     @staticmethod
     def get_search_suggested_cities_data():
-        config_file = open(CONFIG_PATH)
-        # convert config_file to the json object: newhome_data
-        newhome_data = json.load(config_file)
+        newhome_data = get_newhome_json()
         return newhome_data["suggestedCity"]
 
     @staticmethod
     def get_filter_building_type_data():
-        config_file = open(CONFIG_PATH)
-        newhome_data = json.load(config_file)
+        newhome_data = get_newhome_json()
         return newhome_data["buildingType"]
 
     @staticmethod
     def get_filter_checkin_time_data():
-        config_file = open(CONFIG_PATH)
-        newhome_data = json.load(config_file)
+        newhome_data = get_newhome_json()
         return newhome_data["checkinTime"]
 
     @staticmethod
     def get_filter_min_price_data():
-        config_file = open(CONFIG_PATH)
-        newhome_data = json.load(config_file)
+        newhome_data = get_newhome_json()
         return newhome_data["minPrice"]
+
+    @staticmethod
+    def get_search_city_with_filters():
+        newhome_data = get_newhome_json()
+        return newhome_data["cityWithFilters"]

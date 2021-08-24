@@ -2,5 +2,10 @@
   "suggestedCity": [ "Toronto", "Vancouver", "Calgary", "Edmonton", "Montreal", "North York", "Scarborough", "Markham", "Richmond Hill", "Vaughan", "Mississauga", "Newmarket", "Oakville"],
   "buildingType": ["不限", "Condo", "Townhouse", "House", "Apartment"],
   "checkinTime": ["不限", "2020", "2021", "2022", "2023+"],
-  "minPrice": ["不限", "$100,000", "$200,000","$300,000","$400,000","$500,000","$600,000","$800,000","$1,000,000","$1,500,000"]
+  "minPrice": ["不限", "$100,000", "$200,000","$300,000","$400,000","$500,000","$600,000","$800,000","$1,000,000","$1,500,000"],
+  "cityWithFilters": [
+    {"city": "Toronto", "buildingType": "Townhouse", "checkinTime": "2022", "minPrice": "$600,000", "maxPrice": "$1,500,000"},
+    {"city": "Vancouver", "buildingType": "Condo", "checkinTime": "2023+", "minPrice": "$1,500,000", "maxPrice": "$2,500,000"},
+    {"city": "North York", "buildingType": "Condo", "checkinTime": "2022", "minPrice": "$500,000", "maxPrice": "$950,000"}
+  ]
 }

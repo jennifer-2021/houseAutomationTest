@@ -31,7 +31,7 @@ class SeleniumUtils:
 
     # convert a price-range string to int(price) i.e ($2,000 - $3,000) to 2000
     @staticmethod
-    def get_start_price(price_range):
+    def get_price_int(price_range):
         if '-' in price_range:
             price_range = price_range.split(" - ")[0]
 
