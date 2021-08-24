@@ -26,7 +26,7 @@ class TestSearchByPrice:
         search_container.click_price_button()
         min_price_element_list = search_container.get_min_price_list()
         # 4 把所有的价格提取出来，放到 dropdown_list
-        dropdown_list = SeleniumUtils.get_dropdown_text_list(min_price_element_list)
+        dropdown_list = SeleniumUtils.get_text_list(min_price_element_list)
         # 5 如果 测试数据 minPrice 没有在 下拉框里，测试失败，打印错误价格，退出
         if minPrice not in dropdown_list:
             print("................test data Not in dropdown list: " + minPrice)

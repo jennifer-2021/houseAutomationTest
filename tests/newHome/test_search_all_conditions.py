@@ -23,13 +23,12 @@ class TestSearchByAllFilters:
         # 1. 打开 新房 主页
         search_container = SearchContainer(self.driver)
         search_container.open_home_page(config)
-        # 2 等待 mapbox fully loaded，再点击搜索框
-        search_container.wait_mapbox_loaded()
+        # 2 点击搜索框
         search_container.click_in_search_box()
         # 3 保持热门城市下拉框 打开
         search_container.keep_search_suggest_menu_open()
         city_elements = search_container.get_suggest_cities_elements()
-        dropdown_list = SeleniumUtils.get_dropdown_text_list(city_elements)
+        dropdown_list = SeleniumUtils.get_text_list(city_elements)
         # 4 如果测试数据/城市 在 下拉框内找不到，测试失败，退出，并打出信息
         if city not in dropdown_list:
             print("................test data Not in dropdown list: " + city)

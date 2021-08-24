@@ -22,7 +22,7 @@ class TestSearch:
         search_container.wait_mapbox_loaded()
         search_container.click_checkin_time_button()
         checkinTime_elements = search_container.get_filter_dropdown_element_list()
-        dropdown_list = SeleniumUtils.get_dropdown_text_list(checkinTime_elements)
+        dropdown_list = SeleniumUtils.get_text_list(checkinTime_elements)
         if checkinTime not in dropdown_list:
             print("................test data Not in dropdown list: " + checkinTime)
             assert False
