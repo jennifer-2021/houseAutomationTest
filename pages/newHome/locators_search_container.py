@@ -8,6 +8,8 @@ class SetSearchHouseLocators:
     search_box_suggest_menu = (By.CSS_SELECTOR, ".filter-search-input .suggest-menu")
     # search box - drop down list - return the city element list
     search_box_suggest_city_list = (By.CSS_SELECTOR, ".filter-search-input .mls-location-item h5")
+    # 输入楼盘名后，第一个 suggestion
+    search_box_real_estate = (By.CSS_SELECTOR, ".filter-desk-container .suggest-item.actived")
     # search result - list page - return element list
     search_result_address_list = (By.CSS_SELECTOR, ".list-wrap .address")
     # search result - 楼盘 - return element list

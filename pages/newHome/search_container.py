@@ -15,6 +15,13 @@ class SearchContainer(BasePage):
         self.wait_element(*SetSearchHouseLocators.search_box).click()
         self.wait_element(*SetSearchHouseLocators.search_box_suggest_menu)
 
+    def click_real_estate_suggest(self):
+        time.sleep(1)
+        try:
+            self.wait_element(*SetSearchHouseLocators.search_box_real_estate).click()
+        except:
+            print(".......No such suggested Real Estate.............")
+
     # return a list of cities
     def get_suggest_cities_elements(self):
         return self.driver.find_elements(*SetSearchHouseLocators.search_box_suggest_city_list)
@@ -40,8 +47,8 @@ class SearchContainer(BasePage):
         return self.driver.find_elements(*SetSearchHouseLocators.search_result_price_list)
 
     def set_search_box_input(self, searchKey):
-        self.wait_element(*SetSearchHouseLocators.search_box).send_keys(searchKey)
-        return self
+        element = self.wait_element(*SetSearchHouseLocators.search_box)
+        element.send_keys(searchKey)
 
     def click_search_box_button(self):
         self.driver.find_element(*SetSearchHouseLocators.search_button).click()
@@ -79,5 +86,3 @@ class SearchContainer(BasePage):
     # get 'max price' drop down element list
     def get_max_price_list(self):
         return self.driver.find_elements(*SetSearchHouseLocators.filter_max_price_list)
-
-

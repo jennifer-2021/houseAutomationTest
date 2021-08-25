@@ -28,6 +28,13 @@ class SeleniumUtils:
     def get_first_child_element(self, anchor_elem):
         return self.driver.execute_script("return arguments[0].firstElementChild;", anchor_elem)
 
+    @staticmethod
+    def switch_to_window(self, current_window):
+        handles = self.driver.window_handles
+        for handle in handles:
+            if handle != current_window:
+                self.driver.switch_to.window(handle)
+
     # return drop down list texts as a list
     @staticmethod
     def get_text_list(elementList):

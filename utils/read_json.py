@@ -40,3 +40,8 @@ class JsonReader:
     def get_address_data():
         newhome_data = get_newhome_json()
         return newhome_data["address"]
+
+    @staticmethod
+    def get_real_estate_data():
+        newhome_data = get_newhome_json()
+        return newhome_data["realEstate"]

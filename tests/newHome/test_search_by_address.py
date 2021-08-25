@@ -20,7 +20,7 @@ class TestSearchByAddress:
         # 1. 打开 新房 主页
         search_container = SearchContainer(self.driver)
         search_container.open_home_page(config)
-        search_container.open_home_page(config)
+
         # 2 搜索框 - 输入地址 - 点击搜索
         search_container.set_search_box_input(address)
         search_container.click_search_box_button()
