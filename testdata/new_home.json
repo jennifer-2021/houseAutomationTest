@@ -4,6 +4,7 @@
   "checkinTime": ["不限", "2020", "2021", "2022", "2023+"],
   "minPrice": ["不限", "$100,000", "$200,000","$300,000","$400,000","$500,000","$600,000","$800,000","$1,000,000","$1,500,000"],
   "realEstate": ["JAC Condos", "Nordic Condos", "Richmond Park", "Empire Maven Condo"],
+  "developer": ["CentreCourt", "Emblem Developments", "Mattamy Homes"],
   "address": [{
     "address": "1521 19th Avenue, Richmond Hill, Ontario L4S 1N7, Canada",
     "expected": ["Ivylea", "Abbey Lane Towns Phase 5","Richmond Park", "Leslie Street &amp; 19th Avenue Towns", "Abbey Lane Towns Phase 3", "Rosedale Greens", "19th Avenue"]},
