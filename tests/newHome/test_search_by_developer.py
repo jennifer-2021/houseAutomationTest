@@ -23,11 +23,12 @@ class TestSearchByDeveloper:
         search_container.set_search_box_input(developer)
         search_container.click_real_estate_suggest()
 
-        # 3 检查楼盘详情页：楼盘名称
+        # 3 检查开发商详情页：开发商名称
         SeleniumUtils.switch_to_window(self, main_window)
         developer_page = DeveloperPage(self.driver)
         actual_developer = developer_page.get_developer_name()
         actual_developer = actual_developer.strip()
+
         if actual_developer != developer:
             print("........actual: " + actual_developer + "... expected: " + developer)
             print("....actual url: " + self.driver.current_url)
