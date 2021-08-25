@@ -40,8 +40,10 @@ class TestSearchByCityAndFilters:
         time.sleep(1)
         search_container.click_building_type_button()
         building_type_element_list = search_container.get_filter_dropdown_element_list()
-        # 8 把下拉框内的所以选项 一个个测一遍，"Apartment"除外
+        error_counter = 0
+        # 8 把下拉框内的所有选项 一个个测一遍，"Apartment"除外
         for element in building_type_element_list:
+
             building_type = SeleniumUtils.get_text_by_element(element)
             print("............building type in test: " + building_type + ".......in: " + city)
             if building_type == "Apartment":
@@ -57,16 +59,17 @@ class TestSearchByCityAndFilters:
             search_result_address_element_list = search_container.get_search_result_address_list()
             search_result_building_type_element_list = search_container.get_search_result_building_type_list()
             address_on_result = ""
+
             for address_element in search_result_address_element_list:
                 address_on_result = SeleniumUtils.get_text_by_element(address_element)
                 if city not in address_on_result:
                     print("..................error address in test: " + address_on_result)
-                    assert False
+                    error_counter += 1
 
             if building_type != "不限":
                 for building_type_element in search_result_building_type_element_list:
                     building_type_on_result = SeleniumUtils.get_text_by_element(building_type_element)
                     if building_type not in building_type_on_result:
                         print(".................. error address in test: " + address_on_result)
-                        assert False
-        assert True
+                        error_counter += 1
+        assert error_counter == 0

@@ -72,22 +72,15 @@ class TestSearchByAllFilters:
         checkin_time_element_list = search_container.get_search_result_checkin_time_list()
         price_element_list = search_container.get_search_result_price_list()
 
-        city_in_result = CheckSearchResults.check_city(address_element_list, city)
-        if not city_in_result:
-            assert False
-        check_result = CheckSearchResults(self.driver)
-        building_type_in_result = check_result.check_building_type(building_type_element_list, buildingType)
-        if not building_type_in_result:
-            assert False
+        unexpected_result = CheckSearchResults.check_city(address_element_list, city)
 
-        checkinTime_in_result = check_result.checkin_time_on_list(checkin_time_element_list, checkinTime)
-        if not checkinTime_in_result:
-            assert False
+        check_result = CheckSearchResults(self.driver)
+        unexpected_result = check_result.check_building_type(building_type_element_list, buildingType)
+
+        unexpected_result = check_result.checkin_time_on_list(checkin_time_element_list, checkinTime)
+
         minPrice = SeleniumUtils.get_price_int(minPrice)
         maxPrice = SeleniumUtils.get_price_int(maxPrice)
-        price_in_result = check_result.check_price(price_element_list, minPrice, maxPrice)
-        print(price_in_result)
-        if not price_in_result:
-            assert False
+        unexpected_result = check_result.check_price(price_element_list, minPrice, maxPrice)
 
-        assert True
+        assert unexpected_result == 0

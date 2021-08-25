@@ -34,8 +34,6 @@ class TestSearchByBuildingType:
         print(str(len(result_list)) + " ... " + buildingType)
         print("..............*************.........................")
         check_reuslt = CheckSearchResults(self.driver)
-        building_type_in_list = check_reuslt.check_building_type(result_list, buildingType)
-        if not building_type_in_list:
-            assert False
+        error_counter = check_reuslt.check_building_type(result_list, buildingType)
 
-        assert True
+        assert error_counter == 0

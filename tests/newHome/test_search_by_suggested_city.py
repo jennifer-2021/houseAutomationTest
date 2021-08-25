@@ -37,9 +37,6 @@ class TestSearch:
 
         print(str(list_length) + " ... " + searchCity)
         print("..............*************.........................")
+        error_counter = CheckSearchResults.check_city(result_list, searchCity)
 
-        city_in_result = CheckSearchResults.check_city(result_list, searchCity)
-        if not city_in_result:
-            assert False
-
-        assert True
+        assert (error_counter == 0)

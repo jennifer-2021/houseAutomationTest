@@ -51,8 +51,6 @@ class TestSearchByPrice:
         result_element_list = search_container.get_search_result_price_list()
         # 12 验证 每个房源显示的价格范围 是否符合测试数据， 如果验证失败，跳出，并打印出房源地址
         check_result = CheckSearchResults(self.driver)
-        price_in_range = check_result.check_price(result_element_list, minPrice, max_price_int)
-        if not price_in_range:
-            assert False
+        error_counter = check_result.check_price(result_element_list, minPrice, max_price_int)
 
-        assert True
+        assert error_counter == 0

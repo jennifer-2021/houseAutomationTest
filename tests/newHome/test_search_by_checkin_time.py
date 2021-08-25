@@ -35,8 +35,6 @@ class TestSearch:
         print("..............*************.........................")
 
         check_result = CheckSearchResults(self.driver)
-        checkin_time = check_result.checkin_time_on_list(result_list, checkinTime)
-        if not checkin_time:
-            assert False
+        error_counter = check_result.checkin_time_on_list(result_list, checkinTime)
 
-        assert True
+        assert error_counter == 0
