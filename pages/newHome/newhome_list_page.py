@@ -1,5 +1,8 @@
+import time
+
 from pages.base_page import BasePage
 from pages.newHome.locators_newhome_map import SetNewhomeMapLocators
+from pages.newHome.locators_newhome_list import SetNewhomeListLocators
 from utils.selenium_utils import SeleniumUtils
 
 
@@ -18,3 +21,11 @@ class NewhomeListPage(BasePage):
     def get_real_estate_name_on_modal(self):
         element = self.driver.find_element(*SetNewhomeMapLocators.real_estate_name_on_modal)
         return SeleniumUtils.get_text_by_element(element)
+
+    def click_sort_by_hot(self):
+        self.wait_element(*SetNewhomeListLocators.sort_button).click()
+        self.driver.find_element(*SetNewhomeListLocators.sort_by_hot).click()
+
+    def wait_list_reload(self):
+        time.sleep(0.5)
+        self.wait_element(*SetNewhomeListLocators.sort_button)
