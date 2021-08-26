@@ -1,6 +1,7 @@
 import time
 
 from pages.newHome.locators_search_container import SetSearchHouseLocators
+from pages.newHome.locators_newhome_list import SetNewhomeListLocators
 from pages.base_page import BasePage
 from utils.selenium_utils import SeleniumUtils
 
@@ -25,6 +26,18 @@ class SearchContainer(BasePage):
     # return a list of cities
     def get_suggest_cities_elements(self):
         return self.driver.find_elements(*SetSearchHouseLocators.search_box_suggest_city_list)
+
+    # all houses image on the list page
+    def get_search_result_image_list(self):
+        return self.driver.find_elements(*SetNewhomeListLocators.image_box)
+
+    # all houses tag on the list page
+    def get_search_result_tag_list(self):
+        return self.driver.find_elements(*SetNewhomeListLocators.tag_box)
+
+    # all houses tag on the list page
+    def get_search_result_recommendation_tag_list(self):
+        return self.driver.find_elements(*SetNewhomeListLocators.recommendation)
 
     # all houses address on the list page
     def get_search_result_address_list(self):
@@ -66,11 +79,6 @@ class SearchContainer(BasePage):
     # filter - drop down - element list for both 'building type' & 入住时间
     def get_filter_dropdown_element_list(self):
         return self.driver.find_elements(*SetSearchHouseLocators.filter_drop_down_list)
-
-    def wait_mapbox_loaded(self):
-        time.sleep(3)
-        self.wait_element(*SetSearchHouseLocators.map_box_points)
-        time.sleep(3)
 
     def click_checkin_time_button(self):
         self.wait_element(*SetSearchHouseLocators.filter_check_in_time).click()

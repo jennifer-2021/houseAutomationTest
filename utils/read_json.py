@@ -50,3 +50,13 @@ class JsonReader:
     def get_developer_data():
         newhome_data = get_newhome_json()
         return newhome_data["developer"]
+
+    @staticmethod
+    def get_tags_data():
+        newhome_data = get_newhome_json()
+        return newhome_data["tagsOnImage"]
+
+    @staticmethod
+    def get_mapPoint_data():
+        newhome_data = get_newhome_json()
+        return newhome_data["mapPoints"]

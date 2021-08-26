@@ -1,4 +1,6 @@
 import pytest
+import time
+from pages.newHome.locators_search_container import SetSearchHouseLocators
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -17,3 +19,8 @@ class BasePage:
         wait = WebDriverWait(self.driver, EXPLICIT_WAIT)
         element = wait.until(EC.element_to_be_clickable((By, css)))
         return element
+
+    def wait_mapbox_loaded(self):
+        time.sleep(3)
+        self.wait_element(*SetSearchHouseLocators.map_box_points)
+        time.sleep(3)
