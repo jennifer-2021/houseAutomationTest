@@ -20,7 +20,16 @@ class BasePage:
         element = wait.until(EC.element_to_be_clickable((By, css)))
         return element
 
+    def wait_element_visible(self, By, css):
+        wait = WebDriverWait(self.driver, EXPLICIT_WAIT)
+        element = wait.until(EC.presence_of_element_located((By, css)))
+        return element
+
     def wait_mapbox_loaded(self):
         time.sleep(3)
         self.wait_element(*SetSearchHouseLocators.map_box_points)
         time.sleep(3)
+
+    def open_page(self, config, url):
+        home_page = config["base_page"] + url
+        self.driver.get(home_page)

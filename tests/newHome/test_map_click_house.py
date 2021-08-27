@@ -3,7 +3,7 @@
 from utils.selenium_utils import SeleniumUtils
 from utils.read_json import JsonReader
 from pages.newHome.newhome_list_page import NewhomeListPage
-from pages.newHome.newhome_details_page import NewhomeDetailsPage
+from pages.newHome.real_estate_details_page import RealEstateDetailsPage
 import allure
 import pytest
 
@@ -29,7 +29,7 @@ class TestMapClickHouse:
         # 5 点击 '检查' 进入详情页
         list_page.click_newhome_modal_check_button()
         SeleniumUtils.switch_to_window(self, main_window)
-        details_page = NewhomeDetailsPage(self.driver)
+        details_page = RealEstateDetailsPage(self.driver)
         # 6 验证详情页打开正确 - 楼盘名显示正确
         actual_name = details_page.get_real_estate_name()
         assert real_estate_name_on_modal == actual_name

@@ -60,3 +60,8 @@ class JsonReader:
     def get_mapPoint_data():
         newhome_data = get_newhome_json()
         return newhome_data["mapPoints"]
+
+    @staticmethod
+    def get_details_page_buttons_data():
+        newhome_data = get_newhome_json()
+        return newhome_data["detailsPageButtons"]

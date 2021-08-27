@@ -6,6 +6,7 @@
   "realEstate": ["JAC Condos", "Nordic Condos", "Richmond Park", "Empire Maven Condos"],
   "developer": ["CentreCourt", "Emblem Developments", "Mattamy Homes"],
   "mapPoints": [1,2,6],
+  "detailsPageButtons": ["/newhome/mississauga/m3-condos"],
   "tagsOnImage": [
     {"recommendation": ["置顶推荐", "热门推荐"],
     "tags":["华人超市", "Costco", "近大学", "近地铁", "GoTrain", "Daycare"]}

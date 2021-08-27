@@ -29,10 +29,14 @@ class SeleniumUtils:
         return self.driver.execute_script("return arguments[0].firstElementChild;", anchor_elem)
 
     @staticmethod
-    def switch_to_window(self, current_window):
+    def js_executor_click(self, element):
+        self.driver.execute_script("arguments[0].click();", element)
+
+    @staticmethod
+    def switch_to_window(self, main_window):
         handles = self.driver.window_handles
         for handle in handles:
-            if handle != current_window:
+            if handle != main_window:
                 self.driver.switch_to.window(handle)
 
     # return drop down list texts as a list

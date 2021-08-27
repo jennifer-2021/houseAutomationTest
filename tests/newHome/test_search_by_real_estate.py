@@ -1,7 +1,7 @@
 from utils.selenium_utils import SeleniumUtils
 from utils.read_json import JsonReader
 from pages.newHome.search_container import SearchContainer
-from pages.newHome.newhome_details_page import NewhomeDetailsPage
+from pages.newHome.real_estate_details_page import NewhomeDetailsPage
 import allure
 import pytest
 
