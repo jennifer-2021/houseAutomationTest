@@ -1,10 +1,11 @@
 from pages.newHome.search_container import SearchContainer
+from pages.newHome.newhome_list_page import NewhomeListPage
 from utils.selenium_utils import SeleniumUtils
 from utils.read_json import JsonReader
 import allure
 import pytest
 import time
-from pages.newHome.search_check_results import CheckSearchResults
+from workflow.newHome.search_check_results import CheckSearchResults
 
 
 @pytest.mark.usefixtures("setup")
@@ -30,7 +31,8 @@ class TestSearch:
         CheckSearchResults.click_filter(checkinTime_elements, checkinTime)
 
         time.sleep(3)
-        result_list = search_container.get_search_result_checkin_time_list()
+        list_page = NewhomeListPage(self.driver)
+        result_list = list_page.get_checkin_time_list()
         print(str(len(result_list)) + " ... " + checkinTime)
         print("..............*************.........................")
 

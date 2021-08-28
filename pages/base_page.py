@@ -1,6 +1,5 @@
-import pytest
 import time
-from pages.newHome.locators_search_container import SetSearchHouseLocators
+from locators.newHome.locators_newhome_map import SetNewhomeMapLocators
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -27,7 +26,7 @@ class BasePage:
 
     def wait_mapbox_loaded(self):
         time.sleep(3)
-        self.wait_element(*SetSearchHouseLocators.map_box_points)
+        self.wait_element(*SetNewhomeMapLocators.house_on_map_points)
         time.sleep(3)
 
     def open_page(self, config, url):

@@ -1,5 +1,6 @@
 import time
-from pages.newHome.search_check_results import CheckSearchResults
+from workflow.newHome.search_check_results import CheckSearchResults
+from pages.newHome.newhome_list_page import NewhomeListPage
 from utils.selenium_utils import SeleniumUtils
 from utils.read_json import JsonReader
 from pages.newHome.search_container import SearchContainer
@@ -30,7 +31,8 @@ class TestSearchByBuildingType:
         CheckSearchResults.click_filter(buildingType_elements, buildingType)
 
         time.sleep(3)
-        result_list = search_container.get_search_result_building_type_list()
+        list_page = NewhomeListPage(self.driver)
+        result_list = list_page.get_building_type_list()
         print(str(len(result_list)) + " ... " + buildingType)
         print("..............*************.........................")
         check_reuslt = CheckSearchResults(self.driver)

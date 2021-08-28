@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 
 
+# 楼盘详情页
 class SetDetailsPageLocators:
     real_estate_name = (By.CSS_SELECTOR, ".d-main-title h2")
     # real_estate_name = (By.XPATH, "//div[@class='d-main-title']//h2")
@@ -13,7 +14,3 @@ class SetDetailsPageLocators:
     house_tour_sign_up = (By.CSS_SELECTOR, "[data-role='event-signup']")
     consult_now = (By.CSS_SELECTOR, "[data-role='contact-support']")
     photo_wall = (By.CSS_SELECTOR, ".newhouse-photo-wall .swiper-slide img")
-
-
-
-

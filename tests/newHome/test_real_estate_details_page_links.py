@@ -1,5 +1,5 @@
 import time
-
+from pages.newHome.newhome_list_page import NewhomeListPage
 from utils.read_json import JsonReader
 from utils.selenium_utils import SeleniumUtils
 from pages.newHome.search_container import SearchContainer
@@ -23,7 +23,8 @@ class TestItemTags:
         search_container.wait_mapbox_loaded()
         windows = [self.driver.current_window_handle]
         # 3 从页面点击一个房源，进入详情页
-        real_estate_element_list = search_container.get_result_real_estate_list()
+        list_page = NewhomeListPage(self.driver)
+        real_estate_element_list = list_page.get_real_estate_list()
         real_estate_name_on_list = SeleniumUtils.get_text_by_element(real_estate_element_list[1])
         real_estate_element_list[1].click()
         SeleniumUtils.switch_to_window(self, windows)

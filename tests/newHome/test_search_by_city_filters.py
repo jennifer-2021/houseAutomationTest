@@ -1,6 +1,7 @@
 import time
 from utils.selenium_utils import SeleniumUtils
-from pages.newHome.search_check_results import CheckSearchResults
+from workflow.newHome.search_check_results import CheckSearchResults
+from pages.newHome.newhome_list_page import NewhomeListPage
 from utils.read_json import JsonReader
 from pages.newHome.search_container import SearchContainer
 import allure
@@ -56,8 +57,9 @@ class TestSearchByCityAndFilters:
             time.sleep(1)
 
             # 9 检查列表页里所有的房源：地址和房型 必须符合 测试数据
-            search_result_address_element_list = search_container.get_search_result_address_list()
-            search_result_building_type_element_list = search_container.get_search_result_building_type_list()
+            list_page = NewhomeListPage(self.driver)
+            search_result_address_element_list = list_page.get_address_list()
+            search_result_building_type_element_list = list_page.get_building_type_list()
             address_on_result = ""
 
             for address_element in search_result_address_element_list:

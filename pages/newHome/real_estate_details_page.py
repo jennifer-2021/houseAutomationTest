@@ -1,7 +1,6 @@
 from pages.base_page import BasePage
-import time
 from utils.selenium_utils import SeleniumUtils
-from pages.newHome.locators_real_estate_details import SetDetailsPageLocators
+from locators.newHome.locators_real_estate_details import SetDetailsPageLocators
 
 
 class RealEstateDetailsPage(BasePage):

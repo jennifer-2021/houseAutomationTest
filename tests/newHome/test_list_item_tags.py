@@ -1,6 +1,6 @@
 from utils.selenium_utils import SeleniumUtils
 from utils.read_json import JsonReader
-from pages.newHome.search_container import SearchContainer
+from pages.newHome.newhome_list_page import NewhomeListPage
 import allure
 import pytest
 
@@ -18,11 +18,11 @@ class TestItemTags:
         tags = tagObject["tags"]
 
         # 1 打开 新房首页
-        search_container = SearchContainer(self.driver)
-        search_container.open_home_page(config)
+        list_page = NewhomeListPage(self.driver)
+        list_page.open_home_page(config)
         # 2 等待 mapbox fully loaded
-        search_container.wait_mapbox_loaded()
-        recommendation_element_list = search_container.get_search_result_recommendation_tag_list()
+        list_page.wait_mapbox_loaded()
+        recommendation_element_list = list_page.get_recommendation_tag_list()
         # 3 如果页面没有推荐房源，不报错
         recommendation_counter = 0
         if len(recommendation_element_list) == 0:
@@ -36,7 +36,7 @@ class TestItemTags:
         print("........列表页共有房源被推荐：" + str(recommendation_counter))
 
         # 4 如果页面没有任何tags，验证失败，立刻退出
-        tag_element_list = search_container.get_search_result_tag_list()
+        tag_element_list = list_page.get_tag_list()
         if len(tag_element_list) == 0:
             print(".............No any tags.....................")
             print(self.driver.current_url)

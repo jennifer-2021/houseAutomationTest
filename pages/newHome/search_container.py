@@ -1,21 +1,19 @@
 import time
-
-from pages.newHome.locators_search_container import SetSearchHouseLocators
-from pages.newHome.locators_newhome_list import SetNewhomeListLocators
+from locators.newHome.locators_search_container import SetSearchHouseLocators
 from pages.base_page import BasePage
-from utils.selenium_utils import SeleniumUtils
 
 
 class SearchContainer(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
 
-    # click inside the search box to open suggest dropdown list
+    # 搜索框 - 点击搜索框 - 打开下拉框，显示热门城市
     def click_in_search_box(self):
         self.wait_mapbox_loaded()
         self.wait_element(*SetSearchHouseLocators.search_box).click()
         self.wait_element(*SetSearchHouseLocators.search_box_suggest_menu)
 
+    # 搜索框 - 输入楼盘名全称后，点击下拉框内出现的第一个推荐
     def click_real_estate_suggest(self):
         time.sleep(1)
         try:
@@ -23,41 +21,9 @@ class SearchContainer(BasePage):
         except:
             print(".......No such suggested Real Estate.............")
 
-    # return a list of cities
+    # 搜索框内 - 返回全部热门城市: list[element]
     def get_suggest_cities_elements(self):
         return self.driver.find_elements(*SetSearchHouseLocators.search_box_suggest_city_list)
-
-    # all houses image on the list page
-    def get_search_result_image_list(self):
-        return self.driver.find_elements(*SetNewhomeListLocators.image_box)
-
-    # all houses tag on the list page
-    def get_search_result_tag_list(self):
-        return self.driver.find_elements(*SetNewhomeListLocators.tag_box)
-
-    # all houses tag on the list page
-    def get_search_result_recommendation_tag_list(self):
-        return self.driver.find_elements(*SetNewhomeListLocators.recommendation)
-
-    # all houses address on the list page
-    def get_search_result_address_list(self):
-        return self.driver.find_elements(*SetSearchHouseLocators.search_result_address_list)
-
-    # all houses address on the list page
-    def get_result_real_estate_list(self):
-        return self.driver.find_elements(*SetSearchHouseLocators.search_result_real_estate_list)
-
-    # all houses building type on the list page
-    def get_search_result_building_type_list(self):
-        return self.driver.find_elements(*SetSearchHouseLocators.search_result_building_type_list)
-
-    # all houses checkin time on the list page
-    def get_search_result_checkin_time_list(self):
-        return self.driver.find_elements(*SetSearchHouseLocators.search_result_checkin_time_list)
-
-    # all houses price on the list page
-    def get_search_result_price_list(self):
-        return self.driver.find_elements(*SetSearchHouseLocators.search_result_price_list)
 
     def set_search_box_input(self, searchKey):
         element = self.wait_element(*SetSearchHouseLocators.search_box)
@@ -66,31 +32,32 @@ class SearchContainer(BasePage):
     def click_search_box_button(self):
         self.driver.find_element(*SetSearchHouseLocators.search_button).click()
 
-    # keep search box - drop down list open
+    # 搜索框 - 让下拉框保持打开状态
     def keep_search_suggest_menu_open(self):
         elem = self.wait_element(*SetSearchHouseLocators.search_box_suggest_menu)
         self.driver.execute_script("arguments[0].setAttribute('style', " + "'display: block')", elem)
         return self
 
-    # click 'building type' button
+    # 筛选 - 点击 房型
     def click_building_type_button(self):
         self.wait_element(*SetSearchHouseLocators.filter_building_type_button).click()
 
-    # filter - drop down - element list for both 'building type' & 入住时间
+    # 筛选 - 下拉框 - 返回：list[element] - 用于 房型 & 入住时间
     def get_filter_dropdown_element_list(self):
         return self.driver.find_elements(*SetSearchHouseLocators.filter_drop_down_list)
 
+    # 筛选 - 点击 入住时间
     def click_checkin_time_button(self):
         self.wait_element(*SetSearchHouseLocators.filter_check_in_time).click()
 
-    # click 'building type' button
+    # 筛选 - 点击 价格
     def click_price_button(self):
         self.wait_element(*SetSearchHouseLocators.filter_price_range_button).click()
 
-    # get 'min price' drop down element list
+    # 筛选 - 价格的下拉框 - 返回 所有最小价格： list[element]
     def get_min_price_list(self):
         return self.driver.find_elements(*SetSearchHouseLocators.filter_min_price_list)
 
-    # get 'max price' drop down element list
+    # 筛选 - 价格的下拉框 - 返回 所有最大价格： list[element]
     def get_max_price_list(self):
         return self.driver.find_elements(*SetSearchHouseLocators.filter_max_price_list)

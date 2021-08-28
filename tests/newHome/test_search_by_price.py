@@ -2,9 +2,10 @@ import time
 from utils.selenium_utils import SeleniumUtils
 from utils.read_json import JsonReader
 from pages.newHome.search_container import SearchContainer
+from pages.newHome.newhome_list_page import NewhomeListPage
 import allure
 import pytest
-from pages.newHome.search_check_results import CheckSearchResults
+from workflow.newHome.search_check_results import CheckSearchResults
 
 
 @pytest.mark.usefixtures("setup")
@@ -48,7 +49,8 @@ class TestSearchByPrice:
 
         time.sleep(3)
         # 11 在搜索结果列表页，把所有房源的价格 的元素 放到 result_element_list
-        result_element_list = search_container.get_search_result_price_list()
+        list_page = NewhomeListPage(self.driver)
+        result_element_list = list_page.get_price_list()
         # 12 验证 每个房源显示的价格范围 是否符合测试数据， 如果验证失败，跳出，并打印出房源地址
         check_result = CheckSearchResults(self.driver)
         error_counter = check_result.check_price(result_element_list, minPrice, max_price_int)

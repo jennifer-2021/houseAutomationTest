@@ -1,5 +1,6 @@
 import time
-from pages.newHome.search_check_results import CheckSearchResults
+from workflow.newHome.search_check_results import CheckSearchResults
+from pages.newHome.newhome_list_page import NewhomeListPage
 from pages.newHome.search_container import SearchContainer
 from utils.selenium_utils import SeleniumUtils
 from utils.read_json import JsonReader
@@ -26,17 +27,16 @@ class TestSearch:
         if searchCity not in dropdown_list:
             print("................test data Not in dropdown list: " + searchCity)
             assert False
-
+        # 选择一个筛选项
         CheckSearchResults.click_filter(city_elements, searchCity)
-
-        search_container.wait_mapbox_loaded()
-        time.sleep(1)
-
-        result_list = search_container.get_search_result_address_list()
+        list_page = NewhomeListPage(self.driver)
+        list_page.wait_mapbox_loaded()
+        # 拿到列表页里所有的地址elements
+        result_list = list_page.get_address_list()
         list_length = len(result_list)
-
         print(str(list_length) + " ... " + searchCity)
         print("..............*************.........................")
+        # 调用 check_city（）来验证结果
         error_counter = CheckSearchResults.check_city(result_list, searchCity)
 
         assert (error_counter == 0)

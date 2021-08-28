@@ -1,7 +1,6 @@
 from pages.base_page import BasePage
-import time
 from utils.selenium_utils import SeleniumUtils
-from pages.newHome.locators_developer_details import SetDeveloperPageLocators
+from locators.newHome.locators_developer_details import SetDeveloperPageLocators
 
 
 class DeveloperPage(BasePage):

@@ -4,7 +4,8 @@ from utils.read_json import JsonReader
 from pages.newHome.search_container import SearchContainer
 import allure
 import pytest
-from pages.newHome.search_check_results import CheckSearchResults
+from workflow.newHome.search_check_results import CheckSearchResults
+from pages.newHome.newhome_list_page import NewhomeListPage
 
 
 @pytest.mark.usefixtures("setup")
@@ -66,21 +67,21 @@ class TestSearchByAllFilters:
         search_container.wait_mapbox_loaded()
 
         # 11 检查列表页里所有的房源：地址和房型 必须符合 测试数据
-        search_container.wait_mapbox_loaded()
-        address_element_list = search_container.get_search_result_address_list()
-        building_type_element_list = search_container.get_search_result_building_type_list()
-        checkin_time_element_list = search_container.get_search_result_checkin_time_list()
-        price_element_list = search_container.get_search_result_price_list()
+        list_page = NewhomeListPage(self.driver)
+        address_element_list = list_page.get_address_list()
+        building_type_element_list = list_page.get_building_type_list()
+        checkin_time_element_list = list_page.get_checkin_time_list()
+        price_element_list = list_page.get_price_list()
 
         unexpected_result = CheckSearchResults.check_city(address_element_list, city)
 
         check_result = CheckSearchResults(self.driver)
-        unexpected_result = check_result.check_building_type(building_type_element_list, buildingType)
+        unexpected_result += check_result.check_building_type(building_type_element_list, buildingType)
 
-        unexpected_result = check_result.checkin_time_on_list(checkin_time_element_list, checkinTime)
+        unexpected_result += check_result.checkin_time_on_list(checkin_time_element_list, checkinTime)
 
         minPrice = SeleniumUtils.get_price_int(minPrice)
         maxPrice = SeleniumUtils.get_price_int(maxPrice)
-        unexpected_result = check_result.check_price(price_element_list, minPrice, maxPrice)
+        unexpected_result += check_result.check_price(price_element_list, minPrice, maxPrice)
 
         assert unexpected_result == 0

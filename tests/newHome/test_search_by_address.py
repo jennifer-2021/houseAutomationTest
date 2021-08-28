@@ -1,8 +1,7 @@
-import time
-from pages.newHome.search_check_results import CheckSearchResults
 from utils.selenium_utils import SeleniumUtils
 from utils.read_json import JsonReader
 from pages.newHome.search_container import SearchContainer
+from pages.newHome.newhome_list_page import NewhomeListPage
 import allure
 import pytest
 
@@ -27,7 +26,8 @@ class TestSearchByAddress:
         search_container.wait_mapbox_loaded()
 
         # 3 检查列表页里所有的房源：楼盘名称
-        result_element_list = search_container.get_result_real_estate_list()
+        list_page = NewhomeListPage(self.driver)
+        result_element_list = list_page.get_result_real_estate_list()
         if len(result_element_list) == 0:
             print("...........actual result: 0..............")
             assert False

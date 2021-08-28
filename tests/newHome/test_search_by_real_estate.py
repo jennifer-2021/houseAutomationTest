@@ -1,7 +1,7 @@
 from utils.selenium_utils import SeleniumUtils
 from utils.read_json import JsonReader
 from pages.newHome.search_container import SearchContainer
-from pages.newHome.real_estate_details_page import NewhomeDetailsPage
+from pages.newHome.real_estate_details_page import RealEstateDetailsPage
 import allure
 import pytest
 
@@ -25,7 +25,7 @@ class TestSearchByRealEstate:
 
         # 3 检查楼盘详情页：楼盘名称
         SeleniumUtils.switch_to_window(self, main_window)
-        details_page = NewhomeDetailsPage(self.driver)
+        details_page = RealEstateDetailsPage(self.driver)
         actual_page_title = details_page.get_real_estate_name()
         if actual_page_title != real_estate:
             print("........actual: " + actual_page_title + "... expected: " + real_estate)

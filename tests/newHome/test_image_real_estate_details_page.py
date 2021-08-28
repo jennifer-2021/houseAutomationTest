@@ -4,7 +4,6 @@ from utils.read_json import JsonReader
 from utils.selenium_utils import SeleniumUtils
 from utils.test_utils import TestUtils
 from pages.newHome.real_estate_details_page import RealEstateDetailsPage
-from pages.agents.contact_agent import ContactAgent
 import allure
 import pytest
 
