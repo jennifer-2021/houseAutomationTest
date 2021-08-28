@@ -14,7 +14,8 @@ class SeleniumUtils:
 
     @staticmethod
     def get_previous_sibling_element(self, anchor_elem):
-        return self.driver.execute_script("return arguments[0].previousElementSibling;", anchor_elem) #preceding-sibling
+        return self.driver.execute_script("return arguments[0].previousElementSibling;",
+                                          anchor_elem)  # preceding-sibling
 
     @staticmethod
     def get_parent_element(self, anchor_elem):
@@ -31,6 +32,16 @@ class SeleniumUtils:
     @staticmethod
     def js_executor_click(self, element):
         self.driver.execute_script("arguments[0].click();", element)
+
+    # img_element - 选到 <img ...> 的node级别
+    @staticmethod
+    def is_img_display(self, img_element):
+        return self.driver.execute_script(
+            "return (typeof arguments[0].naturalWidth !=\"undefined\" && arguments[0].naturalWidth > 0);", img_element);
+
+    @staticmethod
+    def get_src_from_img(img_element):
+        return img_element.get_attribute("src")
 
     @staticmethod
     def switch_to_window(self, main_window):

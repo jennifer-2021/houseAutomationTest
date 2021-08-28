@@ -12,6 +12,7 @@ class SetDetailsPageLocators:
     discount_policy_subscribe_now = (By.CSS_SELECTOR, "[data-role='promotion']")
     house_tour_sign_up = (By.CSS_SELECTOR, "[data-role='event-signup']")
     consult_now = (By.CSS_SELECTOR, "[data-role='contact-support']")
+    photo_wall = (By.CSS_SELECTOR, ".newhouse-photo-wall .swiper-slide img")
 
 
 

@@ -34,3 +34,6 @@ class RealEstateDetailsPage(BasePage):
 
     def click_house_tour_button(self):
         self.wait_element(*SetDetailsPageLocators.house_tour_sign_up).click()
+
+    def get_photo_wall_img_elements(self):
+        return self.driver.find_elements(*SetDetailsPageLocators.photo_wall)
