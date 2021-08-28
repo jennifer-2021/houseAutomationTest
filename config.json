@@ -1,6 +1,6 @@
 {
   "browser": "chrome",
-  "headless_mode": false,
+  "headless_mode": true,
   "base_page": "https://house.51.ca",
   "timeout": 10
 }
