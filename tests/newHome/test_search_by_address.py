@@ -27,7 +27,7 @@ class TestSearchByAddress:
 
         # 3 检查列表页里所有的房源：楼盘名称
         list_page = NewhomeListPage(self.driver)
-        result_element_list = list_page.get_result_real_estate_list()
+        result_element_list = list_page.get_real_estate_list()
         if len(result_element_list) == 0:
             print("...........actual result: 0..............")
             assert False
