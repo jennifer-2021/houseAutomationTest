@@ -1,9 +1,9 @@
-import time
+
 from workflow.newHome.search_check_results import CheckSearchResults
 from pages.newHome.newhome_list_page import NewhomeListPage
 from pages.newHome.search_container import SearchContainer
 from utils.selenium_utils import SeleniumUtils
-from utils.read_json import JsonReader
+from utils.read_json_newhome import JsonReader
 import allure
 import pytest
 
@@ -17,7 +17,7 @@ class TestSearch:
     @pytest.mark.parametrize("searchCity", testdata)
     def test_search_by_suggested_cities(self, config, searchCity):
         if searchCity == "North York" or searchCity == "Scarborough":
-            return
+            searchCity = "Toronto"
         search_container = SearchContainer(self.driver)
         search_container.open_home_page(config)
         search_container.click_in_search_box()

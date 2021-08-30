@@ -1,6 +1,6 @@
 import time
 from utils.selenium_utils import SeleniumUtils
-from utils.read_json import JsonReader
+from utils.read_json_newhome import JsonReader
 from pages.newHome.search_container import SearchContainer
 import allure
 import pytest

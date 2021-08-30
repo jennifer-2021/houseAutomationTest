@@ -1,7 +1,7 @@
 
 
 from utils.selenium_utils import SeleniumUtils
-from utils.read_json import JsonReader
+from utils.read_json_newhome import JsonReader
 from pages.newHome.newhome_list_page import NewhomeListPage
 from pages.newHome.real_estate_details_page import RealEstateDetailsPage
 import allure

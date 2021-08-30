@@ -1,7 +1,7 @@
 from pages.newHome.search_container import SearchContainer
 from pages.newHome.newhome_list_page import NewhomeListPage
 from utils.selenium_utils import SeleniumUtils
-from utils.read_json import JsonReader
+from utils.read_json_newhome import JsonReader
 import allure
 import pytest
 import time

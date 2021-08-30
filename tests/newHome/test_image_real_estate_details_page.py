@@ -1,6 +1,6 @@
 import time
 
-from utils.read_json import JsonReader
+from utils.read_json_newhome import JsonReader
 from utils.selenium_utils import SeleniumUtils
 from utils.test_utils import TestUtils
 from pages.newHome.real_estate_details_page import RealEstateDetailsPage

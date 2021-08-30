@@ -1,6 +1,6 @@
 import time
 from pages.newHome.newhome_list_page import NewhomeListPage
-from utils.read_json import JsonReader
+from utils.read_json_newhome import JsonReader
 from utils.selenium_utils import SeleniumUtils
 from pages.newHome.search_container import SearchContainer
 from pages.newHome.real_estate_details_page import RealEstateDetailsPage
