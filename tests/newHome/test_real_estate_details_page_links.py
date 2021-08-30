@@ -51,6 +51,7 @@ class TestItemTags:
         time.sleep(2)
         current_url = self.driver.current_url
         print(current_url)
+        print("....testing - open the map: " + current_url)
         if "google.com/maps" not in current_url:
             print("...Error....楼盘详情页 - 地图链接 异常")
             error_counter += 1
@@ -61,7 +62,7 @@ class TestItemTags:
         try:
             real_estate_details_page.click_loan_pre_approve_button()
             title = contact_agent.get_loan_pre_approve_modal_title()
-            print("........test: 贷款预批申请 title....." + title)
+            print("....testing - open the modal: 贷款预批申请 title....." + title)
             contact_agent.close_loan_pre_approve_modal()
         except:
             print("........test 异常: 贷款预批申请 modal title")
@@ -70,7 +71,7 @@ class TestItemTags:
         try:
             real_estate_details_page.click_free_info_button()
             title = contact_agent.get_free_info_modal_title()
-            print("........test: 免费领取户型图&价格 title....." + title)
+            print("....testing - open the modal:: 免费领取户型图&价格 title....." + title)
             contact_agent.close_free_info_modal()
         except:
             print("........test 异常: 免费领取户型图&价格 modal title")
@@ -79,7 +80,7 @@ class TestItemTags:
         try:
             real_estate_details_page.click_payment_cycle_button()
             title = contact_agent.get_payment_cycle_modal_title()
-            print("........test: 付款周期 title....." + title)
+            print("....testing - open the modal:: 付款周期 title....." + title)
             contact_agent.close_payment_cycle_modal()
         except:
             print("........test 异常: 付款周期 modal title")
@@ -88,7 +89,7 @@ class TestItemTags:
         try:
             real_estate_details_page.click_house_tour_button()
             title = contact_agent.get_house_tour_modal_title()
-            print("........test: 免费报名 title....." + title)
+            print("....testing - open the modal:: 免费报名 title....." + title)
             contact_agent.close_house_tour_modal()
         except:
             print("........test 异常: 免费报名 modal title")
@@ -97,7 +98,7 @@ class TestItemTags:
         try:
             real_estate_details_page.click_discount_policy_button()
             title = contact_agent.get_discount_policy_modal_title()
-            print("........test: 优惠政策 title....." + title)
+            print("....testing - open the modal: 优惠政策 title....." + title)
             contact_agent.close_discount_policy_modal()
         except:
             print("........test 异常: 优惠政策 modal title")
@@ -106,7 +107,7 @@ class TestItemTags:
         try:
             real_estate_details_page.click_consult_button()
             title = contact_agent.get_consult_modal_title()
-            print("........test: 立即咨询 title....." + title)
+            print("....testing - open the modal: 立即咨询 title....." + title)
             contact_agent.close_consult_modal()
         except:
             print("........test 异常: 立即咨询 modal title")
