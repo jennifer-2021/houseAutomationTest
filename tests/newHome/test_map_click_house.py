@@ -15,7 +15,7 @@ class TestMapClickHouse:
     @allure.title("新房列表 - 房源图片上的 tag")
     @allure.description(" 验证：从地图上可以点击房源，进入详情页")
     @pytest.mark.parametrize("housePoint", testdata)
-    def test_tags_on_image(self, config, housePoint):
+    def test_open_details_from_map(self, config, housePoint):
         # 1 打开 新房首页
         list_page = NewhomeListPage(self.driver)
         list_page.open_home_page(config)
