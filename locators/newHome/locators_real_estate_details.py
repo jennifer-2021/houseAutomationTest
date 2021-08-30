@@ -14,3 +14,13 @@ class SetDetailsPageLocators:
     house_tour_sign_up = (By.CSS_SELECTOR, "[data-role='event-signup']")
     consult_now = (By.CSS_SELECTOR, "[data-role='contact-support']")
     photo_wall = (By.CSS_SELECTOR, ".newhouse-photo-wall .swiper-slide img")
+    navbar_list = (By.CSS_SELECTOR, ".navbar-scroll li>a")
+    newhome_high_light = (By.CSS_SELECTOR, ".newhome-highlights")
+    promotion_anchor = (By.CSS_SELECTOR, "#anchor-promotion+div h2")
+    floor_plan = (By.CSS_SELECTOR, ".floor-plan-section h2")
+    related_events = (By.CSS_SELECTOR, ".related-events-blocks>header>h2")
+
+
+
+
+

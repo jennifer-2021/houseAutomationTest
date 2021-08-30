@@ -1,3 +1,5 @@
+import json
+
 from pages.base_page import BasePage
 from utils.selenium_utils import SeleniumUtils
 from locators.newHome.locators_real_estate_details import SetDetailsPageLocators
@@ -36,3 +38,51 @@ class RealEstateDetailsPage(BasePage):
 
     def get_photo_wall_img_elements(self):
         return self.driver.find_elements(*SetDetailsPageLocators.photo_wall)
+
+    def get_navbar_elements(self):
+        return self.driver.find_elements(*SetDetailsPageLocators.navbar_list)
+
+    def get_name_position_on_screen(self):
+        element = self.driver.find_element(*SetDetailsPageLocators.real_estate_name)
+        position = element.location
+        return json.dumps(position)
+
+    def get_high_light_position_on_screen(self):
+        element = self.driver.find_element(*SetDetailsPageLocators.newhome_high_light)
+        position = element.location
+        return json.dumps(position)
+
+    def get_promotion_position_on_screen(self):
+        element = self.driver.find_element(*SetDetailsPageLocators.promotion_anchor)
+        position = element.location
+        return json.dumps(position)
+
+    def get_floor_plan_position_on_screen(self):
+        element = self.driver.find_element(*SetDetailsPageLocators.floor_plan)
+        position = element.location
+        return json.dumps(position)
+
+    def get_events_position_on_screen(self):
+        element = self.driver.find_element(*SetDetailsPageLocators.related_events)
+        position = element.location
+        return json.dumps(position)
+
+    def click_navbars(self):
+        click_counter = 0
+        element_list = self.get_navbar_elements()
+        for element in element_list:
+            text = SeleniumUtils.get_text_by_element(element)
+            element.click()
+            click_counter += 1
+            if text == "主要信息":
+                print(text + "..." + self.get_name_position_on_screen())
+            elif text == "项目亮点":
+                print(text + "..." + self.get_high_light_position_on_screen())
+            elif text == "优惠政策":
+                print(text + "..." + self.get_promotion_position_on_screen())
+            elif text == "户型&amp;价格":
+                print(text + "..." + self.get_floor_plan_position_on_screen())
+            elif text == "相关活动":
+                print(text + "..." + self.get_events_position_on_screen())
+        if click_counter < 3:
+            print("....楼盘详情页的navbar是否显示正常")
