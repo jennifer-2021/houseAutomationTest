@@ -1,4 +1,4 @@
-NewhomeBasePage
+from pages.newHome.new_home_base_page import NewhomeBasePage
 from utils.selenium_utils import SeleniumUtils
 from locators.newHome.locators_developer_details import SetDeveloperPageLocators
 
