@@ -11,7 +11,7 @@ class BasePage:
         self.driver = driver
 
     def open_home_page(self, config):
-        home_page = config["base_page"] + "/newhome"
+        home_page = config["base_page"]
         self.driver.get(home_page)
 
     def wait_element(self, By, css):
@@ -23,11 +23,6 @@ class BasePage:
         wait = WebDriverWait(self.driver, EXPLICIT_WAIT)
         element = wait.until(EC.presence_of_element_located((By, css)))
         return element
-
-    def wait_mapbox_loaded(self):
-        time.sleep(3)
-        self.wait_element(*SetNewhomeMapLocators.house_on_map_points)
-        time.sleep(3)
 
     def open_page(self, config, url):
         home_page = config["base_page"] + url
