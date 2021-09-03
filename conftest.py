@@ -1,7 +1,5 @@
 import json
 import time
-from selenium.webdriver.support.events import EventFiringWebDriver
-from helpers.webdriver_listener import WebDriverListener
 import pytest
 from utils.driver_factory import DriverFactory
 
@@ -26,7 +24,6 @@ def setup(request, config):
     driver = DriverFactory.get_driver(config["browser"], config["headless_mode"])
     driver.implicitly_wait(config["timeout"])
     request.cls.driver = driver
-    driver = EventFiringWebDriver(driver, WebDriverListener())
     driver.maximize_window()
 
     yield driver
