@@ -1,4 +1,4 @@
-import time
+from utils.test_utils import TestUtils
 from utils.selenium_utils import SeleniumUtils
 import re
 
@@ -83,9 +83,9 @@ class CheckSearchResults:
         unexpected_result = 0
         for element in result_element_list:
             text = SeleniumUtils.get_text_by_element(element)
-            actual_start_price = SeleniumUtils.get_price_int(text)
+            actual_start_price = TestUtils.get_price_int(text)
             if '-' in text:
-                actual_to_price = SeleniumUtils.get_to_price(text)
+                actual_to_price = TestUtils.get_to_price(text)
                 if actual_start_price > max_price_int or actual_to_price < minPrice:
                     self.price_print_err_address(element, text)
                     unexpected_result += 1
