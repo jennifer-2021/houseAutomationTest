@@ -15,7 +15,7 @@ class TestImagesAndLinks:
     @allure.title("楼盘详情页 - 图墙的图片和链接")
     @allure.description(" 验证：页面图墙的图片显示正常，图片的链接没有 broken ")
     @pytest.mark.parametrize("real_estate_url", testdata)
-    def a_test_photo_wall_links_and_images(self, config, real_estate_url):
+    def test_photo_wall_links_and_images(self, config, real_estate_url):
         # 1 打开 新房-楼盘详情页
         real_estate_details_page = RealEstateDetailsPage(self.driver)
         real_estate_details_page.open_page(config, real_estate_url)
@@ -34,7 +34,7 @@ class TestImagesAndLinks:
     @allure.title("楼盘详情页 - 点击每个navbar elements")
     @allure.description(" 验证：点击一遍详情页-主要信息,项目亮点,优惠政策,户型&价格,相关活动｜只能验证点击每个navbar elements后相应部分是正常的，不能验证点击后相应元素正好在屏幕上端")
     @pytest.mark.parametrize("real_estate_url", testdata)
-    def test_each_section_displayed(self, config, real_estate_url):
+    def a_test_each_section_displayed(self, config, real_estate_url):
         # 1 打开 新房-楼盘详情页
         real_estate_details_page = RealEstateDetailsPage(self.driver)
         real_estate_details_page.open_page(config, real_estate_url)
