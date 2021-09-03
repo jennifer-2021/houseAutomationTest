@@ -1,11 +1,11 @@
 import json
 
-from pages.base_page import BasePage
+from pages.newHome.new_home_base_page import NewhomeBasePage
 from utils.selenium_utils import SeleniumUtils
 from locators.newHome.locators_real_estate_details import SetDetailsPageLocators
 
 
-class RealEstateDetailsPage(BasePage):
+class RealEstateDetailsPage(NewhomeBasePage):
     def __init__(self, driver):
         super().__init__(driver)
 

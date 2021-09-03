@@ -1,6 +1,7 @@
 from pages.newHome.search_container import SearchContainer
 from pages.newHome.newhome_list_page import NewhomeListPage
 from utils.selenium_utils import SeleniumUtils
+from utils.test_utils import TestUtils
 from utils.read_json_newhome import JsonReader
 import allure
 import pytest
@@ -23,12 +24,12 @@ class TestSearch:
         search_container.wait_mapbox_loaded()
         search_container.click_checkin_time_button()
         checkinTime_elements = search_container.get_filter_dropdown_element_list()
-        dropdown_list = SeleniumUtils.get_text_list(checkinTime_elements)
+        dropdown_list = TestUtils.get_text_list(checkinTime_elements)
         if checkinTime not in dropdown_list:
             print("................test data Not in dropdown list: " + checkinTime)
             assert False
 
-        CheckSearchResults.click_filter(checkinTime_elements, checkinTime)
+        TestUtils.click_filter(checkinTime_elements, checkinTime)
 
         time.sleep(3)
         list_page = NewhomeListPage(self.driver)

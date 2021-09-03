@@ -1,6 +1,7 @@
 import time
-from utils.selenium_utils import SeleniumUtils
+from pages.search_common import SearchCommon
 from utils.read_json_newhome import JsonReader
+from utils.test_utils import TestUtils
 from pages.newHome.search_container import SearchContainer
 import allure
 import pytest
@@ -25,17 +26,18 @@ class TestSearchByAllFilters:
         search_container = SearchContainer(self.driver)
         search_container.open_home_page(config)
         # 2 点击搜索框
-        search_container.click_in_search_box()
+        search_common = SearchCommon(self.driver)
+        search_common.click_in_search_box()
         # 3 保持热门城市下拉框 打开
-        search_container.keep_search_suggest_menu_open()
+        search_common.keep_search_suggest_menu_open()
         city_elements = search_container.get_suggest_cities_elements()
-        dropdown_list = SeleniumUtils.get_text_list(city_elements)
+        dropdown_list = TestUtils.get_text_list(city_elements)
         # 4 如果测试数据/城市 在 下拉框内找不到，测试失败，退出，并打出信息
         if city not in dropdown_list:
             print("................test data Not in dropdown list: " + city)
             assert False
         # 5 点击测试的城市
-        CheckSearchResults.click_filter(city_elements, city)
+        TestUtils.click_filter(city_elements, city)
         search_container.wait_mapbox_loaded()
 
         #  6 如果 "North York" & "Scarborough" - 用 Toronto 来验证地址
@@ -47,23 +49,23 @@ class TestSearchByAllFilters:
         search_container.click_building_type_button()
         building_type_element_list = search_container.get_filter_dropdown_element_list()
         # 8 在下拉框内点击房型
-        CheckSearchResults.click_filter(building_type_element_list, buildingType)
+        TestUtils.click_filter(building_type_element_list, buildingType)
         search_container.wait_mapbox_loaded()
 
         # 9 在下拉框内点击入住时间
         search_container.click_checkin_time_button()
         checkin_time_element_list = search_container.get_filter_dropdown_element_list()
-        CheckSearchResults.click_filter(checkin_time_element_list, checkinTime)
+        TestUtils.click_filter(checkin_time_element_list, checkinTime)
         search_container.wait_mapbox_loaded()
 
         # 10 在下拉框内点击价格
         search_container.click_price_button()
         price_min_element_list = search_container.get_min_price_list()
-        CheckSearchResults.click_filter(price_min_element_list, minPrice)
+        TestUtils.click_filter(price_min_element_list, minPrice)
 
         # 10.2 点击最高价格
         price_max_element_list = search_container.get_max_price_list()
-        CheckSearchResults.click_filter(price_max_element_list, maxPrice)
+        TestUtils.click_filter(price_max_element_list, maxPrice)
         search_container.wait_mapbox_loaded()
 
         # 11 检查列表页里所有的房源：地址和房型 必须符合 测试数据
@@ -80,8 +82,8 @@ class TestSearchByAllFilters:
 
         unexpected_result += check_result.checkin_time_on_list(checkin_time_element_list, checkinTime)
 
-        minPrice = SeleniumUtils.get_price_int(minPrice)
-        maxPrice = SeleniumUtils.get_price_int(maxPrice)
+        minPrice = TestUtils.get_price_int(minPrice)
+        maxPrice = TestUtils.get_price_int(maxPrice)
         unexpected_result += check_result.check_price(price_element_list, minPrice, maxPrice)
 
         assert unexpected_result == 0

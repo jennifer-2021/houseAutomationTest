@@ -2,6 +2,7 @@ from utils.selenium_utils import SeleniumUtils
 from utils.read_json_newhome import JsonReader
 from pages.newHome.search_container import SearchContainer
 from pages.newHome.newhome_list_page import NewhomeListPage
+from pages.search_common import SearchCommon
 import allure
 import pytest
 
@@ -21,8 +22,9 @@ class TestSearchByAddress:
         search_container.open_home_page(config)
 
         # 2 搜索框 - 输入地址 - 点击搜索
-        search_container.set_search_box_input(address)
-        search_container.click_search_box_button()
+        search_common = SearchCommon(self.driver)
+        search_common.set_search_box_input(address)
+        search_common.click_search_box_button()
         search_container.wait_mapbox_loaded()
 
         # 3 检查列表页里所有的房源：楼盘名称

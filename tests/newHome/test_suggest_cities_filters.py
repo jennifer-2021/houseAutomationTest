@@ -1,10 +1,10 @@
 from pages.newHome.search_container import SearchContainer
 from utils.selenium_utils import SeleniumUtils
 from utils.read_json_newhome import JsonReader
+from utils.test_utils import TestUtils
+from pages.search_common import SearchCommon
 import allure
 import pytest
-import time
-import re
 
 
 @pytest.mark.usefixtures("setup")
@@ -16,9 +16,10 @@ class TestSuggestedCityAndFilter:
         testdata = JsonReader.get_search_suggested_cities_data()
         search_container = SearchContainer(self.driver)
         search_container.open_home_page(config)
-        search_container.click_in_search_box()
+        search_common = SearchCommon(self.driver)
+        search_common.click_in_search_box()
         city_element_list = search_container.get_suggest_cities_elements()
-        city_list = SeleniumUtils.get_text_list(city_element_list)
+        city_list = TestUtils.get_text_list(city_element_list)
 
         print("..........actual drop down list..............")
         print(city_list)
@@ -32,7 +33,7 @@ class TestSuggestedCityAndFilter:
         search_container.open_home_page(config)
         search_container.click_building_type_button()
         building_type_element_list = search_container.get_filter_dropdown_element_list()
-        building_type_list = SeleniumUtils.get_text_list(building_type_element_list)
+        building_type_list = TestUtils.get_text_list(building_type_element_list)
 
         print("..........actual drop down list..............")
         print(building_type_list)
@@ -46,7 +47,7 @@ class TestSuggestedCityAndFilter:
         search_container.open_home_page(config)
         search_container.click_checkin_time_button()
         checkin_time_element_list = search_container.get_filter_dropdown_element_list()
-        checkin_time_list = SeleniumUtils.get_text_list(checkin_time_element_list)
+        checkin_time_list = TestUtils.get_text_list(checkin_time_element_list)
 
         print("..........actual drop down list..............")
         print(checkin_time_list)
@@ -60,7 +61,7 @@ class TestSuggestedCityAndFilter:
         search_container.open_home_page(config)
         search_container.click_price_button()
         price_element_list = search_container.get_min_price_list()
-        price_list = SeleniumUtils.get_text_list(price_element_list)
+        price_list = TestUtils.get_text_list(price_element_list)
 
         print("..........actual drop down list..............")
         print(price_list)

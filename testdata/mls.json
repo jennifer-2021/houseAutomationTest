@@ -1,0 +1,37 @@
+{
+  "suggestedCity": ["Toronto", "Toronto Downtown", "North York", "Scarborough", "Markham", "Richmond Hill", "Vaughan", "Mississauga", "Newmarket", "Oakville"],
+  "transactionStatus": ["出售", "出租", "已出售", "已出租"],
+  "searchByMls": ["C5274939", "C5264942"],
+  "suggestCity": [
+    {"city": "Toronto",
+      "url": {"keyword": "Toronto", "locationId": "1", "transactionType": "1", "limit": "200"}},
+    {"city": "Toronto Downtown",
+      "url": {"keyword": "Toronto Downtown", "locationId": "9999", "transactionType": "1", "limit": "200"}},
+    {"city": "North York",
+      "url": {"keyword": "North York", "locationId": "9998", "transactionType": "1", "limit": "200"}},
+    {"city": "Scarborough",
+      "url": {"keyword": "Scarborough", "locationId": "9996", "transactionType": "1", "limit": "200"}},
+    {"city": "Markham",
+      "url": {"keyword": "Markham", "locationId": "145", "transactionType": "1", "limit": "200"}},
+    {"city": "Richmond Hill",
+      "url": {"keyword": "Richmond Hill", "locationId": "146", "transactionType": "1", "limit": "200"}},
+    {"city": "Vaughan",
+      "url": {"keyword": "Vaughan", "locationId": "144", "transactionType": "1", "limit": "200"}},
+    {"city": "Mississauga",
+      "url": {"keyword": "Mississauga", "locationId": "128", "transactionType": "1", "limit": "200"}},
+    {"city": "Newmarket",
+      "url": {"keyword": "Newmarket", "locationId": "149", "transactionType": "1", "limit": "200"}},
+    {"city": "Oakville",
+      "url": {"keyword": "Oakville", "locationId": "132", "transactionType": "1", "limit": "200"}}
+  ],
+  "searchKey": [
+    {"address": "11 Main Street, Mississauga",
+      "url": {"keyword": "11 Main Street Mississauga Ontario L5M 1X4 Canada", "transactionType": "1", "limit": "200"}},
+    {"address": "Vaughan Road Academy, Toronto",
+      "url": {"keyword": "Vaughan Road Academy Toronto Ontario M6C 3Y1 Canada", "transactionType": "1", "limit": "200"}},
+    {"address": "M1W 2S8",
+      "url": {"keyword": "M1W 2S8 Toronto Ontario Canada", "transactionType": "1", "limit": "200"}},
+    {"address": "M5W 1L8",
+      "url": {"keyword": "M5W 1L8 Toronto Ontario Canada", "transactionType": "1", "limit": "200"}}
+  ]
+}

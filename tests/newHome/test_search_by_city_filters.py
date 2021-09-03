@@ -4,6 +4,8 @@ from workflow.newHome.search_check_results import CheckSearchResults
 from pages.newHome.newhome_list_page import NewhomeListPage
 from utils.read_json_newhome import JsonReader
 from pages.newHome.search_container import SearchContainer
+from utils.test_utils import TestUtils
+from pages.search_common import SearchCommon
 import allure
 import pytest
 
@@ -21,17 +23,18 @@ class TestSearchByCityAndFilters:
         search_container.open_home_page(config)
         # 2 等待 mapbox fully loaded，再点击搜索框
         search_container.wait_mapbox_loaded()
-        search_container.click_in_search_box()
+        search_common = SearchCommon(self.driver)
+        search_common.click_in_search_box()
         # 3 保持热门城市下拉框 打开
-        search_container.keep_search_suggest_menu_open()
+        search_common.keep_search_suggest_menu_open()
         city_elements = search_container.get_suggest_cities_elements()
-        dropdown_list = SeleniumUtils.get_text_list(city_elements)
+        dropdown_list = TestUtils.get_text_list(city_elements)
         # 4 如果测试数据/城市 在 下拉框内找不到，测试失败，退出，并打出信息
         if city not in dropdown_list:
             print("................test data Not in dropdown list: " + city)
             assert False
         # 5 点击测试的城市
-        CheckSearchResults.click_filter(city_elements, city)
+        TestUtils.click_filter(city_elements, city)
 
         #  6 如果 "North York" & "Scarborough" - 用 Toronto 来验证地址
         if city == "North York" or city == "Scarborough":

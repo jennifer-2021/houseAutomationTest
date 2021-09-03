@@ -1,11 +1,11 @@
 import time
-from pages.base_page import BasePage
+from pages.newHome.new_home_base_page import NewhomeBasePage
 from locators.newHome.locators_newhome_map import SetNewhomeMapLocators
 from locators.newHome.locators_newhome_list import SetNewhomeListLocators
 from utils.selenium_utils import SeleniumUtils
 
 
-class NewhomeListPage(BasePage):
+class NewhomeListPage(NewhomeBasePage):
     def __init__(self, driver):
         super().__init__(driver)
 

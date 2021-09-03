@@ -1,8 +1,9 @@
-
+from pages.search_common import SearchCommon
 from workflow.newHome.search_check_results import CheckSearchResults
 from pages.newHome.newhome_list_page import NewhomeListPage
 from pages.newHome.search_container import SearchContainer
 from utils.selenium_utils import SeleniumUtils
+from utils.test_utils import TestUtils
 from utils.read_json_newhome import JsonReader
 import allure
 import pytest
@@ -20,15 +21,16 @@ class TestSearch:
             searchCity = "Toronto"
         search_container = SearchContainer(self.driver)
         search_container.open_home_page(config)
-        search_container.click_in_search_box()
-        search_container.keep_search_suggest_menu_open()
+        search_common = SearchCommon(self.driver)
+        search_common.click_in_search_box()
+        search_common.keep_search_suggest_menu_open()
         city_elements = search_container.get_suggest_cities_elements()
-        dropdown_list = SeleniumUtils.get_text_list(city_elements)
+        dropdown_list = TestUtils.get_text_list(city_elements)
         if searchCity not in dropdown_list:
             print("................test data Not in dropdown list: " + searchCity)
             assert False
         # 选择一个筛选项
-        CheckSearchResults.click_filter(city_elements, searchCity)
+        TestUtils.click_filter(city_elements, searchCity)
         list_page = NewhomeListPage(self.driver)
         list_page.wait_mapbox_loaded()
         # 拿到列表页里所有的地址elements

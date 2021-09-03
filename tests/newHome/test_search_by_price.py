@@ -2,6 +2,7 @@ import time
 from utils.selenium_utils import SeleniumUtils
 from utils.read_json_newhome import JsonReader
 from pages.newHome.search_container import SearchContainer
+from utils.test_utils import TestUtils
 from pages.newHome.newhome_list_page import NewhomeListPage
 import allure
 import pytest
@@ -27,22 +28,22 @@ class TestSearchByPrice:
         search_container.click_price_button()
         min_price_element_list = search_container.get_min_price_list()
         # 4 把所有的价格提取出来，放到 dropdown_list
-        dropdown_list = SeleniumUtils.get_text_list(min_price_element_list)
+        dropdown_list = TestUtils.get_text_list(min_price_element_list)
         # 5 如果 测试数据 minPrice 没有在 下拉框里，测试失败，打印错误价格，退出
         if minPrice not in dropdown_list:
             print("................test data Not in dropdown list: " + minPrice)
             assert False
 
         # 6 点击测试价格，作为起初价格 - min price
-        CheckSearchResults.click_filter(min_price_element_list, minPrice)
+        TestUtils.click_filter(min_price_element_list, minPrice)
 
         # 7 最高价格显示后，把把它们的页面元素放到 max_price_element_list 里面
         max_price_element_list = search_container.get_max_price_list()
         # 8 提出最高价格 的第一个值 - integer 格式
         max_price_text = SeleniumUtils.get_text_by_element(max_price_element_list[1])
-        max_price_int = SeleniumUtils.get_price_int(max_price_text)
+        max_price_int = TestUtils.get_price_int(max_price_text)
         # 9 把价格最低价转换成 Integer: i.e $1,000,000 to 1000000
-        minPrice = SeleniumUtils.get_price_int(minPrice)
+        minPrice = TestUtils.get_price_int(minPrice)
 
         # 10 点击第二个值 （第一个为：不限）
         max_price_element_list[1].click()

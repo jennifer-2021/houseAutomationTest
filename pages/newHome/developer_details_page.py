@@ -1,9 +1,9 @@
-from pages.base_page import BasePage
+NewhomeBasePage
 from utils.selenium_utils import SeleniumUtils
 from locators.newHome.locators_developer_details import SetDeveloperPageLocators
 
 
-class DeveloperPage(BasePage):
+class DeveloperPage(NewhomeBasePage):
     def __init__(self, driver):
         super().__init__(driver)
 

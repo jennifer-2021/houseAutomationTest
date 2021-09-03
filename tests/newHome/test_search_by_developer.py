@@ -1,6 +1,7 @@
 from utils.selenium_utils import SeleniumUtils
 from utils.read_json_newhome import JsonReader
 from pages.newHome.search_container import SearchContainer
+from pages.search_common import SearchCommon
 from pages.newHome.developer_details_page import DeveloperPage
 import allure
 import pytest
@@ -20,8 +21,9 @@ class TestSearchByDeveloper:
 
         # 2 搜索框 - 输入开发商名 - 点击进入详情页
         main_window = self.driver.current_window_handle
-        search_container.set_search_box_input(developer)
-        search_container.click_real_estate_suggest()
+        search_common = SearchCommon(self.driver)
+        search_common.set_search_box_input(developer)
+        search_container.click_suggest()
 
         # 3 检查开发商详情页：开发商名称
         SeleniumUtils.switch_to_window(self, main_window)

@@ -1,6 +1,7 @@
 from utils.selenium_utils import SeleniumUtils
 from utils.read_json_newhome import JsonReader
 from pages.newHome.search_container import SearchContainer
+from pages.search_common import SearchCommon
 from pages.newHome.real_estate_details_page import RealEstateDetailsPage
 import allure
 import pytest
@@ -20,8 +21,9 @@ class TestSearchByRealEstate:
 
         # 2 搜索框 - 输入楼盘名 - 点击搜索
         main_window = self.driver.current_window_handle
-        search_container.set_search_box_input(real_estate)
-        search_container.click_real_estate_suggest()
+        search_common = SearchCommon(self.driver)
+        search_common.set_search_box_input(real_estate)
+        search_container.click_suggest()
 
         # 3 检查楼盘详情页：楼盘名称
         SeleniumUtils.switch_to_window(self, main_window)
