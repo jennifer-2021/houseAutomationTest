@@ -30,8 +30,8 @@ class TestUtils:
         if '-' in price_range:
             price_range = price_range.split(" - ")[0]
 
-            price = price_range.replace('$', '')
-            price = price.replace(',', '')
+        price = price_range.replace('$', '')
+        price = price.replace(',', '')
         return int(price)
 
     @staticmethod
@@ -39,8 +39,8 @@ class TestUtils:
         to_price = ""
         if '-' in price_range:
             price_range = price_range.split(" - ")[1]
-            to_price = price_range.replace('$', '')
-            to_price = to_price.replace(',', '')
+        to_price = price_range.replace('$', '')
+        to_price = to_price.replace(',', '')
         return int(to_price)
 
         # param: element_list:
