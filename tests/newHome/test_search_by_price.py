@@ -17,7 +17,7 @@ class TestSearchByPrice:
     @allure.description("verify: all returned house price must meet the filter 'price' ")
     @pytest.mark.parametrize("minPrice", testdata)
     def test_search_by_building_type(self, config, minPrice):
-        if minPrice == "不限":
+        if minPrice == "不限" or minPrice == "$100,000" or minPrice == "$200,000":
             return
         # 1 打开 新房首页
         search_container = SearchContainer(self.driver)
