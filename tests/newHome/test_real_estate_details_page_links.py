@@ -53,8 +53,9 @@ class TestItemTags:
         print(current_url)
         print("....testing - open the map: " + current_url)
         if "google.com/maps" not in current_url:
-            print("...Error....楼盘详情页 - 地图链接 异常")
             error_counter += 1
+            print("...Error....楼盘详情页 - 地图链接 异常")
+
         self.driver.close()
         # 2 test: 贷款预批申请 modal displayed
         self.driver.switch_to_window(main_window)
@@ -70,7 +71,9 @@ class TestItemTags:
         # 6 免费领取户型图&价格
         time.sleep(0.5)
         try:
+            print(".......免费领取户型图&价格 - try to click the button")
             real_estate_details_page.click_free_info_button()
+            print(".......免费领取户型图&价格 - clicked the button")
             title = contact_agent.get_free_info_modal_title()
             print("....testing - open the modal:: 免费领取户型图&价格 title....." + title)
             contact_agent.close_free_info_modal()
@@ -80,7 +83,9 @@ class TestItemTags:
         # 7 付款周期
         time.sleep(0.5)
         try:
+            print(".......付款周期 - try to click the button")
             real_estate_details_page.click_payment_cycle_button()
+            print(".......付款周期 - clicked the button")
             title = contact_agent.get_payment_cycle_modal_title()
             print("....testing - open the modal:: 付款周期 title....." + title)
             contact_agent.close_payment_cycle_modal()
@@ -90,7 +95,9 @@ class TestItemTags:
         # 8 免费报名
         time.sleep(0.5)
         try:
+            print(".......免费报名 - try to click the button")
             real_estate_details_page.click_house_tour_button()
+            print(".......免费报名- clicked the button")
             title = contact_agent.get_house_tour_modal_title()
             print("....testing - open the modal:: 免费报名 title....." + title)
             contact_agent.close_house_tour_modal()
@@ -110,7 +117,9 @@ class TestItemTags:
         # 10 立即咨询
         time.sleep(0.5)
         try:
+            print(".......立即咨询 - try to click the button")
             real_estate_details_page.click_consult_button()
+            print(".......立即咨询- clicked the button")
             title = contact_agent.get_consult_modal_title()
             print("....testing - open the modal: 立即咨询 title....." + title)
             contact_agent.close_consult_modal()
