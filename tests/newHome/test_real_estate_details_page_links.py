@@ -69,9 +69,8 @@ class TestItemTags:
             print("........test 异常: 贷款预批申请 modal title")
             error_counter += 1
         # 6 免费领取户型图&价格
-        time.sleep(0.5)
+        print(".......免费领取户型图&价格 - try to click the button")
         try:
-            print(".......免费领取户型图&价格 - try to click the button")
             real_estate_details_page.click_free_info_button()
             print(".......免费领取户型图&价格 - clicked the button")
             title = contact_agent.get_free_info_modal_title()
@@ -81,9 +80,8 @@ class TestItemTags:
             print("........test 异常: 免费领取户型图&价格 modal title")
             error_counter += 1
         # 7 付款周期
-        time.sleep(0.5)
+        print(".......付款周期 - try to click the button")
         try:
-            print(".......付款周期 - try to click the button")
             real_estate_details_page.click_payment_cycle_button()
             print(".......付款周期 - clicked the button")
             title = contact_agent.get_payment_cycle_modal_title()
@@ -93,9 +91,8 @@ class TestItemTags:
             print("........test 异常: 付款周期 modal title")
             error_counter += 1
         # 8 免费报名
-        time.sleep(0.5)
+        print(".......免费报名 - try to click the button")
         try:
-            print(".......免费报名 - try to click the button")
             real_estate_details_page.click_house_tour_button()
             print(".......免费报名- clicked the button")
             title = contact_agent.get_house_tour_modal_title()
@@ -105,7 +102,7 @@ class TestItemTags:
             print("........test 异常: 免费报名 modal title")
             error_counter += 1
         # 9 优惠政策
-        time.sleep(0.5)
+        print(".......优惠政策 - try to click the button")
         try:
             real_estate_details_page.click_discount_policy_button()
             title = contact_agent.get_discount_policy_modal_title()
@@ -115,9 +112,8 @@ class TestItemTags:
             print("........test 异常: 优惠政策 modal title")
             error_counter += 1
         # 10 立即咨询
-        time.sleep(0.5)
+        print(".......立即咨询 - try to click the button")
         try:
-            print(".......立即咨询 - try to click the button")
             real_estate_details_page.click_consult_button()
             print(".......立即咨询- clicked the button")
             title = contact_agent.get_consult_modal_title()
@@ -128,3 +124,4 @@ class TestItemTags:
             error_counter += 1
 
         assert error_counter == 0
+
