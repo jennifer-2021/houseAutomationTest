@@ -9,13 +9,82 @@ import allure
 import pytest
 
 
+def open_free_info_modal(details_page, agent_page, errors):
+    try:
+        print(".......免费领取户型图&价格 - try to click the button")
+        details_page.click_loan_pre_approve_button()
+        title = agent_page.get_loan_pre_approve_modal_title()
+        print("....testing - open the modal: 贷款预批申请 title....." + title)
+        agent_page.close_loan_pre_approve_modal()
+    except:
+        print("........test 异常: 贷款预批申请 modal title")
+        errors += 1
+
+
+def open_payment_cycle_modal(details_page, agent_page, errors):
+    try:
+        details_page.click_payment_cycle_button()
+        print(".......付款周期 - clicked the button")
+        title = agent_page.get_payment_cycle_modal_title()
+        print("....testing - open the modal:: 付款周期 title....." + title)
+        agent_page.close_payment_cycle_modal()
+    except:
+        print("........test 异常: 付款周期 modal title")
+        errors += 1
+
+
+def open_house_tour_modal(details_page, agent_page, errors):
+    try:
+        details_page.click_house_tour_button()
+        print(".......免费报名- clicked the button")
+        title = agent_page.get_house_tour_modal_title()
+        print("....testing - open the modal:: 免费报名 title....." + title)
+        agent_page.close_house_tour_modal()
+    except:
+        print("........test 异常: 免费报名 modal title")
+        errors += 1
+
+
+def open_discount_policy(details_page, agent_page, errors):
+    try:
+        details_page.click_discount_policy_button()
+        title = agent_page.get_discount_policy_modal_title()
+        print("....testing - open the modal: 优惠政策 title....." + title)
+        agent_page.close_discount_policy_modal()
+    except:
+        print("........test 异常: 优惠政策 modal title")
+        errors += 1
+
+
+def open_loan_pre_approve(details_page, agent_page, errors):
+    try:
+        details_page.click_loan_pre_approve_button()
+        title = agent_page.get_loan_pre_approve_modal_title()
+        print("....testing - open the modal: 贷款预批申请 title....." + title)
+        agent_page.close_loan_pre_approve_modal()
+    except:
+        print("........test 异常: 贷款预批申请 modal title")
+        errors += 1
+
+
+def open_consult_modal(details_page, agent_page, errors):
+    try:
+        details_page.click_consult_button()
+        print(".......立即咨询- clicked the button")
+        title = agent_page.get_consult_modal_title()
+        print("....testing - open the modal: 立即咨询 title....." + title)
+        agent_page.close_consult_modal()
+    except:
+        print("........test 异常: 立即咨询 modal title")
+        errors += 1
+
+
 @pytest.mark.usefixtures("setup")
 class TestItemTags:
 
     @allure.title("楼盘列表页 - 点击房源图片进入详情页")
     @allure.description(" 验证：详情页-楼盘名 和 列表页上的楼盘名相符 ")
     def test_click_link_to_details_page(self, config):
-
         # 1 打开 新房首页
         search_container = SearchContainer(self.driver)
         search_container.open_home_page(config)
@@ -40,7 +109,6 @@ class TestItemTags:
     @allure.description(" 验证：所有的链接都能打开正确的窗口 ")
     @pytest.mark.parametrize("real_estate_url", testdata)
     def test_buttons_on_details_page(self, config, real_estate_url):
-
         # 1 打开 新房-楼盘详情页
         real_estate_details_page = RealEstateDetailsPage(self.driver)
         real_estate_details_page.open_page(config, real_estate_url)
@@ -60,68 +128,24 @@ class TestItemTags:
         # 2 test: 贷款预批申请 modal displayed
         self.driver.switch_to_window(main_window)
         contact_agent = ContactAgent(self.driver)
-        try:
-            real_estate_details_page.click_loan_pre_approve_button()
-            title = contact_agent.get_loan_pre_approve_modal_title()
-            print("....testing - open the modal: 贷款预批申请 title....." + title)
-            contact_agent.close_loan_pre_approve_modal()
-        except:
-            print("........test 异常: 贷款预批申请 modal title")
-            error_counter += 1
+        open_consult_modal(real_estate_details_page, contact_agent, error_counter)
+
         # 6 免费领取户型图&价格
-        print(".......免费领取户型图&价格 - try to click the button")
-        try:
-            real_estate_details_page.click_free_info_button()
-            print(".......免费领取户型图&价格 - clicked the button")
-            title = contact_agent.get_free_info_modal_title()
-            print("....testing - open the modal:: 免费领取户型图&价格 title....." + title)
-            contact_agent.close_free_info_modal()
-        except:
-            print("........test 异常: 免费领取户型图&价格 modal title")
-            error_counter += 1
+        open_free_info_modal(real_estate_details_page, contact_agent, error_counter)
+
         # 7 付款周期
         print(".......付款周期 - try to click the button")
-        try:
-            real_estate_details_page.click_payment_cycle_button()
-            print(".......付款周期 - clicked the button")
-            title = contact_agent.get_payment_cycle_modal_title()
-            print("....testing - open the modal:: 付款周期 title....." + title)
-            contact_agent.close_payment_cycle_modal()
-        except:
-            print("........test 异常: 付款周期 modal title")
-            error_counter += 1
+        open_payment_cycle_modal(real_estate_details_page, contact_agent, error_counter)
+
         # 8 免费报名
         print(".......免费报名 - try to click the button")
-        try:
-            real_estate_details_page.click_house_tour_button()
-            print(".......免费报名- clicked the button")
-            title = contact_agent.get_house_tour_modal_title()
-            print("....testing - open the modal:: 免费报名 title....." + title)
-            contact_agent.close_house_tour_modal()
-        except:
-            print("........test 异常: 免费报名 modal title")
-            error_counter += 1
+        open_house_tour_modal(real_estate_details_page, contact_agent, error_counter)
         # 9 优惠政策
         print(".......优惠政策 - try to click the button")
-        try:
-            real_estate_details_page.click_discount_policy_button()
-            title = contact_agent.get_discount_policy_modal_title()
-            print("....testing - open the modal: 优惠政策 title....." + title)
-            contact_agent.close_discount_policy_modal()
-        except:
-            print("........test 异常: 优惠政策 modal title")
-            error_counter += 1
+        open_discount_policy(real_estate_details_page, contact_agent, error_counter)
+
         # 10 立即咨询
         print(".......立即咨询 - try to click the button")
-        try:
-            real_estate_details_page.click_consult_button()
-            print(".......立即咨询- clicked the button")
-            title = contact_agent.get_consult_modal_title()
-            print("....testing - open the modal: 立即咨询 title....." + title)
-            contact_agent.close_consult_modal()
-        except:
-            print("........test 异常: 立即咨询 modal title")
-            error_counter += 1
+        open_consult_modal(real_estate_details_page, contact_agent, error_counter)
 
         assert error_counter == 0
-
