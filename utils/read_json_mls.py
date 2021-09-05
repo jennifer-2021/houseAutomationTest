@@ -27,6 +27,11 @@ class JsonReader:
         return mls_data["searchKey"]
 
     @staticmethod
-    def get_mls_transaction_status_data():
+    def get_transaction_status_data():
         mls_data = get_mls_json()
         return mls_data["transactionStatus"]
+
+    @staticmethod
+    def get_transaction2_status_data():
+        mls_data = get_mls_json()
+        return mls_data["transactionStatus2"]

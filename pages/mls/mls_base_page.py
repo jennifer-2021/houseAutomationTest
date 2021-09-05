@@ -16,6 +16,6 @@ class MlsBasePage(BasePage):
         self.driver.refresh()
 
     def wait_mapbox_loaded(self):
-        sleep(3)
+        sleep(2)
         self.wait_element(*SetNewhomeMapLocators.house_on_map_points)
-        sleep(1)
+        sleep(2)

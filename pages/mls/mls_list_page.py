@@ -1,6 +1,7 @@
 from utils.selenium_utils import SeleniumUtils
 from pages.mls.mls_base_page import MlsBasePage
 from locators.mls.locators_mls_list import SetMlsListLocators
+from locators.mls.locators_mls_map import SetMlsMapLocators
 from utils.test_utils import TestUtils
 
 
@@ -13,8 +14,8 @@ class MlsListPage(MlsBasePage):
         return self.driver.find_elements(*SetMlsListLocators.search_result_address_list)
 
     # 地图 - 点击地图上的点
-    def click_house_point_on_map(self, listNumber):
-        elements = self.driver.find_elements(*SetNewhomeMapLocators.house_on_map_points)
+    def click_house_single_point_on_map(self, listNumber):
+        elements = self.driver.find_elements(*SetMlsMapLocators.house_on_map_points_single)
         self.driver.execute_script("arguments[0].click();", elements[listNumber])
 
     # get transaction type list[element]

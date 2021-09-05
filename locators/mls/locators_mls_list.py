@@ -21,4 +21,4 @@ class SetMlsListLocators:
     # map_box 上的点 - return element list - all points
     map_box_points = (By.CSS_SELECTOR, ".marker-container.mapboxgl-marker")
     # transaction type
-    list_transaction_type = (By.CSS_SELECTOR, ".transactionType-point")
+    list_transaction_type = (By.CSS_SELECTOR, ".el51__transaction-type-tag span")

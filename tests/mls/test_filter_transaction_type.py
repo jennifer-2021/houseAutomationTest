@@ -1,6 +1,7 @@
 from pages.search_common import SearchCommon
 from pages.mls.search_mls_container import SearchMlsContainer
 from pages.mls.mls_list_page import MlsListPage
+from workflow.mls.mls_list_work_flow import MlsListWorkflow
 from utils.read_json_mls import JsonReader
 from utils.test_utils import TestUtils
 import allure
@@ -35,23 +36,25 @@ class TestFilter:
         print(expected)
         assert expected == actual_result
 
-    transactiondata = JsonReader.get_mls_transaction_status_data()
+    transactiondata = JsonReader.get_transaction_status_data()
 
-    @allure.title("二手房 - 出售,出租,已出售,已出租 ")
-    @allure.description("验证: 点击出售,出租,已出售,已出租，返回的所有城市租售状态 必须符合筛选条件")
+    @allure.title("二手房 - 城市：默认为空白选项；测试：出售,出租 ")
+    @allure.description("验证: 点击出售,出租，返回的所有房源的租售状态 必须符合筛选条件")
     @pytest.mark.parametrize("transaction", transactiondata)
-    def stest_suggested_cities(self, config, transaction):
+    def test_transaction_type(self, config, transaction):
         # 1 open mls home page
         search_mls_container = SearchMlsContainer(self.driver)
         search_mls_container.open_home_page(config)
         search_mls_container.wait_mapbox_loaded()
         # 2 click each transaction status
         mls_list_page = MlsListPage(self.driver)
-        transaction_element_list = search_mls_container.get_sale_element_list()
+
         if transaction != "出售":
-            TestUtils.click_filter(transaction_element_list, transaction)
+            search_mls_container.click_sale_button()
+            drop_down_element_list = search_mls_container.get_sale_element_list()
+            TestUtils.click_filter(drop_down_element_list, transaction)
 
         # 3 verify
-        house_transaction_element_list = mls_list_page.get_transaction_element_list()
-        is_all_transaction_in_place = TestUtils.is_text_in_string(house_transaction_element_list, transaction)
-        assert is_all_transaction_in_place
+        transaction_element_list = mls_list_page.get_transaction_element_list()
+        is_all_transaction_in_place = MlsListWorkflow.verify_transaction_status(transaction_element_list, transaction)
+        assert is_all_transaction_in_place == 0

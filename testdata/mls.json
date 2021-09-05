@@ -1,6 +1,7 @@
 {
   "suggestedCity": ["Toronto", "Toronto Downtown", "North York", "Scarborough", "Markham", "Richmond Hill", "Vaughan", "Mississauga", "Newmarket", "Oakville"],
-  "transactionStatus": ["出售", "出租", "已出售", "已出租"],
+  "transactionStatus": ["出售", "出租"],
+  "transactionStatus2": ["已出售", "已出租"],
   "searchByMls": ["C5274939", "C5264942"],
   "suggestCity": [
     {"city": "Toronto",
