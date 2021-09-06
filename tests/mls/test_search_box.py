@@ -32,8 +32,8 @@ class TestSearch:
         search_mls_container.wait_mapbox_loaded()
         url = self.driver.current_url
         actual_result = TestUtils.parse_url_get_dict(url)
-        print(actual_result)
-        print(expected)
+        print("actual result..." + actual_result)
+        print("expected..." + expected)
         assert expected == actual_result
 
     searchKeydata = JsonReader.get_mls_search_data()

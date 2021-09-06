@@ -15,7 +15,7 @@ class TestSearchByCityAndFilters:
     testdata = JsonReader.get_search_suggested_cities_data()
 
     @allure.title("Newhome - search - 每个城市 和其对应的每个房型的搜索结果")
-    @allure.description("verify: 在搜索结果列表页上的 每个房源的 城市地址和房型描述 必须满足搜索条件")
+    @allure.description("verify: 搜索结果 - 每个房源的 城市地址和房型 必须满足搜索条件")
     @pytest.mark.parametrize("city", testdata)
     def test_search_by_city_with_building_type(self, config, city):
         # 1. 打开 新房 主页
@@ -75,6 +75,6 @@ class TestSearchByCityAndFilters:
                 for building_type_element in search_result_building_type_element_list:
                     building_type_on_result = SeleniumUtils.get_text_by_element(building_type_element)
                     if building_type not in building_type_on_result:
-                        print(".................. error address in test: " + address_on_result)
+                        print(building_type + "...building type error... address in test: " + address_on_result)
                         error_counter += 1
         assert error_counter == 0
