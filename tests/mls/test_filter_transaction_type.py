@@ -47,14 +47,41 @@ class TestFilter:
         search_mls_container.open_home_page(config)
         search_mls_container.wait_mapbox_loaded()
         # 2 click each transaction status
-        mls_list_page = MlsListPage(self.driver)
 
         if transaction != "出售":
-            search_mls_container.click_sale_button()
-            drop_down_element_list = search_mls_container.get_sale_element_list()
-            TestUtils.click_filter(drop_down_element_list, transaction)
+            search_mls_container.select_transaction_type(transaction)
 
         # 3 verify
+        mls_list_page = MlsListPage(self.driver)
         transaction_element_list = mls_list_page.get_transaction_element_list()
         is_all_transaction_in_place = MlsListWorkflow.verify_transaction_status(transaction_element_list, transaction)
         assert is_all_transaction_in_place == 0
+
+    transactiondata2 = JsonReader.get_transaction2_status_data()
+
+    @allure.title("二手房 - 城市：默认为空白选项；测试：已出售, 已出租 ")
+    @allure.description("点击已出售, 已出租，验证: 返回的所有房源的 1 内容标签 2 图片上的标签")
+    @pytest.mark.parametrize("transaction", transactiondata2)
+    def test_transaction_type_2(self, config, transaction):
+        # 1 open mls home page
+        search_mls_container = SearchMlsContainer(self.driver)
+        search_mls_container.open_home_page(config)
+        search_mls_container.wait_mapbox_loaded()
+
+        # 2 click each transaction status
+        search_mls_container.select_transaction_type(transaction)
+
+        # 3 verify
+        mls_list_page = MlsListPage(self.driver)
+        transaction_element_list = mls_list_page.get_transaction_element_list()
+        error_counter = MlsListWorkflow.verify_transaction_status(transaction_element_list, transaction)
+
+        if transaction == '已出售':
+            transaction_icon_element_list = mls_list_page.get_transaction_sold_element_list()
+        else:
+            transaction_icon_element_list = mls_list_page.get_transaction_leased_element_list()
+
+        if len(transaction_element_list) != len(transaction_icon_element_list):
+            error_counter += 1
+
+        assert error_counter == 0

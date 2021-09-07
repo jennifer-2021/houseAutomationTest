@@ -22,3 +22,7 @@ class SetMlsListLocators:
     map_box_points = (By.CSS_SELECTOR, ".marker-container.mapboxgl-marker")
     # transaction type
     list_transaction_type = (By.CSS_SELECTOR, ".el51__transaction-type-tag span")
+    # transaction type tag on image
+    list_sold_transaction_type = (By.CSS_SELECTOR, "img[src*='icon_sold']")
+    # transaction type tag on image
+    list_leased_transaction_type = (By.CSS_SELECTOR, "img[src*='icon_leased']")

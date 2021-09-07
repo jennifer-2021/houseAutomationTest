@@ -18,6 +18,15 @@ class MlsListPage(MlsBasePage):
         elements = self.driver.find_elements(*SetMlsMapLocators.house_on_map_points_single)
         self.driver.execute_script("arguments[0].click();", elements[listNumber])
 
-    # get transaction type list[element]
+    # get 列表上 所有房源 的 交易类型描述 - list[element]
     def get_transaction_element_list(self):
         return self.driver.find_elements(*SetMlsListLocators.list_transaction_type)
+
+    # get 列表上 所有房源 图片上的 已售出 标签 - list[element]
+    def get_transaction_sold_element_list(self):
+        return self.driver.find_elements(*SetMlsListLocators.list_sold_transaction_type)
+
+    # get 列表上 所有房源 图片上的 已租出 标签 - list[element]
+    def get_transaction_leased_element_list(self):
+        return self.driver.find_elements(*SetMlsListLocators.list_leased_transaction_type)
+

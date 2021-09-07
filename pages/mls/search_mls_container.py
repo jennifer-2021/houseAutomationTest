@@ -1,6 +1,7 @@
 from locators.mls.locators_mls_search_container import SetMlsSearchLocators
 from pages.mls.mls_base_page import MlsBasePage
 from utils.selenium_utils import SeleniumUtils
+from utils.test_utils import TestUtils
 from time import sleep
 
 
@@ -122,3 +123,9 @@ class SearchMlsContainer(MlsBasePage):
         sleep(1)
         self.wait_element(*SetMlsSearchLocators.search_activated_suggest).click()
         sleep(1)
+
+    # 选择 - "出售", "出租"，"已出售", "已出租"
+    def select_transaction_type(self, transaction_type):
+        self.click_sale_button()
+        drop_down_element_list = self.get_sale_element_list()
+        TestUtils.click_filter(drop_down_element_list, transaction_type)
