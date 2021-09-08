@@ -8,7 +8,7 @@ import allure
 import pytest
 
 
-@pytest.mark.usefixtures("setup")
+@pytest.mark.usefixtures("mls_setup")
 class TestSearch:
     testdata = JsonReader.get_mls_suggested_cities_data()
 
@@ -20,8 +20,6 @@ class TestSearch:
         city = cityObject["city"]
         expected = cityObject["url"]
         search_mls_container = SearchMlsContainer(self.driver)
-        search_mls_container.open_home_page(config)
-        search_mls_container.wait_mapbox_loaded()
         # 2 click on search box to open the drop down list
         search_common = SearchCommon(self.driver)
         search_common.click_in_search_box()
@@ -46,8 +44,6 @@ class TestSearch:
         expected = searchObject["url"]
         # 1 open mls home page
         search_mls_container = SearchMlsContainer(self.driver)
-        search_mls_container.open_home_page(config)
-        search_mls_container.wait_mapbox_loaded()
         # 2 click on search box to open the drop down list
         search_common = SearchCommon(self.driver)
         search_common.set_search_box_input(address)
@@ -68,8 +64,6 @@ class TestSearch:
     def test_search_by_keys(self, config, mls):
         # 1 open mls home page
         search_mls_container = SearchMlsContainer(self.driver)
-        search_mls_container.open_home_page(config)
-        search_mls_container.wait_mapbox_loaded()
         main_window = self.driver.current_window_handle
         # 2 click on search box to open the drop down list
         search_common = SearchCommon(self.driver)

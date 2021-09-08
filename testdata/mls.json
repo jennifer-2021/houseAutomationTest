@@ -34,5 +34,26 @@
       "url": {"keyword": "M1W 2S8 Toronto Ontario Canada", "transactionType": "1", "limit": "200"}},
     {"address": "M5W 1L8",
       "url": {"keyword": "M5W 1L8 Toronto Ontario Canada", "transactionType": "1", "limit": "200"}}
+  ],
+  "buildingType": [
+    {"bt": "独立屋", "expected": {"buildingType": "2", "transactionType": "1", "limit": "200"}},
+    {"bt": "半独立屋", "expected": {"buildingType": "3", "transactionType": "1", "limit": "200"}},
+    {"bt": "镇屋", "expected": {"buildingType": "4", "transactionType": "1", "limit": "200"}},
+    {"bt": "公寓", "expected": {"buildingType": "5", "transactionType": "1", "limit": "200"}},
+    {"bt": "Duplex", "expected": {"buildingType": "6", "transactionType": "1", "limit": "200"}},
+    {"bt": "Mobile Home", "expected": {"buildingType": "7", "transactionType": "1", "limit": "200"}},
+    {"bt": "Manufactured Home/Mobile", "expected": {"transactionType": "1", "limit": "200"}},
+    {"bt": "Manufactured Home", "expected": {"transactionType": "1", "limit": "200"}},
+    {"bt": "Manufactured Home", "expected": {"transactionType": "1", "limit": "200"}},
+    {"bt": "Triplex", "expected": {"buildingType": "10", "transactionType": "1", "limit": "200"}},
+    {"bt": "Fourplex", "expected": {"buildingType": "11", "transactionType": "1", "limit": "200"}},
+    {"bt": "Garden Home", "expected": {"transactionType": "1", "limit": "200"}},
+    {"bt": "Special Purpose", "expected": {"transactionType": "1", "limit": "200"}},
+    {"bt": "Residential Commercial Mix", "expected": {"transactionType": "1", "limit": "200"}},
+    {"bt": "Commercial Apartment", "expected": {"transactionType": "1", "limit": "200"}},
+    {"bt": "Two Apartment House", "expected": {"transactionType": "1", "limit": "200"}},
+    {"bt": "Park Model Mobile Home", "expected": {"transactionType": "1", "limit": "200"}},
+    {"bt": "Multi-family", "expected": {"buildingType": "18", "transactionType": "1", "limit": "200"}},
+    {"bt": "Parking", "expected": {"buildingType": "19", "transactionType": "1", "limit": "200"}}
   ]
 }

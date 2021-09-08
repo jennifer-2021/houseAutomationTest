@@ -29,6 +29,10 @@ class SearchMlsContainer(MlsBasePage):
     def click_building_type_button(self):
         self.wait_element(*SetMlsSearchLocators.filter_building_type).click()
 
+    #
+    def click_building_type_confirm_button(self):
+        self.wait_element(*SetMlsSearchLocators.filter_building_type_confirm_selection).click()
+
     # 筛选 - 点击 价格
     def click_price_button(self):
         self.wait_element(*SetMlsSearchLocators.filter_price).click()
@@ -123,9 +127,23 @@ class SearchMlsContainer(MlsBasePage):
         sleep(1)
         self.wait_element(*SetMlsSearchLocators.search_activated_suggest).click()
         sleep(1)
+    # 筛选条件 selected filter
+    def get_selected_filter(self):
+        element = self.wait_element(*SetMlsSearchLocators.filter_selected)
+        return SeleniumUtils.get_text_by_element(element)
 
     # 选择 - "出售", "出租"，"已出售", "已出租"
     def select_transaction_type(self, transaction_type):
         self.click_sale_button()
         drop_down_element_list = self.get_sale_element_list()
         TestUtils.click_filter(drop_down_element_list, transaction_type)
+
+    # 选择 - any building type
+    def select_building_type(self, building_type):
+        self.click_building_type_button()
+        drop_down_element_list = self.get_building_type_element_list()
+        TestUtils.click_filter(drop_down_element_list, building_type)
+        self.click_building_type_confirm_button()
+        sleep(1)
+
+

@@ -6,11 +6,12 @@ class SetMlsSearchLocators(SetSearchLocators):
     search_box_suggested_city_list = (By.CSS_SELECTOR, ".suggest-item h5")
     filter_sale = (By.CSS_SELECTOR, ".menu-min-160.transaction-type")
     filter_building_type = (By.XPATH, "//span[text()='房型']")
+    filter_building_type_confirm_selection = (By.CSS_SELECTOR, ".building-type-options button")
     filter_price = (By.CSS_SELECTOR, ".filter-dropdown-price-range .toggler")
     filter_bedroom = (By.CSS_SELECTOR, ".el51__multi-select.menu-min-160")
     filter_more = (By.CSS_SELECTOR, ".more-filter-dropdown .toggler")
     filter_sale_list = (By.CSS_SELECTOR, ".menu-min-160 .show .item")
-    filter_building_type_list = (By.CSS_SELECTOR, ".building-type-options .label-sub")
+    filter_building_type_list = (By.CSS_SELECTOR, ".building-type-options .label-txt")
     filter_building_type_list_submit = (By.CSS_SELECTOR, ".building-type-options button")
     filter_price_min = (By.CSS_SELECTOR, ".range-input .min")
     filter_price_max = (By.CSS_SELECTOR, ".range-input .max")
@@ -41,6 +42,8 @@ class SetMlsSearchLocators(SetSearchLocators):
     filter_more_submit = (By.CSS_SELECTOR, ".more-filter-footer .el51__btn")
     # search box - activated suggestion
     search_activated_suggest = (By.CSS_SELECTOR, ".suggest-menu [data-index='0'] .overview")
+    # selected filters displayed 筛选条件
+    filter_selected = (By.CSS_SELECTOR, ".filter-detail-box .tag.opt:nth-child(2)")
 
 
 

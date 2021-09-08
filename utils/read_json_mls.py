@@ -35,3 +35,8 @@ class JsonReader:
     def get_transaction2_status_data():
         mls_data = get_mls_json()
         return mls_data["transactionStatus2"]
+
+    @staticmethod
+    def get_building_type_data():
+        mls_data = get_mls_json()
+        return mls_data["buildingType"]
