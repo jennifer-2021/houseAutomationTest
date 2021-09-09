@@ -1,7 +1,5 @@
-from pages.search_common import SearchCommon
+
 from pages.mls.search_mls_container import SearchMlsContainer
-from pages.mls.mls_list_page import MlsListPage
-from workflow.mls.mls_list_work_flow import MlsListWorkflow
 from utils.read_json_mls import JsonReader
 from utils.test_utils import TestUtils
 import allure

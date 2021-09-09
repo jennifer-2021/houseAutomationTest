@@ -26,3 +26,5 @@ class SetMlsListLocators:
     list_sold_transaction_type = (By.CSS_SELECTOR, "img[src*='icon_sold']")
     # transaction type tag on image
     list_leased_transaction_type = (By.CSS_SELECTOR, "img[src*='icon_leased']")
+    # bedrooms on list
+    search_result_bedroom_list = (By.CSS_SELECTOR, ".item-col.bed span")

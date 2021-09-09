@@ -1,3 +1,5 @@
+from selenium.webdriver.common.keys import Keys
+
 from locators.mls.locators_mls_search_container import SetMlsSearchLocators
 from pages.mls.mls_base_page import MlsBasePage
 from utils.selenium_utils import SeleniumUtils
@@ -55,10 +57,15 @@ class SearchMlsContainer(MlsBasePage):
 
     # 筛选 - '价格'下拉框 - 设定最小，最大价格
     def set_price_min(self, min_price):
-        self.wait_element(*SetMlsSearchLocators.filter_price_min).send_keys(min_price)
+        elem = self.wait_element(*SetMlsSearchLocators.filter_price_min)
+        elem.click()
+       # elem.send_keys(Keys.NUMPAD8)
+        elem.send_keys(min_price)
 
     def set_price_max(self, max_price):
-        self.wait_element(*SetMlsSearchLocators.filter_price_max).send_keys(max_price)
+        elem = self.wait_element(*SetMlsSearchLocators.filter_price_max)
+        elem.click()
+        elem.send_keys(max_price)
 
     # 筛选 - '卧室'下拉框 - 返回： list[element]
     def get_bedroom_element_list(self):
@@ -68,6 +75,10 @@ class SearchMlsContainer(MlsBasePage):
     def get_days_on_market_text(self):
         element = self.wait_element(*SetMlsSearchLocators.filter_days_on_market)
         return SeleniumUtils.get_text_by_element(element)
+
+    # 筛选 - '更多'下拉框, 室内面积 返回： list[element]
+    def get_house_area(self):
+        return self.driver.find_elements(*SetMlsSearchLocators.filter_more_area)
 
     # 筛选 - '更多'下拉框, 上市天数 - 返回： list[element]
     def get_days_on_market_element_list(self):
@@ -127,6 +138,7 @@ class SearchMlsContainer(MlsBasePage):
         sleep(1)
         self.wait_element(*SetMlsSearchLocators.search_activated_suggest).click()
         sleep(1)
+
     # 筛选条件 selected filter
     def get_selected_filter(self):
         element = self.wait_element(*SetMlsSearchLocators.filter_selected)
@@ -146,4 +158,40 @@ class SearchMlsContainer(MlsBasePage):
         self.click_building_type_confirm_button()
         sleep(1)
 
+    # set price
+    def set_price_range(self, min, max):
+        self.click_price_button()
+        self.set_price_min(min)
+        self.click_price_button()
+        self.click_price_button()
+        self.set_price_max(max)
+        self.click_price_button()
+        sleep(1)
 
+    # select bedroom
+    def select_bedroom(self, bedroom):
+        self.click_bedroom_button()
+        element_list = self.get_bedroom_element_list()
+        for element in element_list:
+            text = SeleniumUtils.get_attribute_value(element, "value")
+            if text == bedroom:
+                element.click()
+                break
+        self.click_bedroom_button()
+        sleep(1)
+
+    # 筛选 - '更多'下拉框, 上市天数
+    def select_days_on_market(self, days):
+        self.click_more_button()
+        element_list = self.get_days_on_market_element_list()
+        TestUtils.click_filter(element_list, days)
+        self.click_more_search_button()
+        sleep(1)
+
+    # 筛选 - '更多'下拉框, 室内面积
+    def select_house_area(self, area):
+        self.click_more_button()
+        element_list = self.get_house_area()
+        TestUtils.click_filter(element_list, area)
+        self.click_more_search_button()
+        sleep(1)

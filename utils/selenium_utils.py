@@ -40,8 +40,17 @@ class SeleniumUtils:
             "return (typeof arguments[0].naturalWidth !=\"undefined\" && arguments[0].naturalWidth > 0);", img_element);
 
     @staticmethod
+    def js_executor_send_keys(self, key, element):
+        script = "arguments[0].value=" + key + ";"
+        self.driver.execute_script(script, element)
+
+    @staticmethod
     def get_src_from_img(img_element):
         return img_element.get_attribute("src")
+
+    @staticmethod
+    def get_attribute_value(element, attribute):
+        return element.get_attribute(attribute)
 
     @staticmethod
     def switch_to_window(self, main_window):

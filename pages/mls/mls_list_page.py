@@ -30,3 +30,22 @@ class MlsListPage(MlsBasePage):
     def get_transaction_leased_element_list(self):
         return self.driver.find_elements(*SetMlsListLocators.list_leased_transaction_type)
 
+    # get all house - actual price list - list[int]
+    def get_price_list(self):
+        price_list = []
+        element_list = self.driver.find_elements(*SetMlsListLocators.search_result_price_list)
+        for element in element_list:
+            text = SeleniumUtils.get_text_by_element(element)
+            price = TestUtils.get_price_int(text)
+            price_list.append(price)
+        return price_list
+
+    # get all house - actual bedroom - list[int]
+    def get_bedroom_list(self):
+        bedroom_list = []
+        element_list = self.driver.find_elements(*SetMlsListLocators.search_result_bedroom_list)
+        for element in element_list:
+            text = SeleniumUtils.get_text_by_element(element)
+            bedroom = TestUtils.get_bedroom(text)
+            bedroom_list.append(bedroom)
+        return bedroom_list

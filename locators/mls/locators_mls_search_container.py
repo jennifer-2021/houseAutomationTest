@@ -20,6 +20,8 @@ class SetMlsSearchLocators(SetSearchLocators):
     filter_days_on_market = (By.CSS_SELECTOR, ".more-filters>.row:nth-child(1) .col-3")
     # 上市天数 - 6 options
     filter_days_on_market_options = (By.CSS_SELECTOR, ".more-filters>.row:nth-child(1) .el51__btn")
+    # 室内面积
+    filter_more_area = (By.CSS_SELECTOR, ".more-filters>.row:nth-child(3) .el51__btn")
     # 车位
     filter_parking_space = (By.CSS_SELECTOR, ".more-filters>.row:nth-child(7) .col-3")
     filter_parking_space_options = (By.CSS_SELECTOR, ".more-filters>.row:nth-child(7) .el51__btn")
