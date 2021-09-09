@@ -56,11 +56,3 @@ class TestFilterMore:
                 error_counter += 1
         assert error_counter == 0
 
-    @allure.title("二手房 - 筛选 - 上市天数")
-    @allure.description("选择每个上市天数 验证: all returned houses meet selected option")
-    @pytest.mark.parametrize("days", testdata)
-    def stest__market(self, config, days):
-        # 1 open mls home page
-        # 2 select 'days on market'
-        search_mls_container = SearchMlsContainer(self.driver)
-        search_mls_container.select_days_on_market(days)

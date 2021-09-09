@@ -30,6 +30,15 @@ class MlsListPage(MlsBasePage):
     def get_transaction_leased_element_list(self):
         return self.driver.find_elements(*SetMlsListLocators.list_leased_transaction_type)
 
+    # click sorting button
+    def click_sorting_button(self):
+        self.wait_element(*SetMlsListLocators.sort_button).click()
+
+    # select a sort
+    def select_a_sort(self, sort_name):
+        element_list = self.driver.find_elements(*SetMlsListLocators.sort_select_list)
+        TestUtils.click_filter(element_list, sort_name)
+
     # get all house - actual price list - list[int]
     def get_price_list(self):
         price_list = []
@@ -69,4 +78,3 @@ class MlsListPage(MlsBasePage):
             text = SeleniumUtils.get_text_by_element(element)
             parking_list.append(text)
         return parking_list
-

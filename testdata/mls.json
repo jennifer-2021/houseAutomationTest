@@ -64,7 +64,8 @@
   "style": ["1 1/2 Storey", "2-Storey", "2 1/2 Storey", "3-Storey", "Bungalow Styles", "Backsplit Styles", "Sidesplit Styles"],
   "parking": ["1","2","3","4","5+"],
   "washroom": ["1","2","3","4"],
-  "kitchen": ["1","2","3+"]
+  "kitchen": ["1","2","3+"],
+  "sorting": ["更新时间", "价格从高到低", "价格从低到高"]
 
 
 }

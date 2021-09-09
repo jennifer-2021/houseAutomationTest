@@ -5,8 +5,8 @@ class SetMlsListLocators:
     image_box = (By.CSS_SELECTOR, ".img-box")
     recommendation = (By.CSS_SELECTOR, "")
     tag_box = (By.CSS_SELECTOR, "")
-    sort_button = (By.CSS_SELECTOR, "")
-    sort_by_hot = (By.CSS_SELECTOR, "")
+    sort_button = (By.CSS_SELECTOR, ".list-selection-mode [role='button']")
+    sort_select_list = (By.CSS_SELECTOR, ".el51__dropdown .menu.show button")
     clear_filter_button = (By.CSS_SELECTOR, ".filter-detail-box .tag.clear")
     # search result - list page - return element list
     search_result_address_list = (By.CSS_SELECTOR, ".list-wrap .address")
@@ -32,4 +32,7 @@ class SetMlsListLocators:
     search_result_days_on_market_list = (By.CSS_SELECTOR, ".item-col.time")
     # parking
     search_result_parking_list = (By.CSS_SELECTOR, ".paking span")
+
+
+
 
