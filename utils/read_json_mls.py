@@ -40,3 +40,23 @@ class JsonReader:
     def get_building_type_data():
         mls_data = get_mls_json()
         return mls_data["buildingType"]
+
+    @staticmethod
+    def get_price_data():
+        mls_data = get_mls_json()
+        return mls_data["price"]
+
+    @staticmethod
+    def get_bedroom_data():
+        mls_data = get_mls_json()
+        return mls_data["bedroom"]
+
+    @staticmethod
+    def get_days_on_market_data():
+        mls_data = get_mls_json()
+        return mls_data["daysOnMarket"]
+
+    @staticmethod
+    def get_area():
+        mls_data = get_mls_json()
+        return mls_data["area"]
