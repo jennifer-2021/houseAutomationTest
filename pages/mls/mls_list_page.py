@@ -60,3 +60,13 @@ class MlsListPage(MlsBasePage):
             datetime_day = TestUtils.convert_str_to_datatime(text)
             actual.append(datetime_day)
         return actual
+
+    # get all parking number - list[str]
+    def get_parking_space_list(self):
+        parking_list = []
+        element_list = self.driver.find_elements(*SetMlsListLocators.search_result_parking_list)
+        for element in element_list:
+            text = SeleniumUtils.get_text_by_element(element)
+            parking_list.append(text)
+        return parking_list
+

@@ -84,7 +84,7 @@ class SearchMlsContainer(MlsBasePage):
     def get_days_on_market_element_list(self):
         return self.driver.find_elements(*SetMlsSearchLocators.filter_days_on_market_options)
 
-    # 筛选 - '更多'下拉框, 车位
+    # 筛选 - '更多'下拉框, 车位 text
     def get_parking_space_text(self):
         element = self.wait_element(*SetMlsSearchLocators.filter_parking_space)
         return SeleniumUtils.get_text_by_element(element)
@@ -209,3 +209,15 @@ class SearchMlsContainer(MlsBasePage):
         if days == "30 天内":
             test_day = 30
         return test_day
+
+    # parking lots
+    def select_parking_lot(self, parking):
+        self.click_more_button()
+        element_list = self.get_parking_space_element_list()
+        for element in element_list:
+            text = SeleniumUtils.get_text_by_element(element)
+            if text == parking:
+                element.click()
+                break
+        self.click_more_search_button()
+        sleep(1)

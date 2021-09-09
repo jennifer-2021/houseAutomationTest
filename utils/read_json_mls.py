@@ -60,3 +60,8 @@ class JsonReader:
     def get_area():
         mls_data = get_mls_json()
         return mls_data["area"]
+
+    @staticmethod
+    def get_parking_lot():
+        mls_data = get_mls_json()
+        return mls_data["parking"]

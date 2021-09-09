@@ -30,3 +30,6 @@ class SetMlsListLocators:
     search_result_bedroom_list = (By.CSS_SELECTOR, ".item-col.bed span")
     # days on market
     search_result_days_on_market_list = (By.CSS_SELECTOR, ".item-col.time")
+    # parking
+    search_result_parking_list = (By.CSS_SELECTOR, ".paking span")
+
