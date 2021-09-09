@@ -70,3 +70,8 @@ class JsonReader:
     def get_sorting():
         mls_data = get_mls_json()
         return mls_data["sorting"]
+
+    @staticmethod
+    def get_transaction_on_map():
+        mls_data = get_mls_json()
+        return mls_data["transactionsOnMap"]
