@@ -49,3 +49,14 @@ class MlsListPage(MlsBasePage):
             bedroom = TestUtils.get_bedroom(text)
             bedroom_list.append(bedroom)
         return bedroom_list
+
+    # get all house - days on the market - list[datetime]
+    def get_days_on_market_list(self):
+        actual = []
+        element_list = self.driver.find_elements(*SetMlsListLocators.search_result_days_on_market_list)
+        for element in element_list:
+            text = SeleniumUtils.get_text_by_element(element)
+            text = TestUtils.convert_data_to_str(text)
+            datetime_day = TestUtils.convert_str_to_datatime(text)
+            actual.append(datetime_day)
+        return actual

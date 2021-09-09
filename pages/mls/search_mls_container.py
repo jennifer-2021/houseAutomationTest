@@ -45,7 +45,7 @@ class SearchMlsContainer(MlsBasePage):
 
     # 筛选 - 点击 更多
     def click_more_button(self):
-        self.wait_element(*SetMlsSearchLocators.filter_more)
+        self.wait_element(*SetMlsSearchLocators.filter_more).click()
 
     # 筛选 - '出售'下拉框 - 返回：list[element]
     def get_sale_element_list(self):
@@ -59,7 +59,7 @@ class SearchMlsContainer(MlsBasePage):
     def set_price_min(self, min_price):
         elem = self.wait_element(*SetMlsSearchLocators.filter_price_min)
         elem.click()
-       # elem.send_keys(Keys.NUMPAD8)
+        # elem.send_keys(Keys.NUMPAD8)
         elem.send_keys(min_price)
 
     def set_price_max(self, max_price):
@@ -195,3 +195,17 @@ class SearchMlsContainer(MlsBasePage):
         TestUtils.click_filter(element_list, area)
         self.click_more_search_button()
         sleep(1)
+
+    # 今日上市 - default = 1
+    @staticmethod
+    def convert_days_to_int(days):
+        test_day = 1
+        if days == "3 天内":
+            test_day = 3
+        if days == "7 天内":
+            test_day = 7
+        if days == "14 天内":
+            test_day = 14
+        if days == "30 天内":
+            test_day = 30
+        return test_day

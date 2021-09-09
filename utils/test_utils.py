@@ -1,3 +1,7 @@
+import datetime
+import re
+from datetime import date
+
 import requests
 from utils.selenium_utils import SeleniumUtils
 from time import sleep
@@ -112,3 +116,45 @@ class TestUtils:
                     region[key] = value
 
         return region
+
+    # return <class 'datetime.date'>
+    @staticmethod
+    def get_today():
+        return datetime.date.today()
+        # return date.today().isoformat()
+
+    # return <class 'datetime.date'>
+    @staticmethod
+    def get_day_before(days):
+        today = datetime.date.today()
+        day_before = today - datetime.timedelta(days=days)
+        return day_before
+
+    # return <class 'datetime.date'>
+    @staticmethod
+    def convert_str_to_datatime(str):
+        # str = "2021-09-09"
+        return datetime.date(*(int(s) for s in str.split('-')))
+    # convert '1 day 0:00:00' to int: 1
+    @staticmethod
+    def get_datetime_diff(datetime):
+        str1 = str(datetime)
+        str2 = str1[0:1]
+        return int(str2)
+
+    # convert 2021-9-8 to 2021-09-08
+    @staticmethod
+    def convert_data_to_str(diff_format):
+        now = re.sub('\D+', '-', diff_format)
+        l = len(now)
+        t1 = now[:l - 1]
+        print(t1)
+        ary = t1.split('-')
+        nary = ''
+        for a in ary:
+            if int(a) < 10:
+                a = '0' + a
+            nary = nary + a + '-'
+        l = len(nary)
+        f = nary[:l - 1]
+        return f
