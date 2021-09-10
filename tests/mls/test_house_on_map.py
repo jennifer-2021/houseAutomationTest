@@ -2,8 +2,12 @@ from pages.mls.mls_list_map_section import MlsListMap
 from utils.selenium_utils import SeleniumUtils
 import allure
 import pytest
+from pages.search_common import SearchCommon
+from pages.mls.search_mls_container import SearchMlsContainer
+from utils.test_utils import TestUtils
 
-expected_mls_details_page_title = "加拿大房产网"
+expected_mls_details_page_title = "房产"
+city = "Richmond Hill"
 
 
 @pytest.mark.usefixtures("mls_setup")
@@ -30,14 +34,20 @@ class TestMapSchoolFilter:
         # 1 open mls home page
         # 2 click each transaction status
         main_window = self.driver.current_window_handle
+        search_box = SearchCommon(self.driver)
+        search_box.click_in_search_box()
+        # 3 get and click the actual cities in search drop down list
+        search_mls_container = SearchMlsContainer(self.driver)
+        suggest_city_element_list = search_mls_container.get_suggest_cities_elements()
+        TestUtils.click_filter(suggest_city_element_list, city)
+
         mls_map = MlsListMap(self.driver)
         try:
             mls_map.click_multi_house_on_map()
             mls_map.click_1st_house_on_modal()
             SeleniumUtils.switch_to_window(self, main_window)
-
-            # 3 verify
-            title = self.driver.title
-            assert expected_mls_details_page_title in title
         except:
-            print(" ... warning: 地图上没有聚合点 - 一个点有至少2个房源")
+            print(" ... warning: 地图上没有聚合点(一个点有至少2个房源)")
+        # 3 verify
+        title = self.driver.title
+        assert expected_mls_details_page_title in title

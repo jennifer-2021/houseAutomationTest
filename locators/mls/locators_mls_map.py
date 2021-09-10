@@ -4,7 +4,8 @@ from selenium.webdriver.common.by import By
 # 列表页上的地图部分
 class SetMlsMapLocators:
     # map - house point list
-    house_on_map_points_single = (By.CSS_SELECTOR, ".map51__single-marker")
+    house_on_map_points_single = (By.CSS_SELECTOR, ".map51__single-marker.type-1")
+    house_on_map_multi_points = (By.XPATH, "//button[text()='2']")
     # transaction status buttons on map
     transaction_checkbox_list = (By.CSS_SELECTOR, ".filter-mobile-field .el51__btn")
     #

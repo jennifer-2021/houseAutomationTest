@@ -78,7 +78,7 @@ class MlsListMap(MlsBasePage):
 
     # get house points on map - list[element]
     def get_house_list(self):
-        return self.driver.find_elements(*SetMlsMapLocators.house_on_map_points_single)
+        return self.driver.find_elements(*SetMlsMapLocators.house_on_map_multi_points)
 
     # click modal - go to details page button
     def click_modal_go_to_details(self):
@@ -105,7 +105,8 @@ class MlsListMap(MlsBasePage):
         element_list = self.get_house_list()
         for element in element_list:
             text = SeleniumUtils.get_text_by_element(element)
-            if text != " ":
+            print(".........." + text)
+            if text == "2":
                 element.click()
                 time.sleep(0.5)
                 break
