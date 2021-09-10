@@ -3,8 +3,8 @@ from selenium.webdriver.common.by import By
 
 # 列表页上的地图部分
 class SetMlsMapLocators:
+    # map - house point list
     house_on_map_points_single = (By.CSS_SELECTOR, ".map51__single-marker")
-    house_on_map_points_multi = (By.XPATH, "*//button[text()='2']")
     # transaction status buttons on map
     transaction_checkbox_list = (By.CSS_SELECTOR, ".filter-mobile-field .el51__btn")
     #
@@ -23,6 +23,11 @@ class SetMlsMapLocators:
     school_middle_school_label = (By.XPATH, "//div[text()='初中']")
     school_high_school_label = (By.XPATH, "//div[text()='高中']")
     school_filter_score_label = (By.CSS_SELECTOR, ".SchoolItem_rankContent__1p-t5.undefined b")
+    # modal on map
+    modal_go_to_details_button = (By.CSS_SELECTOR, "a[href*='house-mls-map']")
+    modal_multi_house_1st = (By.CSS_SELECTOR, ".multi-container a:nth-child(1)")
+
+
 
 
 
