@@ -75,3 +75,13 @@ class JsonReader:
     def get_transaction_on_map():
         mls_data = get_mls_json()
         return mls_data["transactionsOnMap"]
+
+    @staticmethod
+    def get_school_grade_map():
+        mls_data = get_mls_json()
+        return mls_data["schoolGrade"]
+
+    @staticmethod
+    def get_school_rank_map():
+        mls_data = get_mls_json()
+        return mls_data["schoolRank"]

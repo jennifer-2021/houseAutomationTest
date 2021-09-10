@@ -77,7 +77,14 @@ class TestUtils:
             name = SeleniumUtils.get_text_by_element(element)
             if name == text_to_click:
                 element.click()
-                sleep(1)
+                break
+
+    @staticmethod
+    def click_filter_by_attribute(element_list, text_to_click, attribute):
+        for element in element_list:
+            name = SeleniumUtils.get_attribute_value(element, attribute)
+            if name == text_to_click:
+                element.click()
                 break
 
     # parse url to dictionary format

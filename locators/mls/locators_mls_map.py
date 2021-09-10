@@ -11,6 +11,19 @@ class SetMlsMapLocators:
     days_on_market_button = (By.XPATH, "//span[text()='上市天数']")
     sold_days_on_market_button = (By.XPATH, "//span[@class='label']/span[text()='2年内']")
     days_on_market_list = (By.CSS_SELECTOR, ".el51__dropdown.show .item")
+    # school filter
+    school_filter_toggle = (By.CSS_SELECTOR, ".SchoolCtrl_schoolSwitch__H_0Lt .switch-btn")
+    # school filter - grade
+    school_filter_grade_list = (By.CSS_SELECTOR, ".FilterMenu_gradeIcon__1jrQy+span")
+    # school filter - general score
+    school_filter_score_list = (By.XPATH, "//span[text()='综合评分']/following-sibling::div//input[@type='checkbox']")
+    school_filter_submit = (By.CSS_SELECTOR, ".FilterMenu_searchFooter__3Kdu_ button")
+    # school search result
+    school_elementary_label = (By.XPATH, "//div[text()='小学']")
+    school_middle_school_label = (By.XPATH, "//div[text()='初中']")
+    school_high_school_label = (By.XPATH, "//div[text()='高中']")
+    school_filter_score_label = (By.CSS_SELECTOR, ".SchoolItem_rankContent__1p-t5.undefined b")
+
 
 
 
