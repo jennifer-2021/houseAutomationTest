@@ -8,6 +8,8 @@ class SetMlsListLocators:
     sort_button = (By.CSS_SELECTOR, ".list-selection-mode [role='button']")
     sort_select_list = (By.CSS_SELECTOR, ".el51__dropdown .menu.show button")
     clear_filter_button = (By.CSS_SELECTOR, ".filter-detail-box .tag.clear")
+    # list page - house link
+    house_link_list = (By.CSS_SELECTOR, "a[href*='house-mls-list']")
     # search result - list page - return element list
     search_result_address_list = (By.CSS_SELECTOR, ".list-wrap .address")
     # search result - 楼盘 - return element list

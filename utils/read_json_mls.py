@@ -85,3 +85,8 @@ class JsonReader:
     def get_school_rank_map():
         mls_data = get_mls_json()
         return mls_data["schoolRank"]
+
+    @staticmethod
+    def get_modal_link():
+        mls_data = get_mls_json()
+        return mls_data["modals"]

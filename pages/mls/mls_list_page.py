@@ -30,6 +30,10 @@ class MlsListPage(MlsBasePage):
     def get_transaction_leased_element_list(self):
         return self.driver.find_elements(*SetMlsListLocators.list_leased_transaction_type)
 
+    # get house links - list page; return list[element]
+    def get_house_links(self):
+        return self.driver.find_elements(*SetMlsListLocators.house_link_list)
+
     # click sorting button
     def click_sorting_button(self):
         self.wait_element(*SetMlsListLocators.sort_button).click()
@@ -78,3 +82,7 @@ class MlsListPage(MlsBasePage):
             text = SeleniumUtils.get_text_by_element(element)
             parking_list.append(text)
         return parking_list
+
+    # click 1st house on the list
+    def click_1st_house(self):
+        self.get_house_links()[0].click()
