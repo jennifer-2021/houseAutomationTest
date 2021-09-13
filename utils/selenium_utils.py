@@ -58,4 +58,3 @@ class SeleniumUtils:
         for handle in handles:
             if handle != main_window:
                 self.driver.switch_to.window(handle)
-
