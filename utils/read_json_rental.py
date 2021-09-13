@@ -20,3 +20,18 @@ class JsonReader:
     def get_city_data():
         rental_data = get_rental_json()
         return rental_data["cities"]
+
+    @staticmethod
+    def get_catalog_data():
+        rental_data = get_rental_json()
+        return rental_data["catalogs"]
+
+    @staticmethod
+    def get_subway_data():
+        rental_data = get_rental_json()
+        return rental_data["subway"]
+
+    @staticmethod
+    def get_university_data():
+        rental_data = get_rental_json()
+        return rental_data["university"]

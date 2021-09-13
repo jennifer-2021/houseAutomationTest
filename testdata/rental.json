@@ -1,5 +1,11 @@
 {
-  "province": ["安大略省", "不列颠哥伦比亚省", "魁北克省", "艾伯塔省", "新斯科舍省", "曼尼托巴省", "新不伦瑞克省", "萨斯喀彻温省", "爱德华王子岛", "纽芬兰与拉布拉多省"],
+  "catalogs": [
+    {"catalog": "区域位置", "option": [
+      "安大略省", "不列颠哥伦比亚省", "魁北克省", "艾伯塔省", "新斯科舍省", "曼尼托巴省", "新不伦瑞克省", "萨斯喀彻温省", "爱德华王子岛", "纽芬兰与拉布拉多省"
+    ]},
+    {"catalog": "地铁(TTC)", "option": ["1号线", "2号线", "3号线", "4号线"]},
+    {"catalog": "大学(安省)", "option": ["大学", "学院"]}
+  ],
   "cities": [
     {"province":"安大略省",
       "city": ["不限", "多伦多市中心", "士嘉堡", "北约克", "怡陶碧谷", "万锦", "列治文山", "旺市", "密西沙加", "布兰普顿", "奥克维尔", "弥尔顿", "柏林顿", "哈密尔顿", "圭尔夫", "滑铁卢", "基奇纳", "剑桥", "伦敦", "圣凯瑟琳斯", "瀑布城及周边", "斯图夫维尔", "金市", "奥罗拉", "新市", "东桂林", "巴里", "蓝山", "皮克林", "亚积士", "惠特比", "奥沙瓦", "金斯顿", "渥太华", "温莎", "安省其他地区"]},
@@ -20,5 +26,25 @@
     {"province": "爱德华王子岛",
       "city": ["不限", "夏洛特敦", "斯特拉福特", "康沃尔", "全部地区"]},
     {"province": "纽芬兰与拉布拉多省", "city": ["不限", "圣约翰", "全部地区"]}
+  ],
+  "university": [
+    {"type": "大学", "option": [
+      "多伦多大学-圣乔治校区", "多伦多大学-士嘉堡校区", "多伦多大学-密西沙加校区", "约克大学", "约克大学-格林顿校区", "瑞尔森大学", "安大略艺术设计大学", "圭尔夫汉博大学", "麦克马斯特大学", "圭尔夫大学", "滑铁卢大学", "布鲁克大学", "西安大略大学", "劳里埃大学", "安大略理工大学", "渥太华大学", "温莎大学", "劳伦森大学", "女王大学"
+    ]},
+    {"type": "学院", "option": ["圣力嘉学院 - Seneca@York 校区", "圣力嘉学院 - Newnham 校区", "圣力嘉学院 - Yorkgate 校区", "圣力嘉学院 - Markham 校区", "圣力嘉学院 - Vaughan 校区", "圣力嘉学院 - Newmarket 校区", "圣力嘉学院 - Jane 校区", "乔治布朗学院 - St. James 校区", "乔治布朗学院 - Waterfront 校区", "乔治布朗学院 - Casa Loma 校区", "莱姆顿学院 - 多伦多校区", "莱姆顿学院 - 密西沙加校区", "百年理工学院 - 主校区", "百年理工学院 - Morningside 校区", "百年理工学院 - 故事艺术中心 校区", "百年理工学院 - Ashtonbee 校区", "剑智学院 / 凯布莱恩学院 - 士嘉堡校区", "剑智学院 / 凯布莱恩学院 - 多伦多校区", "剑智学院 / 凯布莱恩学院 - 密西沙加校区", "谢尔丹学院 - Trafalgar Road 校区", "谢尔丹学院 - Hazel McCallion 校区", "谢尔丹学院 - Davis 校区", "劳里埃大学 - 马丁路德大学学院", "德恒学院 - 奥沙瓦校区", "汉博学院 - Lakeshore 校区", "汉博学院 - North 校区", "伯瑞尔学院 - 多伦多校区", "西安大略大学 - 国王大学学院", "莫哈克学院 - Fennell 校区", "乔治亚学院 - 巴里校区"]}
+  ],
+  "subway": [
+    {"subwayLine": "1号线", "subwayStation": [
+      "Finch", "North York Centre", "Sheppard–Yonge", "York Mills", "Lawrence", "Eglinton", "Davisville", "St. Clair", "Summerhill", "Rosedale", "Bloor–Yonge", "Wellesley", "College", "Dundas", "Queen", "King", "Union", "St. Andrew", "Osgoode", "St. Patrick", "Queen's Park", "Museum", "St. George", "Spadina", "Dupont", "St. Clair West", "Eglinton West", "Glencairn", "Lawrence West", "Yorkdale", "Wilson", "Sheppard West", "Downsview Park", "Finch West", "York University", "Pioneer Village", "Highway 407", "Vaughan Metro Centre"
+    ]},
+    {"subwayLine": "2号线", "subwayStation": [
+      "Kennedy", "Warden", "Victoria Park", "Main Street", "Woodbine", "Coxwell", "Greenwood", "Donlands", "Pape", "Chester", "Broadview", "Castle Frank", "Sherbourne", "Bloor–Yonge", "Bay", "St. George", "Spadina", "Bathurst", "Christie", "Ossington", "Dufferin", "Lansdowne", "Dundas West", "Keele", "High Park", "Runnymede", "Jane", "Old Mill", "Royal York", "Islington", "Kipling"
+    ]},
+    {"subwayLine": "3号线", "subwayStation": [
+      "Mccowan", "Scarborough Centre", "Midland", "Ellesmere", "Lawrence East", "Kennedy"
+    ]},
+    {"subwayLine": "4号线", "subwayStation": [
+      "Don Mills", "Leslie", "Bessarion", "Bayview", "Sheppard–Yonge"
+    ]}
   ]
 }

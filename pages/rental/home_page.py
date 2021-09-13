@@ -9,9 +9,30 @@ class HomePage(RentalBasePage):
     def __init__(self, driver):
         super().__init__(driver)
 
+    # index - catalogs
+    def select_catalog(self, catalog):
+        element_list = self.driver.find_elements(*SetHomePageLocators.catalog_index_list)
+        TestUtils.click_filter(element_list, catalog)
+
     # 区域位置 button
     def click_area_position(self):
         self.wait_element(*SetHomePageLocators.select_area_button).click()
+
+    def click_subway_catalog(self):
+        self.wait_element(*SetHomePageLocators.search_subway_catalog).click()
+
+    def click_university_catalog(self):
+        self.wait_element(*SetHomePageLocators.search_university_catalog).click()
+
+    def click_search_by_map_catalog(self):
+        self.wait_element(*SetHomePageLocators.search_by_map_catalog).click()
+
+    def submit_search_by_map(self):
+        self.wait_element(*SetHomePageLocators.map_search_submit).click()
+        sleep(1)
+
+    def dismiss_search_by_map(self):
+        self.wait_element(*SetHomePageLocators.map_search_dismiss).click()
 
     def get_search_index_list(self):
         return self.driver.find_elements(*SetHomePageLocators.search_index_list)
@@ -25,6 +46,10 @@ class HomePage(RentalBasePage):
     def select_province(self, province):
         element_list = self.get_search_province_list()
         TestUtils.click_filter(element_list, province)
+
+    def get_all_provinces(self):
+        element_list = self.get_search_province_list()
+        return TestUtils.get_text_list(element_list)
 
     def get_all_cities(self):
         element_list = self.get_search_city_list()
