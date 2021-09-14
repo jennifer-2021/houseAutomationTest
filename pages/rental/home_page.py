@@ -68,6 +68,9 @@ class HomePage(RentalBasePage):
         element_list = self.get_search_city_list()
         return TestUtils.get_text_list(element_list)
 
+    def click_search_by_map(self):
+        self.wait_element(*SetHomePageLocators.go_map_button).click()
+
     def click_publish_rental_primary(self):
         self.wait_element(*SetHomePageLocators.rental_publish_primary).click()
         time.sleep(1)
