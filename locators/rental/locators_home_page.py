@@ -16,8 +16,10 @@ class SetHomePageLocators:
     search_by_map_catalog = (By.XPATH, "//ul[@class='index']//span[text()='地图找房']")
     map_search_submit = (By.CSS_SELECTOR, ".modal-content .btn-primary")
     map_search_dismiss = (By.CSS_SELECTOR, ".modal-content .btn-outline-info")
+    building_type_filters = (By.CSS_SELECTOR, "[class*='BuildingTypesInput'] .label-wrap")
     # 10 / 20 广告位，共6个
     ads_10_20_address = (By.CSS_SELECTOR, "[data-campaign^='house-rental-item'] .address")
     rental_list_address = (By.CSS_SELECTOR, ".wg51__rental-list-item .address")
+    rental_list_building_type = (By.CSS_SELECTOR, ".wg51__rental-list-item .title")
 
 

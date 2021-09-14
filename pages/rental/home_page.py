@@ -1,3 +1,5 @@
+import time
+
 from pages.rental.rental_base_page import RentalBasePage
 from locators.rental.locators_home_page import SetHomePageLocators
 from utils.test_utils import TestUtils
@@ -5,6 +7,7 @@ from utils.selenium_utils import SeleniumUtils
 from time import sleep
 
 
+# 租房 home page
 class HomePage(RentalBasePage):
     def __init__(self, driver):
         super().__init__(driver)
@@ -42,6 +45,16 @@ class HomePage(RentalBasePage):
 
     def get_search_city_list(self):
         return self.driver.find_elements(*SetHomePageLocators.search_city_list)
+
+    # return list[element]
+    def get_building_type_filter_list(self):
+        return self.driver.find_elements(*SetHomePageLocators.building_type_filters)
+
+    # select a building type
+    def select_building_type_filter(self, building_type):
+        element_list = self.get_building_type_filter_list()
+        TestUtils.click_filter(element_list, building_type)
+        time.sleep(1)
 
     def select_province(self, province):
         element_list = self.get_search_province_list()
@@ -90,3 +103,8 @@ class HomePage(RentalBasePage):
             addr = addr.split(" (")[0]
             addr_list.append(addr.rstrip())
         return addr_list
+
+    # return list[str]
+    def get_rental_list_building_type(self):
+        element_list = self.driver.find_elements(*SetHomePageLocators.rental_list_building_type)
+        return TestUtils.get_text_list(element_list)

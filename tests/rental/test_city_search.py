@@ -134,3 +134,22 @@ class TestSearchCity:
         url = self.driver.current_url
         print(url)
         assert "rental/map?page" in url
+
+    buildingTypedata = JsonReader.get_buildingType_data()
+
+    @allure.title("租房 - 房屋类型 筛选")
+    @allure.description("确认： 筛选结果页正确返回相应房源")
+    @pytest.mark.parametrize("building_type", buildingTypedata)
+    def test_filter_by_building_type(self, building_type):
+
+        # 1 open rental home page
+        # 2 click 区域位置, and iterate each province and its cities
+
+        home_page = HomePage(self.driver)
+        home_page.select_building_type_filter(building_type)
+        actual_building_type_list = home_page.get_rental_list_building_type()
+        for actual_building_type in actual_building_type_list:
+            print(actual_building_type)
+            assert building_type in actual_building_type
+
+
