@@ -49,5 +49,13 @@
       "Don Mills", "Leslie", "Bessarion", "Bayview", "Sheppard–Yonge"
     ]}
   ],
-  "buildingTypes": ["公寓", "镇屋", "半独立屋", "独立屋"]
+  "buildingTypes": ["公寓", "镇屋", "半独立屋", "独立屋"],
+  "publishlinks": [
+    {"link": "免费发布-top", "url": "rental/publish/create"},
+    {"link": "免费发布-middle", "url": "rental/publish/create"}
+  ],
+  "rentallinks": [
+    {"link": "租房管理-top", "url": "user/rental"},
+    {"link": "租房管理-middle", "url": "user/rental"}
+  ]
 }

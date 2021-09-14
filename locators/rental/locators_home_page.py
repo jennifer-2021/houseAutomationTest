@@ -21,5 +21,12 @@ class SetHomePageLocators:
     ads_10_20_address = (By.CSS_SELECTOR, "[data-campaign^='house-rental-item'] .address")
     rental_list_address = (By.CSS_SELECTOR, ".wg51__rental-list-item .address")
     rental_list_building_type = (By.CSS_SELECTOR, ".wg51__rental-list-item .title")
-
+    #
+    rental_management_primary = (By.XPATH, "//a[@class='btn btn-outline-primary']//span[text()='租房管理']")
+    rental_management_secondary = (By.XPATH, "//a[@class='btn btn-outline-secondary']//span[text()='租房管理']")
+    # 免费发布
+    rental_publish_primary = (By.CSS_SELECTOR, ".container-md.mb-0 [href*='publish']")
+    rental_publish_secondary = (By.CSS_SELECTOR, ".wg51__rental-list-sidebar [href*='publish']")
+    # 地图找房
+    go_map_button = (By.CSS_SELECTOR, ".btn-go-map")
 

@@ -40,3 +40,13 @@ class JsonReader:
     def get_buildingType_data():
         rental_data = get_rental_json()
         return rental_data["buildingTypes"]
+
+    @staticmethod
+    def get_publish_links_data():
+        rental_data = get_rental_json()
+        return rental_data["publishlinks"]
+
+    @staticmethod
+    def get_rental_links_data():
+        rental_data = get_rental_json()
+        return rental_data["rentallinks"]

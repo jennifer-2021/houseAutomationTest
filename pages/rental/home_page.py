@@ -68,6 +68,22 @@ class HomePage(RentalBasePage):
         element_list = self.get_search_city_list()
         return TestUtils.get_text_list(element_list)
 
+    def click_publish_rental_primary(self):
+        self.wait_element(*SetHomePageLocators.rental_publish_primary).click()
+        time.sleep(1)
+
+    def click_publish_rental_secondary(self):
+        self.wait_element(*SetHomePageLocators.rental_publish_secondary).click()
+        time.sleep(1)
+
+    def click_rental_management_primary(self):
+        self.wait_element(*SetHomePageLocators.rental_management_primary).click()
+        time.sleep(1)
+
+    def click_rental_management_secondary(self):
+        self.wait_element(*SetHomePageLocators.rental_management_secondary).click()
+        time.sleep(1)
+
     def is_search_panel_open(self):
         try:
             self.wait_element(*SetHomePageLocators.search_city_col)
@@ -76,7 +92,6 @@ class HomePage(RentalBasePage):
             return False
 
     def select_city(self, city):
-
         if not self.is_search_panel_open():
             self.click_area_position()
 
