@@ -1,0 +1,30 @@
+{
+  "provinces": [{"provinces": ["Ontario", "British Columbia", "Quebec", "Alberta", "Nova Scotia", "Manitoba", "New Brunswick", "Saskatchewan", "Prince Edward Island", "Newfoundland &amp; Labrador"]}],
+  "cities": [
+    {"province": "Ontario", "city": ["Toronto", "Toronto Downtown", "North York", "Scarborough", "Etobicoke", "Markham", "Richmond Hill", "Vaughan", "Mississauga", "Newmarket", "Oakville", "Aurora", "Ajax", "Barrie", "Brampton", "Burlington", "Cambridge", "Etobicoke", "East Gwillimbury", "Guelph", "Hamilton", "Kitchener", "King City", "Kingston", "London", "Markham", "Mississauga", "Milton", "North York", "Newmarket", "Niagara Falls", "Oakville", "Oshawa", "Ottawa", "Pickering", "Richmond Hill", "Scarborough", "St. Catharines", "Toronto", "Toronto Downtown", "Vaughan", "Waterloo", "Whitchurch-Stouffville", "Whitby", "Windsor"]},
+    {"province": "British Columbia", "city": ["Vancouver", "Burnaby", "Coquitlam", "New Westminster", "North Vancouver", "Richmond", "Surrey", "Burnaby", "Coquitlam", "Maple Ridge", "New Westminster", "North Vancouver", "Port Moody", "Richmond", "Surrey", "Vancouver", "West Vancouver", "White Rock"]},
+    {"province": "Quebec", "city": ["Westmount"]},
+    {"province": "Alberta", "city": [
+      "Calgary", "Edmonton"
+    ]},
+    {"province": "Nova Scotia", "city": [
+      "Bedford", "Dartmouth", "Halifax"
+    ]},
+    {"province": "Manitoba", "city": [
+      "Winnipeg"
+    ]},
+    {"province": "New Brunswick", "city": [
+      "Moncton"
+    ]},
+    {"province": "Saskatchewan", "city": [
+      "Saskatoon"
+    ]},
+    {"province": "Prince Edward Island", "city": [
+      "Charlottetown", "Cornwall", "Stratford"
+    ]},
+    {"province": "Newfoundland &amp; Labrador", "city": ["St. John's"]}
+  ],
+  "catalogs": ["买房", "卖房", "租房", "服务"],
+  "searchTypes": ["找二手房", "找新房", "找租房", "查成交"],
+  "recommendation": ["二手房", "新房", "租房"]
+}
