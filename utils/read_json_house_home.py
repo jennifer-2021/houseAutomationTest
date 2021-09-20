@@ -20,3 +20,8 @@ class JsonReader:
     def get_home_city_data():
         home_data = get_home_json()
         return home_data["cities"]
+
+    @staticmethod
+    def get_catalog_data():
+        catalog_data = get_home_json()
+        return catalog_data["catalogs"]

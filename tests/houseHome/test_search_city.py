@@ -41,3 +41,4 @@ class TestSearchCity:
         actual_city_list = home_page.get_city_en_list()
         print(actual_city_list)
         assert actual_city_list == expected_city_list
+

@@ -8,7 +8,10 @@ class SetHouseHomePageLocators:
     province_list = (By.CSS_SELECTOR, "[class*='provinceWrap'] div:nth-child(1)")
     city_list = (By.CSS_SELECTOR, "[class*='city--1zUho'] [data-id]")
 
-    # hot nav
+    # modal
+    select_area_modal = (By.CSS_SELECTOR, "//h5[text()='搜索或选择您关注的城市']")
+
+    # hot nav - catalogs on the top of the page
     hot_nav_list = (By.CSS_SELECTOR, ".hot-nav-list-item .title")
 
     # search: 找二手房 # 找新房 # 找租房 # 查成交
