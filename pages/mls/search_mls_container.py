@@ -45,7 +45,8 @@ class SearchMlsContainer(MlsBasePage):
 
     # 筛选 - 点击 更多
     def click_more_button(self):
-        self.wait_element(*SetMlsSearchLocators.filter_more).click()
+        element = self.wait_element(*SetMlsSearchLocators.filter_more)
+        SeleniumUtils.js_executor_click(self, element)
 
     # 筛选 - '出售'下拉框 - 返回：list[element]
     def get_sale_element_list(self):
