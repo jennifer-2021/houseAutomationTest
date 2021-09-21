@@ -12,7 +12,7 @@ class TestSearchCity:
     @allure.title("房屋首页 - 测试每个省，确认下拉菜单显示数据完整")
     @allure.description(" 打开选择城市的下拉菜单，验证： 下拉菜单显示数据是正确的")
     @pytest.mark.parametrize("province", provincedata)
-    def test_province(self, province):
+    def done_test_province(self, province):
         # 1 get test data
         expected_province_list = province["provinces"]
 
@@ -27,7 +27,7 @@ class TestSearchCity:
     @allure.title("房屋首页 - 测试每个省，和省内的每个城市的显示数据完整")
     @allure.description("选择每个省 - 验证： 测试每个省对应的城市是正确的")
     @pytest.mark.parametrize("cityObject", citydata)
-    def test_cities_in_province(self, cityObject):
+    def done_test_cities_in_province(self, cityObject):
         # 1 get test data
         province_to_test = cityObject["province"]
         expected_city_list = cityObject["city"]
