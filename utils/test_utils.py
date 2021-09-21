@@ -72,11 +72,12 @@ class TestUtils:
     # param: text_to_click: 筛选项里的字符
     # logic: 点击筛选项里的字符
     @staticmethod
-    def click_filter(element_list, text_to_click):
+    def click_filter(self, element_list, text_to_click):
         for element in element_list:
             name = SeleniumUtils.get_text_by_element(element)
             if name == text_to_click:
-                element.click()
+                SeleniumUtils.js_executor_click(self, element)
+                #element.click()
                 break
 
     @staticmethod

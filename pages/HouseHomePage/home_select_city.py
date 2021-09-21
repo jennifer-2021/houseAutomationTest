@@ -1,5 +1,6 @@
 from pages.HouseHomePage.home_base_page import HomeBasePage
 from locators.HouseHomePage.locators_house_home_page import SetHouseHomePageLocators
+from utils.selenium_utils import SeleniumUtils
 from utils.test_utils import TestUtils
 from time import sleep
 
@@ -12,6 +13,7 @@ class HouseHomePage(HomeBasePage):
         self.wait_element(*SetHouseHomePageLocators.select_city_open_button).click()
 
     def get_province_element_list(self):
+
         return self.driver.find_elements(*SetHouseHomePageLocators.province_list)
 
     def get_city_element_list(self):
@@ -19,7 +21,7 @@ class HouseHomePage(HomeBasePage):
 
     def select_province(self, province):
         element_list = self.get_province_element_list()
-        TestUtils.click_filter(element_list, province)
+        TestUtils.click_filter(self, element_list, province)
 
     def select_city(self, city):
         element_list = self.get_city_element_list()
