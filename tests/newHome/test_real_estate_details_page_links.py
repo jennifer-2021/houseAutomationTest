@@ -108,7 +108,7 @@ class TestItemTags:
     @allure.title("楼盘详情页 - 页面上的链接")
     @allure.description(" 验证：所有的链接都能打开正确的窗口 ")
     @pytest.mark.parametrize("real_estate_url", testdata)
-    def atest_buttons_on_details_page(self, config, real_estate_url):
+    def test_buttons_on_details_page(self, config, real_estate_url):
         # 1 打开 新房-楼盘详情页
         real_estate_details_page = RealEstateDetailsPage(self.driver)
         real_estate_details_page.open_page(config, real_estate_url)

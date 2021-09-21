@@ -1,7 +1,7 @@
 from selenium import webdriver
 
-#PATH = 'driver/chromedriver'
-PATH = 'driver_linux/chromedriver'
+PATH = 'driver/chromedriver'
+#PATH = 'driver_linux/chromedriver'
 
 
 class DriverFactory:

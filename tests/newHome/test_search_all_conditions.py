@@ -16,7 +16,7 @@ class TestSearchByAllFilters:
     @allure.title("Newhome - 测试搜索结果 - 条件：城市 & 房型 & 入住时间 & 价格")
     @allure.description("verify: 在搜索结果列表页上的 每个房源的 城市 & 房型 & 入住时间 & 价格 必须满足搜索条件")
     @pytest.mark.parametrize("testObject", testdata)
-    def atest_search_all_conditions(self, config, testObject):
+    def test_search_all_conditions(self, config, testObject):
         city = testObject["city"]
         buildingType = testObject["buildingType"]
         checkinTime = testObject["checkinTime"]

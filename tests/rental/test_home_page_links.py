@@ -12,7 +12,7 @@ class TestHomePageLinks:
     @allure.title("租房 - 免费发布")
     @allure.description("Select a province - 确认： 新窗口的URL正确")
     @pytest.mark.parametrize("linkObject", testdata)
-    def atest_publish_links(self, linkObject):
+    def test_publish_links(self, linkObject):
         link = linkObject["link"]
         url = linkObject["url"]
         # 1 open rental home page

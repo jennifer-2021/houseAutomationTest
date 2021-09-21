@@ -14,7 +14,7 @@ class TestSearchByAddress:
     @allure.title("新房 - 搜索 - 按地址")
     @allure.description("验证结果: 1. 如果返回空页面，则验证失败 2. 如果返回的房源和期待的测试结果不同，打印出错房源所有信息，继续验证所有的房源，最后跳出。注意：如果有新的房源，也会报错，只需加上新的房源就可以")
     @pytest.mark.parametrize("addressObject", testdata)
-    def atest_search_by_address(self, config, addressObject):
+    def test_search_by_address(self, config, addressObject):
         address = addressObject["address"]
         expected = addressObject["expected"]
         # 1. 打开 新房 主页

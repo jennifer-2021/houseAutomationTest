@@ -16,7 +16,7 @@ class TestSearch:
     @allure.title("Newhome - search box suggested cities")
     @allure.description("verify: all returned house address must contain the value of var 'searchCity'")
     @pytest.mark.parametrize("searchCity", testdata)
-    def atest_search_by_suggested_cities(self, config, searchCity):
+    def test_search_by_suggested_cities(self, config, searchCity):
         if searchCity == "North York" or searchCity == "Scarborough":
             searchCity = "Toronto"
         search_container = SearchContainer(self.driver)

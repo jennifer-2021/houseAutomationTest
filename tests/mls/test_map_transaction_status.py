@@ -12,7 +12,7 @@ class TestMapTransaction:
     @allure.title("二手房 Map - 城市：默认为空白选项；测试：出售,出租,已出售,已出租")
     @allure.description("点击出售,出租,已出售,已出租；验证: 必须对应 上市天数 或 今日成交")
     @pytest.mark.parametrize("transObject", testdata)
-    def atest_transaction_type(self, config, transObject):
+    def test_transaction_type(self, config, transObject):
         transaction = transObject["transaction"]
         expected_options = transObject["options"]
 

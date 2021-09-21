@@ -11,7 +11,7 @@ class TestMapSchoolFilter:
     @allure.title("二手房 Map filter - 学区筛选")
     @allure.description("地图上 点击学区筛选；验证: 年级")
     @pytest.mark.parametrize("grade", testdata)
-    def atest_school_filter_on_map(self, grade):
+    def test_school_filter_on_map(self, grade):
         # 1 open mls home page
         # 2 click each transaction status
 
@@ -33,7 +33,7 @@ class TestMapSchoolFilter:
     @allure.title("二手房 Map filter - 综合评分")
     @allure.description("地图上 点击综合评分；验证: 综合评分 on result list")
     @pytest.mark.parametrize("rankObject", testdata)
-    def atest_rank_filter_on_map(self, rankObject):
+    def test_rank_filter_on_map(self, rankObject):
         score = rankObject["label"]
         expected_rank = rankObject["expected"]
         # 1 open mls home page

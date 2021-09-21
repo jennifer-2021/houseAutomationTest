@@ -1,5 +1,6 @@
 import datetime
 import json
+from utils.test_utils import TestUtils
 
 import re
 from datetime import date
@@ -10,11 +11,10 @@ from utils.test_utils import TestUtils
 class TestOne():
 
     def test_convertion(self):
-        t = ["10", "12", "22"]
-        for i in t:
-            print(i)
-            if i == "10":
-                continue
+        t = {'buildingType': '7', 'locationId': '3138', 'transactionType': '1', 'limit': '200'}
+        act = {'keyword': 'Toronto,Toronto,Ontario', 'buildingType': '2', 'locationId': '3138', 'transactionType': '1', 'limit': '200'}
+        b = TestUtils.compare_two_dict(t, act)
+        print(b)
 
 
 

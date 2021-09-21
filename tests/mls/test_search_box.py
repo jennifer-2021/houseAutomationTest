@@ -15,13 +15,14 @@ class TestSearch:
     @allure.title("二手房 - 搜索框热门城市")
     @allure.description("验证: 点击每个热门城市，根据返回的页面url,确认城市名称，location_id")
     @pytest.mark.parametrize("cityObject", testdata)
-    def atest_suggested_cities(self, config, cityObject):
+    def test_suggested_cities(self, config, cityObject):
         # 1 open mls home page
         city = cityObject["city"]
         expected = cityObject["url"]
         search_mls_container = SearchMlsContainer(self.driver)
         # 2 click on search box to open the drop down list
         search_common = SearchCommon(self.driver)
+        search_common.clear_search_box()
         search_common.click_in_search_box()
         # 3 get and click the actual cities in search drop down list
         suggest_city_element_list = search_mls_container.get_suggest_cities_elements()
@@ -39,7 +40,7 @@ class TestSearch:
     @allure.title("二手房 - 搜索框 - 按地址，邮编")
     @allure.description("验证: 按地址，邮编搜索，根据返回的页面url,确认地址，邮编")
     @pytest.mark.parametrize("searchObject", searchKeydata)
-    def atest_search_by_keys(self, config, searchObject):
+    def test_search_by_keys(self, config, searchObject):
         address = searchObject["address"]
         expected = searchObject["url"]
         # 1 open mls home page
@@ -61,7 +62,7 @@ class TestSearch:
     @allure.title("二手房 - 搜索框 - 按mls")
     @allure.description("验证: 按mls搜索，确认打开房源页面")
     @pytest.mark.parametrize("mls", searchByMlsdata)
-    def atest_search_by_keys(self, config, mls):
+    def test_search_by_keys(self, config, mls):
         # 1 open mls home page
         search_mls_container = SearchMlsContainer(self.driver)
         main_window = self.driver.current_window_handle

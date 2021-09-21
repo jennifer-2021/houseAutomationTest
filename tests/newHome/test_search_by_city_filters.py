@@ -16,7 +16,7 @@ class TestSearchByCityAndFilters:
     @allure.title("Newhome - search - 每个城市 和其对应的每个房型的搜索结果")
     @allure.description("verify: 搜索结果 - 每个房源的 城市地址和房型 必须满足搜索条件")
     @pytest.mark.parametrize("city", testdata)
-    def atest_search_by_city_with_building_type(self, config, city):
+    def test_search_by_city_with_building_type(self, config, city):
         # 1. 打开 新房 主页
         search_container = SearchContainer(self.driver)
         search_container.open_home_page(config)

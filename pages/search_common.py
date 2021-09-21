@@ -16,11 +16,14 @@ class SearchCommon(BasePage):
     # clear text in # 搜索框
     def clear_search_box(self):
         self.wait_element(*SetSearchHouseLocators.search_box_clear).click()
+        time.sleep(0.5)
 
     # 搜索框 - 输入 search key
     def set_search_box_input(self, searchKey):
+        self.clear_search_box()
         element = self.wait_element(*SetSearchHouseLocators.search_box)
         element.send_keys(searchKey)
+        time.sleep(1)
 
     def click_search_box_button(self):
         self.driver.find_element(*SetSearchHouseLocators.search_button).click()
