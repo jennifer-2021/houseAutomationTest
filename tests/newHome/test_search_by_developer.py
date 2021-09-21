@@ -14,7 +14,7 @@ class TestSearchByDeveloper:
     @allure.title("新房 - 搜索 - 按开发商")
     @allure.description("验证结果: 进入楼盘详情页，实际开发商与期待结果一样")
     @pytest.mark.parametrize("developer", testdata)
-    def test_search_by_real_estate(self, config, developer):
+    def atest_search_by_real_estate(self, config, developer):
         # 1. 打开 新房 主页
         search_container = SearchContainer(self.driver)
         search_container.open_home_page(config)

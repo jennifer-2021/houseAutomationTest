@@ -84,7 +84,7 @@ class TestItemTags:
 
     @allure.title("楼盘列表页 - 点击房源图片进入详情页")
     @allure.description(" 验证：详情页-楼盘名 和 列表页上的楼盘名相符 ")
-    def test_click_link_to_details_page(self, config):
+    def atest_click_link_to_details_page(self, config):
         # 1 打开 新房首页
         search_container = SearchContainer(self.driver)
         search_container.open_home_page(config)
@@ -108,7 +108,7 @@ class TestItemTags:
     @allure.title("楼盘详情页 - 页面上的链接")
     @allure.description(" 验证：所有的链接都能打开正确的窗口 ")
     @pytest.mark.parametrize("real_estate_url", testdata)
-    def test_buttons_on_details_page(self, config, real_estate_url):
+    def atest_buttons_on_details_page(self, config, real_estate_url):
         # 1 打开 新房-楼盘详情页
         real_estate_details_page = RealEstateDetailsPage(self.driver)
         real_estate_details_page.open_page(config, real_estate_url)

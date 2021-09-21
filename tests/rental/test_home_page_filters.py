@@ -12,7 +12,7 @@ class TestSearchCity:
     @allure.title("租房 - 测试每个省，和省内的每个城市的显示数据完整")
     @allure.description("Select a province - 确认： 测试每个选项对应的项目是正确的")
     @pytest.mark.parametrize("cityObject", testdata)
-    def test_city_options_in_province(self, cityObject):
+    def atest_city_options_in_province(self, cityObject):
         province = cityObject["province"]
         expected_city = cityObject["city"]
         # 1 open rental home page
@@ -28,7 +28,7 @@ class TestSearchCity:
     @allure.title("租房 - 测试每个省，和省内的每个城市的搜索结果")
     @allure.description("选择一个省 - 每个城市选择一遍。 验证: 搜索结果页 - 所有页面上的房源，地址必须包含 所选择的城市")
     @pytest.mark.parametrize("cityObject", testdata)
-    def test_search_for_city(self, cityObject):
+    def atest_search_for_city(self, cityObject):
         province = cityObject["province"]
         city = cityObject["city"]
         if city == "不限":
@@ -60,7 +60,7 @@ class TestSearchCity:
     @allure.title("租房 - 区域位置, 测试地铁(TTC)，大学(安省)")
     @allure.description("确认：测试每个目录对应的选项是正确的")
     @pytest.mark.parametrize("catalogs", catalogdata)
-    def test_catalog_options(self, catalogs):
+    def atest_catalog_options(self, catalogs):
         catalog = catalogs["catalog"]
         option = catalogs["option"]
         # 1 open rental home page
@@ -78,7 +78,7 @@ class TestSearchCity:
     @allure.title("租房 - 测试地铁(TTC) 对应的选项")
     @allure.description("确认： 选项对应的选项是正确的")
     @pytest.mark.parametrize("subwayObject", subwaydata)
-    def test_subway_options(self, subwayObject):
+    def atest_subway_options(self, subwayObject):
         subway_lines = subwayObject["subwayLine"]
         subway_stations = subwayObject["subwayStation"]
         # 1 open rental home page
@@ -97,7 +97,7 @@ class TestSearchCity:
     @allure.title("租房 - 大学(安省) 对应的选项")
     @allure.description("确认： 选项对应的选项是正确的")
     @pytest.mark.parametrize("universityObject", universitydata)
-    def test_university_options(self, universityObject):
+    def atest_university_options(self, universityObject):
         type = universityObject["type"]
         university = universityObject["option"]
         # 1 open rental home page
@@ -113,7 +113,7 @@ class TestSearchCity:
 
     @allure.title("租房 - 地图找房")
     @allure.description("确认： 新窗口打开 - https://house.51.ca/rental/map?注意：两个窗口的title 是一样的， URL不同")
-    def test_search_by_map(self):
+    def atest_search_by_map(self):
 
         # 1 open rental home page
         # 2 click 区域位置, and iterate each province and its cities
@@ -140,7 +140,7 @@ class TestSearchCity:
     @allure.title("租房 - 房屋类型 筛选")
     @allure.description("确认： 筛选结果页正确返回相应房源")
     @pytest.mark.parametrize("building_type", buildingTypedata)
-    def test_filter_by_building_type(self, building_type):
+    def atest_filter_by_building_type(self, building_type):
 
         # 1 open rental home page
         # 2 click 区域位置, and iterate each province and its cities
