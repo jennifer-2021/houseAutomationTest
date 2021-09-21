@@ -15,7 +15,7 @@ class TestMapSchoolFilter:
 
     @allure.title("二手房 Map - house single point")
     @allure.description("地图上 点击 any point, open details page, verify page is opened by asserting the page title")
-    def atest_house_single_point_on_map(self):
+    def test_house_single_point_on_map(self):
         # 1 open mls home page
         # 2 click each transaction status
         main_window = self.driver.current_window_handle

@@ -21,7 +21,7 @@ class HouseHomePage(HomeBasePage):
 
     def select_province(self, province):
         element_list = self.get_province_element_list()
-        TestUtils.click_filter(self, element_list, province)
+        TestUtils.click_filter(element_list, province)
 
     def select_city(self, city):
         element_list = self.get_city_element_list()

@@ -92,7 +92,7 @@ class MlsListMap(MlsBasePage):
 
     # click on a single house on map
     def click_house_on_map(self):
-        element_list = self.get_house_list()
+        element_list = self.driver.find_elements(*SetMlsMapLocators.house_on_map_points_single)
         for element in element_list:
             text = SeleniumUtils.get_text_by_element(element)
             if text == " ":

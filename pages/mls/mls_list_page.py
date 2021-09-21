@@ -49,6 +49,7 @@ class MlsListPage(MlsBasePage):
     # get all house - actual price list - list[int]
     def get_price_list(self):
         price_list = []
+        time.sleep(2)
         element_list = self.driver.find_elements(*SetMlsListLocators.search_result_price_list)
         for element in element_list:
             text = SeleniumUtils.get_text_by_element(element)
