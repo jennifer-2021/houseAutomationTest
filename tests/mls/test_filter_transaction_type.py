@@ -15,7 +15,7 @@ class TestFilter:
     @allure.title("二手房 - 搜索框热门城市")
     @allure.description("验证: 点击每个热门城市，根据返回的页面url,确认城市名称，location_id")
     @pytest.mark.parametrize("cityObject", testdata)
-    def test_suggested_cities(self, config, cityObject):
+    def atest_suggested_cities(self, config, cityObject):
         # 1 open mls home page
         city = cityObject["city"]
         expected = cityObject["url"]
@@ -39,7 +39,7 @@ class TestFilter:
     @allure.title("二手房 - 城市：默认为空白选项；测试：出售,出租 ")
     @allure.description("验证: 点击出售,出租，返回的所有房源的租售状态 必须符合筛选条件")
     @pytest.mark.parametrize("transaction", transactiondata)
-    def test_transaction_type(self, config, transaction):
+    def atest_transaction_type(self, config, transaction):
         # 1 open mls home page
         search_mls_container = SearchMlsContainer(self.driver)
         # 2 click each transaction status
@@ -58,7 +58,7 @@ class TestFilter:
     @allure.title("二手房 - 城市：默认为空白选项；测试：已出售, 已出租 ")
     @allure.description("点击已出售, 已出租，验证: 返回的所有房源的 1 内容标签 2 图片上的标签")
     @pytest.mark.parametrize("transaction", transactiondata2)
-    def test_transaction_type_2(self, config, transaction):
+    def atest_transaction_type_2(self, config, transaction):
         # 1 open mls home page
         search_mls_container = SearchMlsContainer(self.driver)
 

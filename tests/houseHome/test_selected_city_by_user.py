@@ -11,7 +11,7 @@ class TestSelectedCity:
     @allure.title("房屋首页 - 测试每个省，确认下拉菜单显示数据完整")
     @allure.description(" 打开选择城市的下拉菜单，验证： 下拉菜单显示数据是正确的")
     @pytest.mark.parametrize("catalogObject", catalogdata)
-    def a_test_selected_cities(self, catalogObject):
+    def atest_selected_cities(self, catalogObject):
         province = catalogObject["province"]
         city = catalogObject["city"]
 

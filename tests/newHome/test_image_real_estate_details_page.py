@@ -15,7 +15,7 @@ class TestImagesAndLinks:
     @allure.title("楼盘详情页 - 图墙的图片和链接")
     @allure.description(" 验证：页面图墙的图片显示正常，图片的链接没有 broken ")
     @pytest.mark.parametrize("real_estate_url", testdata)
-    def test_photo_wall_links_and_images(self, config, real_estate_url):
+    def atest_photo_wall_links_and_images(self, config, real_estate_url):
         # 1 打开 新房-楼盘详情页
         real_estate_details_page = RealEstateDetailsPage(self.driver)
         real_estate_details_page.open_page(config, real_estate_url)

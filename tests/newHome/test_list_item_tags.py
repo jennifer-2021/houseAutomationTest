@@ -12,7 +12,7 @@ class TestItemTags:
     @allure.title("新房列表 - 房源图片上的 tag")
     @allure.description(" 验证：从列表上的房源，可以发现 all tags: 华人超市，Costco, 近大学，近地铁，GoTrain, Daycare ")
     @pytest.mark.parametrize("tagObject", testdata)
-    def test_tags_on_image(self, config, tagObject):
+    def atest_tags_on_image(self, config, tagObject):
 
         recommendations = tagObject["recommendation"]
         tags = tagObject["tags"]

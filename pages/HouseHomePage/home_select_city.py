@@ -9,10 +9,7 @@ class HouseHomePage(HomeBasePage):
         super().__init__(driver)
 
     def click_select_city_button(self):
-        try:
-            self.wait_element(*SetHouseHomePageLocators.select_area_modal)
-        except:
-            self.wait_element(*SetHouseHomePageLocators.select_city_open_button).click()
+        self.wait_element(*SetHouseHomePageLocators.select_city_open_button).click()
 
     def get_province_element_list(self):
         return self.driver.find_elements(*SetHouseHomePageLocators.province_list)

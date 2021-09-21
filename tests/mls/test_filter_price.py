@@ -12,7 +12,7 @@ class TestBuildingType:
     @allure.title("二手房 - 筛选 - price")
     @allure.description("input a price range. 验证: all returned houses price")
     @pytest.mark.parametrize("testObject", testdata)
-    def test_mls_price(self, config, testObject):
+    def atest_mls_price(self, config, testObject):
         min_price = testObject["from"]
         max_price = testObject["to"]
 

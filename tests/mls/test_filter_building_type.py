@@ -13,7 +13,7 @@ class TestBuildingType:
     @allure.title("二手房 - 筛选 - 房型")
     @allure.description("选择单个，或是 多个房型，根据返回的页面url,验证: 房型id")
     @pytest.mark.parametrize("testObject", testdata)
-    def test_mls_building_type(self, config, testObject):
+    def atest_mls_building_type(self, config, testObject):
         buildingType = testObject["bt"]
         expected = testObject["expected"]
 

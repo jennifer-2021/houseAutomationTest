@@ -12,7 +12,7 @@ class TestListSort:
     @allure.title("mls 列表 - 排序")
     @allure.description(" 验证：默认排序 和 更新时间 不应该相同")
     @pytest.mark.parametrize("sort", parkingdata)
-    def test_list_sort(self, sort):
+    def atest_list_sort(self, sort):
         # 1 打开 新房首页
         # 2 select 'sorting'
         list_page = MlsListPage(self.driver)
