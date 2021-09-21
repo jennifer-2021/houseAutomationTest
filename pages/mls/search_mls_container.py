@@ -214,11 +214,14 @@ class SearchMlsContainer(MlsBasePage):
     # parking lots
     def select_parking_lot(self, parking):
         self.click_more_button()
+        print("....opened more modal....")
         element_list = self.get_parking_space_element_list()
         for element in element_list:
             text = SeleniumUtils.get_text_by_element(element)
+            print(".....text...is: " + text)
             if text == parking:
                 SeleniumUtils.js_executor_click(self, element)
+                print("....clicked.....element")
                 #element.click()
                 break
         self.click_more_search_button()
