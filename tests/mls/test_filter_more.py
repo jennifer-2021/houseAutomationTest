@@ -13,7 +13,7 @@ class TestFilterMore:
     @allure.title("二手房 - 筛选 - 上市天数")
     @allure.description("选择每个上市天数 验证: all returned houses meet selected option")
     @pytest.mark.parametrize("days", testdata)
-    def atest_days_on_market(self, days):
+    def test_days_on_market(self, days):
         # 1 open mls home page
         # 2 select 'days on market'
         search_mls_container = SearchMlsContainer(self.driver)
@@ -40,7 +40,7 @@ class TestFilterMore:
     @allure.title("二手房 - 筛选 - 车位")
     @allure.description("选择每个车位 验证: all returned houses meet selected option")
     @pytest.mark.parametrize("parking", parkingdata)
-    def test_parking_lots(self, parking):
+    def atest_parking_lots(self, parking):
         # 1 open mls home page
         # 2 select 'days on market'
         search_mls_container = SearchMlsContainer(self.driver)

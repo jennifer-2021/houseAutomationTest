@@ -5,7 +5,7 @@
   "searchByMls": ["C5274939", "C5264942"],
   "suggestCity": [
     {"city": "Toronto",
-      "url": {"keyword": "Toronto", "locationId": "1", "transactionType": "1", "limit": "200"}},
+      "url": {"keyword": "Toronto,Toronto,Ontario", "locationId": "3138", "transactionType": "1", "limit": "200"}},
     {"city": "Toronto Downtown",
       "url": {"keyword": "Toronto Downtown", "locationId": "9999", "transactionType": "1", "limit": "200"}},
     {"city": "North York",
