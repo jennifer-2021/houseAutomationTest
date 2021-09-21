@@ -15,7 +15,7 @@ class TestHouseDetailsPage:
 
     @allure.title("二手房 details page: 附近成交")
     @allure.description("click 附近成交, should redirect to 附近成交 page. Verify: 附近成交URL")
-    def atest_nearby_deal_windows(self):
+    def test_nearby_deal_windows(self):
         self.go_to_details_page()
         # click 附近成交
         details_page = MlsDetailsPage(self.driver)
@@ -25,7 +25,7 @@ class TestHouseDetailsPage:
 
     @allure.title("二手房 details page: 通勤计算")
     @allure.description("click 通勤计算, should redirect to google/map")
-    def atest_commute_cal_windows(self):
+    def test_commute_cal_windows(self):
         self.go_to_details_page()
         main_window = self.driver.current_window_handle
         # click 通勤计算
@@ -37,7 +37,7 @@ class TestHouseDetailsPage:
 
     @allure.title("二手房 details page: 周边地图")
     @allure.description("click 周边地图, should redirect to google/map")
-    def atest_surrounding_map(self):
+    def test_surrounding_map(self):
         self.go_to_details_page()
         main_window = self.driver.current_window_handle
         # click 通勤计算
@@ -52,7 +52,7 @@ class TestHouseDetailsPage:
     @allure.title("二手房 details page: 11个 modal, 测试每个 modal 可以弹出")
     @allure.description("点击 每个modal, 验证：modal 的 title 显示正确")
     @pytest.mark.parametrize("modal", testdata)
-    def atest_modal_windows(self, modal):
+    def test_modal_windows(self, modal):
         self.go_to_details_page()
         details_page = MlsDetailsPage(self.driver)
         if modal == "贷款计算器":

@@ -14,7 +14,7 @@ class TestBedroom:
     @allure.title("二手房 - 筛选 - bedroom")
     @allure.description("input a price range. 验证: all returned houses price")
     @pytest.mark.parametrize("bedroom", testdata)
-    def atest_mls_bedroom(self, bedroom):
+    def test_mls_bedroom(self, bedroom):
 
         # 1 open mls home page
         # 2 set price range

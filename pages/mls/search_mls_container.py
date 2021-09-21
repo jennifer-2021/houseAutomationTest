@@ -155,7 +155,7 @@ class SearchMlsContainer(MlsBasePage):
     def select_building_type(self, building_type):
         self.click_building_type_button()
         drop_down_element_list = self.get_building_type_element_list()
-        TestUtils.click_filter(drop_down_element_list, building_type)
+        TestUtils.click_filter(self, drop_down_element_list, building_type)
         self.click_building_type_confirm_button()
         sleep(1)
 

@@ -99,8 +99,7 @@ class TestUtils:
             key = ary[0]
             value = ary[1].replace("%2C%20", " ")
             value = value.replace("%20", " ")
-            if key == "buildingType":
-                value = value.replace("%2C", ",")
+            if key == "buildingType" or key == "keyword":
                 value = value.replace("%2C", ",")
             if key != "region":
                 region[key] = value
