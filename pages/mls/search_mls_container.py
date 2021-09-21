@@ -217,7 +217,8 @@ class SearchMlsContainer(MlsBasePage):
         for element in element_list:
             text = SeleniumUtils.get_text_by_element(element)
             if text == parking:
-                element.click()
+                SeleniumUtils.js_executor_click(self, element)
+                #element.click()
                 break
         self.click_more_search_button()
         sleep(1)
