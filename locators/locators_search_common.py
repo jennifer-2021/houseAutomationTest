@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 class SetSearchLocators:
     # Apply for： newHome & mls
     search_box = (By.CSS_SELECTOR, ".filter-search-input input[type='search']")
+    search_box_clear = (By.CSS_SELECTOR, ".el51__autocompelete button>i")
     # Apply for： newHome & mls
     search_button = (By.CSS_SELECTOR, ".filter-search-input>div>button")
     # Apply for： newHome & mls - search box - return one element - 'suggest menu'

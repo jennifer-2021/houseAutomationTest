@@ -72,12 +72,12 @@ class TestUtils:
     # param: text_to_click: 筛选项里的字符
     # logic: 点击筛选项里的字符
     @staticmethod
-    def click_filter(self, element_list, text_to_click):
+    def click_filter(element_list, text_to_click):
         for element in element_list:
             name = SeleniumUtils.get_text_by_element(element)
-            if name == text_to_click:
-                SeleniumUtils.js_executor_click(self, element)
-                #element.click()
+            if text_to_click == name:
+                # SeleniumUtils.js_executor_click(self, element)
+                element.click()
                 break
 
     @staticmethod
@@ -142,6 +142,7 @@ class TestUtils:
     def convert_str_to_datatime(str):
         # str = "2021-09-09"
         return datetime.date(*(int(s) for s in str.split('-')))
+
     # convert '1 day 0:00:00' to int: 1
     @staticmethod
     def get_datetime_diff(datetime):
@@ -165,3 +166,10 @@ class TestUtils:
         l = len(nary)
         f = nary[:l - 1]
         return f
+
+    @staticmethod
+    def compare_two_dict(expected, actual):
+        for item in expected.items():
+            if item not in actual.items():
+                return False
+        return True

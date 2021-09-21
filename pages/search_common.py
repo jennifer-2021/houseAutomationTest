@@ -11,6 +11,11 @@ class SearchCommon(BasePage):
     def click_in_search_box(self):
         self.wait_element(*SetSearchHouseLocators.search_box).click()
         self.wait_element(*SetSearchHouseLocators.search_box_suggest_menu)
+        time.sleep(1)
+
+    # clear text in # 搜索框
+    def clear_search_box(self):
+        self.wait_element(*SetSearchHouseLocators.search_box_clear).click()
 
     # 搜索框 - 输入 search key
     def set_search_box_input(self, searchKey):
@@ -24,5 +29,3 @@ class SearchCommon(BasePage):
     def keep_search_suggest_menu_open(self):
         elem = self.wait_element(*SetSearchHouseLocators.search_box_suggest_menu)
         self.driver.execute_script("arguments[0].setAttribute('style', " + "'display: block')", elem)
-
-

@@ -155,7 +155,7 @@ class SearchMlsContainer(MlsBasePage):
     def select_building_type(self, building_type):
         self.click_building_type_button()
         drop_down_element_list = self.get_building_type_element_list()
-        TestUtils.click_filter(self, drop_down_element_list, building_type)
+        TestUtils.click_filter(drop_down_element_list, building_type)
         self.click_building_type_confirm_button()
         sleep(1)
 
@@ -185,7 +185,7 @@ class SearchMlsContainer(MlsBasePage):
     def select_days_on_market(self, days):
         self.click_more_button()
         element_list = self.get_days_on_market_element_list()
-        TestUtils.click_filter(self, element_list, days)
+        TestUtils.click_filter(element_list, days)
         self.click_more_search_button()
         sleep(1)
 
@@ -193,7 +193,7 @@ class SearchMlsContainer(MlsBasePage):
     def select_house_area(self, area):
         self.click_more_button()
         element_list = self.get_house_area()
-        TestUtils.click_filter(self, element_list, area)
+        TestUtils.click_filter( element_list, area)
         self.click_more_search_button()
         sleep(1)
 

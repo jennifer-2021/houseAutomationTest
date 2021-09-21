@@ -1,3 +1,5 @@
+import time
+
 from utils.selenium_utils import SeleniumUtils
 from pages.mls.mls_base_page import MlsBasePage
 from locators.mls.locators_mls_list import SetMlsListLocators
@@ -20,6 +22,7 @@ class MlsListPage(MlsBasePage):
 
     # get 列表上 所有房源 的 交易类型描述 - list[element]
     def get_transaction_element_list(self):
+        time.sleep(1)
         return self.driver.find_elements(*SetMlsListLocators.list_transaction_type)
 
     # get 列表上 所有房源 图片上的 已售出 标签 - list[element]

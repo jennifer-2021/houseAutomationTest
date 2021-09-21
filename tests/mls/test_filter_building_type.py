@@ -32,4 +32,4 @@ class TestBuildingType:
         actual = TestUtils.parse_url_get_dict(url)
         print(actual)
 
-        assert actual == expected
+        assert TestUtils.compare_two_dict(expected, actual)
