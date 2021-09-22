@@ -1,3 +1,5 @@
+import time
+
 from pages.mls.mls_details_page import MlsDetailsPage
 from pages.mls.mls_list_page import MlsListPage
 from utils.selenium_utils import SeleniumUtils
@@ -97,9 +99,11 @@ class TestHouseDetailsPage:
         assert modal in actual
 
     def go_to_details_page(self):
+        time.sleep(1)
         main_window = self.driver.current_window_handle
         list_page = MlsListPage(self.driver)
 
-        # 3 go to details button
+        #  go to details button
         list_page.click_1st_house()
         SeleniumUtils.switch_to_window(self, main_window)
+        time.sleep(2)
