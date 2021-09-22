@@ -17,30 +17,35 @@ class MlsDetailsPage(MlsBasePage):
     # click 附近成交 nav bar
     def click_nearby_deal_button(self):
         sleep(2)
-        self.wait_element(*SetMlsDetailsLocators.nearby_deal_button).click()
+        element = self.wait_element(*SetMlsDetailsLocators.nearby_deal_button)
+        SeleniumUtils.js_executor_click(self, element)
         sleep(0.5)
 
     # click 通勤计算 nav bar
     def click_commute_cal_button(self):
         sleep(2)
-        self.wait_element(*SetMlsDetailsLocators.commute_cal_button).click()
+        element = self.wait_element(*SetMlsDetailsLocators.commute_cal_button)
+        SeleniumUtils.js_executor_click(self, element)
         sleep(0.5)
 
     # # 周边地图
     def click_surrounding_map_button(self):
         sleep(2)
-        self.wait_element(*SetMlsDetailsLocators.surrounding_map_button).click()
+        element = self.wait_element(*SetMlsDetailsLocators.surrounding_map_button)
+        SeleniumUtils.js_executor_click(self, element)
         sleep(0.5)
 
     # calculator
     def click_calculator(self):
         sleep(2)
-        self.wait_element(*SetMlsDetailsLocators.calculator_button).click()
+        element = self.wait_element(*SetMlsDetailsLocators.calculator_button)
+        SeleniumUtils.js_executor_click(self, element)
 
     # 预估成交价 - have modal
     def click_estimated_price_button(self):
         sleep(2)
-        self.wait_element(*SetMlsDetailsLocators.estimated_trans_price).click()
+        element = self.wait_element(*SetMlsDetailsLocators.estimated_trans_price)
+        SeleniumUtils.js_executor_click(self, element)
 
     def get_estimated_price_modal_title(self):
         element = self.wait_element(*SetMlsDetailsLocators.estimated_trans_price_modal_title)
@@ -49,7 +54,8 @@ class MlsDetailsPage(MlsBasePage):
     # 咨询更多 - have modal
     def click_consult_more_button(self):
         sleep(2)
-        self.wait_element(*SetMlsDetailsLocators.consult_more).click()
+        element = self.wait_element(*SetMlsDetailsLocators.consult_more)
+        SeleniumUtils.js_executor_click(self, element)
 
     def get_consult_more_modal_content_text(self):
         element = self.wait_element(*SetMlsDetailsLocators.consult_more_modal_content)
@@ -66,42 +72,50 @@ class MlsDetailsPage(MlsBasePage):
     # 查询该房源全部交易历史  - have modal
     def click_search_all_deal_history_button(self):
         sleep(2)
-        self.wait_element(*SetMlsDetailsLocators.search_all_deal_history).click()
+        element = self.wait_element(*SetMlsDetailsLocators.search_all_deal_history)
+        SeleniumUtils.js_executor_click(self, element)
 
     # 房屋详情解读 - have modal
     def click_interpret_housing_details(self):
         sleep(2)
-        self.wait_element(*SetMlsDetailsLocators.interpret_housing_details).click()
+        element = self.wait_element(*SetMlsDetailsLocators.interpret_housing_details)
+        SeleniumUtils.js_executor_click(self, element)
 
     # 查询房东交易条件 - have modal
     def click_check_landlord_trans_condition(self):
         sleep(2)
-        self.wait_element(*SetMlsDetailsLocators.check_landlord_trans_condition).click()
+        element = self.wait_element(*SetMlsDetailsLocators.check_landlord_trans_condition)
+        SeleniumUtils.js_executor_click(self, element)
 
     # 咨询交易费用 - have modal
     def click_consult_trans_fee(self):
         sleep(2)
-        self.wait_element(*SetMlsDetailsLocators.consult_trans_fee).click()
+        element = self.wait_element(*SetMlsDetailsLocators.consult_trans_fee)
+        SeleniumUtils.js_executor_click(self, element)
 
     # 贷款计算器 - have modal
     def click_morgage_cal(self):
         sleep(2)
-        self.wait_element(*SetMlsDetailsLocators.morgage_cal).click()
+        element = self.wait_element(*SetMlsDetailsLocators.morgage_cal)
+        SeleniumUtils.js_executor_click(self, element)
 
     # calculator (in content) - have modal
     def click_in_form_calculator(self):
         sleep(2)
-        self.wait_element(*SetMlsDetailsLocators.calculator).click()
+        element = self.wait_element(*SetMlsDetailsLocators.calculator)
+        SeleniumUtils.js_executor_click(self, element)
 
     # 咨询学区动态 - have modal
     def click_consult_school_district_news(self):
         sleep(2)
-        self.wait_element(*SetMlsDetailsLocators.consult_school_district_news).click()
+        element = self.wait_element(*SetMlsDetailsLocators.consult_school_district_news)
+        SeleniumUtils.js_executor_click(self, element)
 
     # 解读社区详情 - have modal
     def click_interpret_community_details(self):
         sleep(2)
-        self.wait_element(*SetMlsDetailsLocators.interpret_community_details).click()
+        element = self.wait_element(*SetMlsDetailsLocators.interpret_community_details)
+        SeleniumUtils.js_executor_click(self, element)
 
     # this modal_title css shared by all modals
     def get_modal_title(self):

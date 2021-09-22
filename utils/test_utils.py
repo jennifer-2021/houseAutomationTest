@@ -1,10 +1,8 @@
 import datetime
 import re
-from datetime import date
-
+import time
 import requests
 from utils.selenium_utils import SeleniumUtils
-from time import sleep
 
 
 class TestUtils:
@@ -76,8 +74,16 @@ class TestUtils:
         for element in element_list:
             name = SeleniumUtils.get_text_by_element(element)
             if text_to_click == name:
-                # SeleniumUtils.js_executor_click(self, element)
+                time.sleep(0.5)
                 element.click()
+                break
+
+    @staticmethod
+    def js_click_filter(self, element_list, text_to_click):
+        for element in element_list:
+            name = SeleniumUtils.get_text_by_element(element)
+            if text_to_click == name:
+                SeleniumUtils.js_executor_click(self, element)
                 break
 
     @staticmethod

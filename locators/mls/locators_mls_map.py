@@ -9,7 +9,7 @@ class SetMlsMapLocators:
     # transaction status buttons on map
     transaction_checkbox_list = (By.CSS_SELECTOR, ".filter-mobile-field .el51__btn")
     #
-    days_on_market_button = (By.XPATH, "//span[text()='上市天数']")
+    days_on_market_button = (By.CSS_SELECTOR, ".more-filter-selections>.el51__btn.toggler")
     sold_days_on_market_button = (By.XPATH, "//span[@class='label']/span[text()='2年内']")
     days_on_market_list = (By.CSS_SELECTOR, ".el51__dropdown.show .item")
     # school filter

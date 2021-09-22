@@ -16,6 +16,7 @@ class SearchCommon(BasePage):
 
     # clear text in # 搜索框
     def clear_search_box(self):
+        time.sleep(1)
         self.wait_element(*SetSearchHouseLocators.search_box_clear).click()
         time.sleep(0.5)
 

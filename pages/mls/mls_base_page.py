@@ -1,3 +1,4 @@
+import time
 
 from pages.base_page import BasePage
 from locators.newHome.locators_newhome_map import SetNewhomeMapLocators
@@ -19,7 +20,15 @@ class MlsBasePage(BasePage):
         self.driver.add_cookie(config["cookie"])
         self.driver.refresh()
 
+    def open_home_page_guest(self, config):
+        home_page = config["base_page"] + "/mls"
+        try:
+           self.driver.get(home_page)
+        except WebDriverException:
+            print("page down")
+
     def close_select_city_modal(self):
+        time.sleep(1)
         try:
             self.wait_element(*SetSearchLocators.select_city_modal_close_button).click()
         except:
