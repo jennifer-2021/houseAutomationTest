@@ -27,6 +27,8 @@ class TestSearchByAllFilters:
         search_container.open_home_page(config)
         # 2 点击搜索框
         search_common = SearchCommon(self.driver)
+        search_common.close_modal()
+        search_common.clear_search_box()
         search_common.click_in_search_box()
         # 3 保持热门城市下拉框 打开
         search_common.keep_search_suggest_menu_open()

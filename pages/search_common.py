@@ -1,6 +1,7 @@
 from pages.base_page import BasePage
 import time
 from locators.newHome.locators_search_container import SetSearchHouseLocators
+from locators.locators_search_common import SetSearchLocators
 
 
 class SearchCommon(BasePage):
@@ -32,3 +33,7 @@ class SearchCommon(BasePage):
     def keep_search_suggest_menu_open(self):
         elem = self.wait_element(*SetSearchHouseLocators.search_box_suggest_menu)
         self.driver.execute_script("arguments[0].setAttribute('style', " + "'display: block')", elem)
+
+    # 刚打开页面出现的 弹窗 '搜索或选择您关注的城市'
+    def close_modal(self):
+        self.wait_element(*SetSearchLocators.select_city_modal_close_button).click()

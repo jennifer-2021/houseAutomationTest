@@ -31,6 +31,7 @@ class TestFilter:
         TestUtils.click_filter(suggest_city_element_list, city)
         # 4 verify url
         search_mls_container.wait_mapbox_loaded()
+        time.sleep(2)
         url = self.driver.current_url
         actual_result = TestUtils.parse_url_get_dict(url)
         print(actual_result)

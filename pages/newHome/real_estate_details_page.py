@@ -1,4 +1,5 @@
 import json
+import time
 
 from pages.newHome.new_home_base_page import NewhomeBasePage
 from utils.selenium_utils import SeleniumUtils
@@ -14,6 +15,7 @@ class RealEstateDetailsPage(NewhomeBasePage):
         return SeleniumUtils.get_text_by_element(element)
 
     def click_maphot_button(self):
+        time.sleep(2)
         self.wait_element(*SetDetailsPageLocators.maphot_button).click()
 
     def click_loan_pre_approve_button(self):

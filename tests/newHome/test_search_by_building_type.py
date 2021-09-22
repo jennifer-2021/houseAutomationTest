@@ -1,7 +1,7 @@
 import time
 from workflow.newHome.search_check_results import CheckSearchResults
 from pages.newHome.newhome_list_page import NewhomeListPage
-from utils.selenium_utils import SeleniumUtils
+from pages.search_common import SearchCommon
 from utils.read_json_newhome import JsonReader
 from pages.newHome.search_container import SearchContainer
 from utils.test_utils import TestUtils
@@ -21,6 +21,8 @@ class TestSearchByBuildingType:
             return
         search_container = SearchContainer(self.driver)
         search_container.open_home_page(config)
+        search_common = SearchCommon(self.driver)
+        search_common.close_modal()
         search_container.wait_mapbox_loaded()
         search_container.click_building_type_button()
         buildingType_elements = search_container.get_filter_dropdown_element_list()

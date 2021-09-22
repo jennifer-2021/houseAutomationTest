@@ -1,5 +1,6 @@
 import time
 from utils.selenium_utils import SeleniumUtils
+from pages.search_common import SearchCommon
 from utils.read_json_newhome import JsonReader
 from pages.newHome.search_container import SearchContainer
 from utils.test_utils import TestUtils
@@ -22,6 +23,8 @@ class TestSearchByPrice:
         # 1 打开 新房首页
         search_container = SearchContainer(self.driver)
         search_container.open_home_page(config)
+        search_common = SearchCommon(self.driver)
+        search_common.close_modal()
         # 2 等待 mapbox fully loaded
         search_container.wait_mapbox_loaded()
         # 3 点击 价格 button， 显示所有价格后，把它们的页面元素放到 min_price_element_list 里面

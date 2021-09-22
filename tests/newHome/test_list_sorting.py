@@ -1,6 +1,7 @@
 
 from utils.test_utils import TestUtils
 from pages.newHome.newhome_list_page import NewhomeListPage
+from pages.search_common import SearchCommon
 import allure
 import pytest
 
@@ -10,10 +11,12 @@ class TestListSort:
 
     @allure.title("新房列表 - 排序")
     @allure.description(" 验证：默认排序 和 热门排序 不应该相同")
-    def test_tags_on_image(self, config):
+    def test_sorting(self, config):
         # 1 打开 新房首页
         list_page = NewhomeListPage(self.driver)
         list_page.open_home_page(config)
+        search_common = SearchCommon(self.driver)
+        search_common.close_modal()
         # 2 等待 mapbox fully loaded
         list_page.wait_mapbox_loaded()
         # 3 保存默认排序的list - 用楼盘名排序

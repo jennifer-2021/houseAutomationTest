@@ -16,7 +16,7 @@
     "expected": ["Ivylea", "Abbey Lane Towns Phase 5","Richmond Park", "Leslie Street &amp; 19th Avenue Towns", "Abbey Lane Towns Phase 3", "Rosedale Greens", "19th Avenue"]},
     {
     "address": "345 Wilson Avenue, Toronto, Ontario M3H 5W1, Canada",
-    "expected": ["Nordic Condos", "Tretti Condos","Empire Maven Condos", "Express Condos", "50-52 Neptune Drive Condos","Southside Condos","Express 2 Condos","Marquette"]},
+    "expected": ["Nordic Condos", "Tretti Condos","Empire Maven Condos", "333 Wilson Avenue Condos", "Express Condos"]},
     {
     "address": "2475 Eglinton Avenue West, Mississauga, Ontario",
     "expected": ["Kindred Condominiums", "Hazel","The Archways", "Heritage Gate"]}

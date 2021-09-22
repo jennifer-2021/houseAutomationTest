@@ -22,6 +22,7 @@ class TestSearchByRealEstate:
         # 2 搜索框 - 输入楼盘名 - 点击搜索
         main_window = self.driver.current_window_handle
         search_common = SearchCommon(self.driver)
+        search_common.close_modal()
         search_common.set_search_box_input(real_estate)
         search_container.click_suggest()
 

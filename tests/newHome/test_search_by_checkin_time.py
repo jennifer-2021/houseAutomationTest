@@ -7,6 +7,8 @@ import allure
 import pytest
 import time
 from workflow.newHome.search_check_results import CheckSearchResults
+from pages.search_common import SearchCommon
+
 
 
 @pytest.mark.usefixtures("setup")
@@ -21,6 +23,8 @@ class TestSearch:
             return
         search_container = SearchContainer(self.driver)
         search_container.open_home_page(config)
+        search_common = SearchCommon(self.driver)
+        search_common.close_modal()
         search_container.wait_mapbox_loaded()
         search_container.click_checkin_time_button()
         checkinTime_elements = search_container.get_filter_dropdown_element_list()

@@ -22,6 +22,7 @@ class TestSearchByDeveloper:
         # 2 搜索框 - 输入开发商名 - 点击进入详情页
         main_window = self.driver.current_window_handle
         search_common = SearchCommon(self.driver)
+        search_common.close_modal()
         search_common.set_search_box_input(developer)
         search_container.click_suggest()
 

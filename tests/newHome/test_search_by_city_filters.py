@@ -23,6 +23,8 @@ class TestSearchByCityAndFilters:
         # 2 等待 mapbox fully loaded，再点击搜索框
         search_container.wait_mapbox_loaded()
         search_common = SearchCommon(self.driver)
+        search_common.close_modal()
+        search_common.clear_search_box()
         search_common.click_in_search_box()
         # 3 保持热门城市下拉框 打开
         search_common.keep_search_suggest_menu_open()
