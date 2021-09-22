@@ -22,6 +22,8 @@ class TestHouseDetailsPage:
         # click 附近成交
         details_page = MlsDetailsPage(self.driver)
         details_page.click_nearby_deal_button()
+
+        
         url = self.driver.current_url
         assert nearby_deal_url in url
 
