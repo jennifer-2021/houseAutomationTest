@@ -44,3 +44,9 @@ class HouseHomePage(HomeBasePage):
     def select_catalogs(self, catalog):
         element_list = self.wait_element(*SetHouseHomePageLocators.hot_nav_list)
         TestUtils.click_filter(element_list, catalog)
+
+    def set_search_input(self, searchKey):
+        element = self.wait_element(*SetHouseHomePageLocators.search_box_input)
+        element.send_keys(searchKey)
+        element = self.wait_element(*SetHouseHomePageLocators.search_box_button)
+        element.click()

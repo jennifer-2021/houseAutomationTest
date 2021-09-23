@@ -24,7 +24,8 @@
     ]},
     {"province": "Newfoundland &amp; Labrador", "city": ["St. John's"]}
   ],
-  "catalogs": ["买房", "卖房", "租房", "服务"],
+  "catalogs": ["买房", "租房", "服务"],
   "searchTypes": ["找二手房", "找新房", "找租房", "查成交"],
-  "recommendation": ["二手房", "新房", "租房"]
+  "recommendation": ["二手房", "新房", "租房"],
+  "searchBox": ["Markham"]
 }
