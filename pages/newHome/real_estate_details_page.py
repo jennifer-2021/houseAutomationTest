@@ -87,4 +87,6 @@ class RealEstateDetailsPage(NewhomeBasePage):
             elif text == "相关活动":
                 print(text + "..." + self.get_events_position_on_screen())
         if click_counter < 3:
-            print("....楼盘详情页的navbar是否显示正常")
+            print("....检查楼盘详情页的navbar是否显示正常")
+            return False
+        return True
